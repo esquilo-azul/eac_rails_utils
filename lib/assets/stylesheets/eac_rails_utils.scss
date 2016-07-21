@@ -2,3 +2,27 @@
 @import "bootstrap";
 @import "jmenu";
 @import "bootstrap3-dropdown";
+
+.form-control-complex {
+  display: block;
+  width: 100%;
+
+  select {
+    @extend .form-control;
+    display: inline;
+    width: auto;
+  }
+}
+
+.nested_form {
+  margin-bottom: 1.0em;
+  padding-bottom: 1.0em;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.nested_form_row {
+  margin-left: 1.0em;
+  padding-bottom: 1.0em;
+  margin-bottom: 1.0em;
+  border-bottom: 1px solid #e5e5e5;
+}

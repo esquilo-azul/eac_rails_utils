@@ -17,5 +17,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'htmlbeautifier', '>= 1.1.1'
   s.add_dependency 'bootstrap-sass', '>= 3.3.6'
 
+  # Formulários aninhados
+  # https://github.com/ncri/nested_form_fields
+  s.add_dependency 'nested_form_fields'
+
   s.add_development_dependency 'sqlite3'
 end
