@@ -1,0 +1,78 @@
+$menu-entry-background-color: #322f32;
+$menu-entry-hover-background-color: #3a3a3a;
+$menu-entry-color: white;
+$submenu-entry-border-color: #484548;
+$submenu-entry-hover-background-color: #514c52;
+
+.jMenu {
+  display: table;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  float: left;
+
+  /* First level */
+  li {
+    display: table-cell;
+    background-color: $menu-entry-background-color;
+    margin: 0;
+    list-style: none;
+    margin-right: 0.3em;
+    float: left;
+
+    a {
+      display: block;
+      background-color: transparent;
+      color: $menu-entry-color;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $menu-entry-hover-background-color;
+      }
+    }
+
+    &:hover>a {
+      background-color: $menu-entry-hover-background-color;
+    };
+
+    // Sub-menus
+    ul {
+      display: none;
+      position: absolute;
+      z-index: 9999;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      li {
+        background-color: $menu-entry-background-color;
+        display: block;
+        border-bottom: 1px solid $submenu-entry-border-color;
+        padding: 0;
+        list-style: none;
+        position: relative;
+        float: none;
+        margin: 0;
+
+        a {
+          font-size: 80%;
+          text-transform: none;
+          display: block;
+          padding: 7px;
+          border-top: 1px solid transparent;
+          border-bottom: 1px solid transparent;
+
+          &.isParent {
+            background-color: $menu-entry-hover-background-color;
+          }
+
+          &:hover {
+            background-color: $submenu-entry-hover-background-color;
+            border-top: 1px solid $menu-entry-background-color;
+            border-bottom: 1px solid $menu-entry-background-color;
+          }
+        }
+      }
+    }
+  }
+}
