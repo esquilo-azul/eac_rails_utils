@@ -1,5 +1,6 @@
 module EacRailsUtils
   require 'eac_rails_utils/rails/engine'
+  require 'eac/cpf_validator'
   require 'eac/formatter_helper'
   require 'eac/htmlbeautifier'
   require 'eac/model'
