@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ['E.A.C.']
   s.summary     = 'Código reutilizável para as aplicações Rails da E.A.C..'
 
-  s.files = Dir['{app,config,db,lib}/**/*']
+  s.files = Dir['{app,config,db,lib}/**/*', 'Rakefile']
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'rails', '~> 4.2.1'
