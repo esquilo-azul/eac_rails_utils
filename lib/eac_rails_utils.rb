@@ -3,4 +3,5 @@ module EacRailsUtils
   require 'eac/htmlbeautifier'
   require 'eac/model'
   require 'eac/simple_cache'
+  require 'eac/source_target_fixtures'
 end
