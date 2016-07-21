@@ -43,7 +43,7 @@ module Eac
 
       def field(field_name, options)
         @helper.content_tag(:div, class: 'form-group') do
-          s = @form.label(field_name, options[:label])
+          s = field_label(field_name, options[:label])
           s << ' '
           s << yield()
           s << ' '
@@ -77,6 +77,11 @@ module Eac
         @helper.content_tag(:div, class: 'error') do
           error_message
         end
+      end
+
+      def field_label(field_name, label)
+        @form.label(field_name, label,
+                    class: model_instance.attribute_required?(field_name) ? 'required' : 'optional')
       end
     end
   end

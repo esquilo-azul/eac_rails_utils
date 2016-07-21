@@ -27,3 +27,18 @@
   margin-bottom: 1.0em;
   border-bottom: 1px solid #e5e5e5;
 }
+
+form.CommonFormHelper {
+  div.form-group {
+    label.required {
+      font-weight: bold;
+    }
+
+    label.optional {
+      font-weight: normal;
+      &:after {
+        content: ' (Opcional)'
+      }
+    }
+  }
+}

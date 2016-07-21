@@ -2,6 +2,8 @@ module Eac
   module CommonFormHelper
     def common_form(model_instance, options = {}, &block)
       submit_label = options.delete(:submit_label)
+      options[:html] ||= {}
+      options[:html][:class] = 'CommonFormHelper'
       form_for(model_instance, options) do |form|
         fb = FormBuilder.new(form, self)
         errors(model_instance) <<
