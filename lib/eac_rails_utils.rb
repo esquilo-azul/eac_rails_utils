@@ -1,6 +1,7 @@
 module EacRailsUtils
   require 'nested_form_fields'
 
+  require 'eac_rails_utils/patches/model_attribute_required'
   require 'eac_rails_utils/rails/engine'
   require 'eac/cpf_validator'
   require 'eac/formatter_helper'
