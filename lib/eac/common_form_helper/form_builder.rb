@@ -54,9 +54,23 @@ module Eac
 
       def field_errors(field_name)
         s = ActiveSupport::SafeBuffer.new
+        field_errors_fields(field_name).each do |frf|
+          s << field_errors_errors(frf)
+        end
+        s
+      end
+
+      def field_errors_errors(field_name)
+        return nil unless model_instance.errors.messages[field_name]
+        s = ActiveSupport::SafeBuffer.new
         model_instance.errors.messages[field_name].each { |error| s << field_error(error) }
         @field_errors_showed.add(field_name)
         s
+      end
+
+      def field_errors_fields(field_name)
+        m = /^(.+)_id$/.match(field_name)
+        (m ? [m[1], field_name] : [field_name, "#{field_name}_id"]).map(&:to_sym)
       end
 
       def field_error(error_message)
