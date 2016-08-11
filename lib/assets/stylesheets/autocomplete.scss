@@ -1,0 +1,33 @@
+$jquery-autocomplete-bg-color: #ffffff !default;
+$jquery-autocomplete-bg-highlight-color: #ccc !default;
+$jquery-autocomplete-border-color: #DDD !default;
+
+.ui-autocomplete {
+  position: absolute;
+  z-index: 5000;
+  cursor: default;
+  padding: 0;
+  margin-top: 2px;
+  list-style: none;
+  background-color: $jquery-autocomplete-bg-color;
+  border: 1px solid $jquery-autocomplete-border-color;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+  > li {
+    padding: 3px 20px;
+    background-color: $jquery-autocomplete-bg-color;
+  }
+
+  > li.ui-state-focus {
+    background-color: $jquery-autocomplete-bg-highlight-color;
+  }
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
