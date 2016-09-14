@@ -37,7 +37,7 @@ module Eac
     end
 
     def sources_targets_basenames
-      basenames = []
+      basenames = Set.new
       Dir.foreach(fixtures_directory) do |item|
         next if item == '.' || item == '..'
         if /^(.+)\.(?:source|target)(?:\..+)?$/ =~ File.basename(item)
