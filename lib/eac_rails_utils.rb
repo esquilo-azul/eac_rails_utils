@@ -1,5 +1,6 @@
 module EacRailsUtils
   require 'nested_form_fields'
+  require 'ofx-parser'
 
   require 'eac_rails_utils/patches/model_attribute_required'
   require 'eac_rails_utils/rails/engine'
@@ -21,6 +22,7 @@ module EacRailsUtils
   require 'eac/menus_helper/gui_builder'
   require 'eac/model'
   require 'eac/parsers/base'
+  require 'eac/parsers/ofx'
   require 'eac/simple_cache'
   require 'eac/source_target_fixtures'
 
