@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '~> 4.2.1'
   s.add_dependency 'htmlbeautifier', '>= 1.1.1'
   s.add_dependency 'bootstrap-sass', '>= 3.3.6'
+  s.add_dependency 'ofx-parser', '>= 1.1.0'
 
   # Formulários aninhados
   # https://github.com/ncri/nested_form_fields
