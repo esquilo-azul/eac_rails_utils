@@ -20,6 +20,7 @@ module EacRailsUtils
   require 'eac/menus_helper/data_builder'
   require 'eac/menus_helper/gui_builder'
   require 'eac/model'
+  require 'eac/parsers/base'
   require 'eac/simple_cache'
   require 'eac/source_target_fixtures'
 
