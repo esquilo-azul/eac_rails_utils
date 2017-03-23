@@ -1,8 +1,10 @@
+# frozen_string_literal: true
 module EacRailsUtils
   require 'nested_form_fields'
   require 'ofx-parser'
 
   require 'eac_rails_utils/patches/model_attribute_required'
+  require 'eac_rails_utils/patches/ofx_parser'
   require 'eac_rails_utils/rails/engine'
   require 'eac/cpf_validator'
   require 'eac/formatter_helper'
