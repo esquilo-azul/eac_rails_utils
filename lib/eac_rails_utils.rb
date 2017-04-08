@@ -18,6 +18,7 @@ module EacRailsUtils
   require 'eac/common_form_helper/form_builder'
   require 'eac/common_form_helper'
   require 'eac/htmlbeautifier'
+  require 'eac/listable'
   require 'eac/menus_helper'
   require 'eac/menus_helper/bootstrap_gui_builder'
   require 'eac/menus_helper/data_builder'

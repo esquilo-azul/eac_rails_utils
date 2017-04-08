@@ -1,0 +1,24 @@
+pt-BR:
+  eac:
+    listable:
+      eac/listable_test/stub:
+        inteiro:
+          a:
+            label: Inteiro A
+            description: Inteiro A Descr.
+          b:
+            label: Inteiro BB
+            description: Inteiro BB Descr.
+          c:
+            label: Inteiro CCC
+            description: Inteiro CCC Descr.
+        cadeia:
+          a:
+            label: Cadeia AAA
+            description: Cadeia AAA Descr.
+          b:
+            label: Cadeia BB
+            description: Cadeia BB Descr.
+          c:
+            label: Cadeia C
+            description: Cadeia C Descr.
