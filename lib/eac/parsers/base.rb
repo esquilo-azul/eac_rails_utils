@@ -1,3 +1,6 @@
+# ecoding: utf-8
+# frozen_string_literal: true
+
 require 'open-uri'
 require 'fileutils'
 
@@ -11,15 +14,15 @@ module Eac
       def url
         @url.gsub(%r{/+$}, '')
       end
-      
+
       def content
         s = content_by_url_type
         log_content(s)
         s
       end
-      
+
       private
-      
+
       def content_by_url_type
         if @url.is_a?(Hash)
           content_hash
@@ -35,7 +38,7 @@ module Eac
       end
 
       def content_get
-        open(@url, { 'Accept-Language' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3' }, &:read)
+        HTTPClient.new.get_content(@url, follow_redirect: true)
       end
 
       def content_hash
@@ -48,7 +51,7 @@ module Eac
       end
 
       def log_content(s)
-        File.write(log_file, s)
+        File.open(log_file, 'wb') { |file| file.write(s) }
       end
 
       def log_file
