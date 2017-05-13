@@ -151,8 +151,8 @@ module Eac
 
       def build_values(labels)
         vs = {}
-        labels.each_with_index do |k, i|
-          v = Value.new(self, build_value(i, k), k)
+        parse_labels(labels).each do |value, key|
+          v = Value.new(self, value, key)
           vs[v.value] = v
         end
         vs
@@ -173,7 +173,8 @@ module Eac
       end
 
       def constant_name
-        "#{@list.item}_#{@key}".upcase
+        "#{@list.item}_#{@key}".gsub(/[^a-z0-9_]/, '_').gsub(/_+/, '_')
+                               .gsub(/(?:\A_|_\z)/, '').upcase
       end
 
       def label
@@ -194,6 +195,14 @@ module Eac
     class IntegerList < ::Eac::Listable::List
       protected
 
+      def parse_labels(labels)
+        if labels.first.is_a?(Hash)
+          Hash[labels.first.map { |k, v| [k.to_i, v.to_s] }]
+        else
+          Hash[labels.each_with_index.map { |v, i| [i + 1, v.to_s] }]
+        end
+      end
+
       def build_value(index, _key)
         index + 1
       end
@@ -202,8 +211,12 @@ module Eac
     class StringList < ::Eac::Listable::List
       protected
 
-      def build_value(_index, key)
-        key.to_s
+      def parse_labels(labels)
+        if labels.first.is_a?(Hash)
+          Hash[labels.first.map { |k, v| [k.to_s, v.to_s] }]
+        else
+          Hash[labels.map { |v| [v.to_s, v.to_s] }]
+        end
       end
     end
   end

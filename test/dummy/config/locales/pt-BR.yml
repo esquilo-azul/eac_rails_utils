@@ -22,3 +22,17 @@ pt-BR:
           c:
             label: Cadeia C
             description: Cadeia C Descr.
+        code:
+          a:
+            label: Código A
+            description: Código A Descr.
+          b:
+            label: Código B
+            description: Código B Descr.
+        type:
+          a:
+            label: Tipo A
+            description: Tipo A Descr.
+          b:
+            label: Tipo B
+            description: Tipo B Descr.
