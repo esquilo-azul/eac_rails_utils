@@ -24,6 +24,7 @@ module EacRailsUtils
   require 'eac/menus_helper/data_builder'
   require 'eac/menus_helper/gui_builder'
   require 'eac/model'
+  require 'eac/no_presence_validator'
   require 'eac/parsers/base'
   require 'eac/parsers/ofx'
   require 'eac/simple_cache'
