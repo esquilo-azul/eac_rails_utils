@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    eac_rails_utils (0.1.4)
+    eac_rails_utils (0.1.5)
       bootstrap-sass (>= 3.3.6)
       htmlbeautifier (>= 1.1.1)
       nested_form_fields

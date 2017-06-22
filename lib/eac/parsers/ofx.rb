@@ -2,7 +2,8 @@ module Eac
   module Parsers
     class Ofx < ::Eac::Parsers::Base
       def ofx
-        @ofx ||= ::OfxParser::OfxParser.parse(content.force_encoding('iso-8859-1').encode('utf-8'))
+        @ofx ||= ::OfxParser::OfxParser.parse(content.force_encoding('iso-8859-1').encode('utf-8')
+            .gsub(/(?<!\r)\n/, "\r\n"))
       end
       
       def assert_ofx
