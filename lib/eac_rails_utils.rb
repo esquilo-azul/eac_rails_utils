@@ -15,6 +15,7 @@ module EacRailsUtils
   require 'eac/common_form_helper/form_builder/fields_for'
   require 'eac/common_form_helper/form_builder/radio_select_field'
   require 'eac/common_form_helper/form_builder/searchable_association_field'
+  require 'eac/common_form_helper/form_builder/year_month_field'
   require 'eac/common_form_helper/form_builder'
   require 'eac/common_form_helper'
   require 'eac/htmlbeautifier'
