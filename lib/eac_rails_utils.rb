@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 module EacRailsUtils
+  require 'activemodel/associations'
   require 'nested_form_fields'
   require 'ofx-parser'
   require 'virtus'
