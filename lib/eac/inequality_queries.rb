@@ -1,5 +1,21 @@
 # frozen_string_literal: true
 module Eac
+  # == Example:
+  #
+  # Note: model Product has a attribute "foo" Date, Time or Number:
+  #
+  #   class Product
+  #     include ::Eac::InequalityQueries
+  #
+  #     add_inequality_queries(:foo)
+  #   end
+  #
+  # This add the following scopes:
+  #
+  #   Product.by_foo_gt(value) # Equivalent to Product.where("foo > ?", value)
+  #   Product.by_foo_gteq(value) # Equivalent to Product.where("foo >= ?", value)
+  #   Product.by_foo_lt(value) # Equivalent to Product.where("foo < ?", value)
+  #   Product.by_foo_lteq(value) # Equivalent to Product.where("foo <= ?", value)
   module InequalityQueries
     class << self
       def included(base)
