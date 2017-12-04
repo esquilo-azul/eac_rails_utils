@@ -2,6 +2,7 @@
 module EacRailsUtils
   require 'nested_form_fields'
   require 'ofx-parser'
+  require 'virtus'
 
   require 'eac_rails_utils/patches/model_attribute_required'
   require 'eac_rails_utils/patches/ofx_parser'
