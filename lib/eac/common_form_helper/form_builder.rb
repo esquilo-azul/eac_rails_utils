@@ -8,6 +8,7 @@ module Eac
       include DateField
       include RadioSelectField
       include FieldsFor
+      include SelectField
       include YearMonthField
 
       attr_reader :form, :helper, :field_errors_showed
