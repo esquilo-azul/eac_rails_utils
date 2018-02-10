@@ -5,12 +5,12 @@ module Eac
       def ofx
         @ofx ||= ofx_parse
       end
-      
+
       def assert_ofx
-        fail "Not a OFX: #{url}" unless ofx.bank_account || ofx.credit_card || 
+        fail "Not a OFX: #{url}" unless ofx.bank_account || ofx.credit_card ||
           ofx.investment
       end
-      
+
       def ofx?
         ofx.present?
       end
