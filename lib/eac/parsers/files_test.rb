@@ -5,9 +5,12 @@ module Eac
   module Parsers
     module FilesTest
       def test_data
-        source_target_fixtures.source_target_files do |source_file, target_file|
-          sd = parser_class.new(source_file).data
-          td = YAML.load_file(target_file)
+        sts = source_target_fixtures.source_target_files
+        assert_not_equal 0, sts.count, 'Source/target files count cannot be zero'
+        sts.each do |st|
+          assert_source_target_complete(st)
+          sd = parser_class.new(st.source).data
+          td = YAML.load_file(st.target)
           assert_equal sort_results(td), sort_results(sd)
         end
       end
@@ -20,8 +23,13 @@ module Eac
 
       private
 
+      def assert_source_target_complete(st)
+        assert st.source, "Source not found (Target: #{st.target})"
+        assert st.target, "Target not found (Source: #{st.source})"
+      end
+
       def source_target_fixtures
-        ::Eac::SourceTargetFixtures.new(
+        @source_target_fixtures ||= ::Eac::SourceTargetFixtures.new(
           File.expand_path("../#{self.class.name.demodulize.underscore}_files", test_file)
         )
       end

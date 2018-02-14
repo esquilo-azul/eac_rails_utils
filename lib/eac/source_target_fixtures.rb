@@ -4,16 +4,25 @@
 require 'yaml'
 
 module Eac
+  # Lists pairs of source/target files in a directory. See {Eac::Parsers::FilesTest} to see
+  # a use of this class.
   class SourceTargetFixtures
+    class << self
+      def source_target_basename(file)
+        m = /^(.+)\.(?:source|target)(?:\..+)?$/.match(File.basename(file))
+        m ? m[1] : nil
+      end
+    end
+
     attr_reader :fixtures_directory
 
     def initialize(fixtures_directory)
       @fixtures_directory = fixtures_directory
     end
 
-    def source_target_files(&block)
-      sources_targets_basenames.each do |test_basename|
-        block.call(source_file(test_basename), target_file(test_basename))
+    def source_target_files
+      sources_targets_basenames.map do |basename|
+        OpenStruct.new(source: source_file(basename), target: target_file(basename))
       end
     end
 
@@ -33,18 +42,16 @@ module Eac
         next if item == '.' || item == '..'
         return File.expand_path(item, fixtures_directory) if item.starts_with?(prefix)
       end
-      fail "\"#{prefix}\" not found (Basename: #{basename}, Suffix: #{suffix})"
+      nil
     end
 
     def sources_targets_basenames
       basenames = Set.new
       Dir.foreach(fixtures_directory) do |item|
         next if item == '.' || item == '..'
-        if /^(.+)\.(?:source|target)(?:\..+)?$/ =~ File.basename(item)
-          basenames << Regexp.last_match(1)
-        end
+        b = self.class.source_target_basename(item)
+        basenames << b if b.present?
       end
-      fail "\"#{fixtures_directory}\" não possui nenhum arquivo para teste." if basenames.empty?
       basenames
     end
   end
