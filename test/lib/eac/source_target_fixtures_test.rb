@@ -23,6 +23,15 @@ module Eac
       assert_equal File.join(fixtures_dir, 'c.target.yaml'), c.target
     end
 
+    def test_source_files
+      r = ::Eac::SourceTargetFixtures.new(fixtures_dir).source_files
+      assert_equal 2, r.count
+
+      %w(a.source.html b.source.html).each do |expected|
+        assert r.include?(File.join(fixtures_dir, expected)), expected
+      end
+    end
+
     private
 
     def fixtures_dir

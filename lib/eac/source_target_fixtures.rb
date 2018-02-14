@@ -26,6 +26,14 @@ module Eac
       end
     end
 
+    def source_files
+      r = []
+      source_target_files.each do |st|
+        r << st.source if st.source
+      end
+      r
+    end
+
     private
 
     def target_file(basename)

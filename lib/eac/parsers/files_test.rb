@@ -5,6 +5,16 @@ module Eac
   module Parsers
     module FilesTest
       def test_data
+        if ENV['EAC_PARSERS_FILES_TEST_WRITE'].present?
+          write_results
+        else
+          test_results
+        end
+      end
+
+      protected
+
+      def test_results
         sts = source_target_fixtures.source_target_files
         assert_not_equal 0, sts.count, 'Source/target files count cannot be zero'
         sts.each do |st|
@@ -15,7 +25,14 @@ module Eac
         end
       end
 
-      protected
+      def write_results
+        source_target_fixtures.source_files.each do |source_file|
+          sd = sort_results(parser_class.new(source_file).data)
+          basename = ::Eac::SourceTargetFixtures.source_target_basename(source_file)
+          target_file = File.expand_path("../#{basename}.target.yaml", source_file)
+          File.write(target_file, sd.to_yaml)
+        end
+      end
 
       def sort_results(r)
         r
