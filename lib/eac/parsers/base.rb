@@ -34,7 +34,7 @@ module Eac
       end
 
       def content_file
-        open(@url, &:read)
+        open(@url.gsub(%r{\Afile://}, ''), &:read)
       end
 
       def content_get
