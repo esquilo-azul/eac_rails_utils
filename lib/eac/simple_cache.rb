@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Eac
   module SimpleCache
     def method_missing(method, *args, &block)
@@ -16,7 +17,7 @@ module Eac
     private
 
     def call_method_with_cache(method, args, &block)
-      fail 'Não é possível realizar o cache de métodos com bloco' if block
+      raise 'Não é possível realizar o cache de métodos com bloco' if block
       key = ([method] + args).join('@@@')
       cache_keys[key] = send(method, *args) unless cache_keys.key?(key)
       cache_keys[key]
