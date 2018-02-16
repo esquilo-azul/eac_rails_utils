@@ -21,6 +21,7 @@ module EacRailsUtils
   require 'eac/common_form_helper/form_builder/year_month_field'
   require 'eac/common_form_helper/form_builder'
   require 'eac/common_form_helper'
+  require_dependency 'eac/data_table_helper'
   require 'eac/download_fixtures'
   require 'eac/htmlbeautifier'
   require 'eac/inequality_queries'
@@ -40,6 +41,7 @@ module EacRailsUtils
   require 'eac/test_utils'
 
   ActionView::Base.send :include, Eac::CommonFormHelper
+  ActionView::Base.send :include, Eac::DataTableHelper
   ActionView::Base.send :include, Eac::FormatterHelper
   ActionView::Base.send :include, Eac::MenusHelper
 end
