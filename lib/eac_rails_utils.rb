@@ -36,6 +36,7 @@ module EacRailsUtils
   require 'eac/simple_cache'
   require 'eac/source_target_fixtures'
   require 'eac/tableless_model'
+  require 'eac/test_utils'
 
   ActionView::Base.send :include, Eac::CommonFormHelper
   ActionView::Base.send :include, Eac::FormatterHelper
