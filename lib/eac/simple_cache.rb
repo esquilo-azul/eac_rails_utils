@@ -10,6 +10,10 @@ module Eac
       end
     end
 
+    def respond_to?(method, include_all = false)
+      super || super("#{method}_uncached", true)
+    end
+
     def reset_cache
       @cache_keys = nil
     end

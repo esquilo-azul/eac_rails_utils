@@ -46,6 +46,12 @@ module Eac
       assert_equal @co.private_method, @co.private_method
     end
 
+    def test_respond_to
+      assert @co.respond_to?(:my_method)
+      assert @co.respond_to?(:private_method)
+      assert @co.respond_to?(:method_with_args)
+    end
+
     def test_reset
       @co = CacheableObject.new
       value = @co.my_method
