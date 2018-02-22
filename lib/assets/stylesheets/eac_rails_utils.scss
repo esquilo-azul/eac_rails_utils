@@ -10,8 +10,8 @@
 
   select {
     @extend .form-control;
-    display: inline;
-    width: auto;
+    display: inline !important;
+    width: auto !important;
   }
 }
 
