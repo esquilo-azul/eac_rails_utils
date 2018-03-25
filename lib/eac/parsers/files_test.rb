@@ -14,12 +14,16 @@ module Eac
 
       protected
 
+      def source_data(source_file)
+        parser_class.new(source_file).data
+      end
+
       def test_results
         sts = source_target_fixtures.source_target_files
         assert_not_equal 0, sts.count, 'Source/target files count cannot be zero'
         sts.each do |st|
           assert_source_target_complete(st)
-          sd = parser_class.new(st.source).data
+          sd = source_data(st.source)
           td = YAML.load_file(st.target)
           assert_equal sort_results(td), sort_results(sd)
         end
@@ -27,7 +31,7 @@ module Eac
 
       def write_results
         source_target_fixtures.source_files.each do |source_file|
-          sd = sort_results(parser_class.new(source_file).data)
+          sd = sort_results(source_data(source_file))
           basename = ::Eac::SourceTargetFixtures.source_target_basename(source_file)
           target_file = File.expand_path("../#{basename}.target.yaml", source_file)
           File.write(target_file, sd.to_yaml)
