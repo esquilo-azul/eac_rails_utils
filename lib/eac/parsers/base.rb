@@ -38,7 +38,22 @@ module Eac
       end
 
       def content_get
-        HTTPClient.new.get_content(@url, follow_redirect: true)
+        content_get_fetch(@url)
+      end
+
+      def content_get_fetch(uri, limit = 10)
+        raise 'too many HTTP redirects' if limit == 0
+
+        response = Net::HTTP.get_response(URI(uri))
+
+        case response
+        when Net::HTTPSuccess then
+          response.body
+        when Net::HTTPRedirection then
+          content_get_fetch(response['location'], limit - 1)
+        else
+          response.value
+        end
       end
 
       def content_hash
