@@ -8,6 +8,7 @@ module EacRailsUtils
   require 'eac_rails_utils/patches/model_attribute_required'
   require 'eac_rails_utils/patches/ofx_parser'
   require 'eac_rails_utils/rails/engine'
+  require 'eac_rails_utils/tableless_model'
   require 'eac/cpf_validator'
   require 'eac/formatter_helper'
   require 'eac/common_form_helper/form_builder/association_select_field'
@@ -38,7 +39,6 @@ module EacRailsUtils
   require 'eac/parsers/ofx'
   require 'eac/simple_cache'
   require 'eac/source_target_fixtures'
-  require 'eac/tableless_model'
   require 'eac/test_utils'
 
   ActionView::Base.send :include, Eac::CommonFormHelper

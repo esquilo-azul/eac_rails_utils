@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Eac
+module EacRailsUtils
   class TablelessModel
     include ActiveModel::Model
     include Virtus.model
