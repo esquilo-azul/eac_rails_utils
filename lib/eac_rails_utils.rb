@@ -5,6 +5,7 @@ module EacRailsUtils
   require 'ofx-parser'
   require 'virtus'
 
+  require 'eac_rails_utils/patches/action_controller_base'
   require 'eac_rails_utils/patches/model_attribute_required'
   require 'eac_rails_utils/patches/ofx_parser'
   require 'eac_rails_utils/rails/engine'
