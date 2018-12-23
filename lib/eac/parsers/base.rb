@@ -43,17 +43,28 @@ module Eac
 
       def content_get_fetch(uri, limit = 10)
         raise 'too many HTTP redirects' if limit == 0
+        uri = Addressable::URI.parse(uri)
+        content_get_fetch_result(uri, limit, Net::HTTP.get_response(uri))
+      end
 
-        response = Net::HTTP.get_response(URI(uri))
-
+      def content_get_fetch_result(uri, limit, response)
         case response
         when Net::HTTPSuccess then
           response.body
         when Net::HTTPRedirection then
-          content_get_fetch(response['location'], limit - 1)
+          content_get_fetch_redirect(uri, Addressable::URI.parse(response['location']), limit)
         else
           response.value
         end
+      end
+
+      def content_get_fetch_redirect(original_uri, redirect_uri, limit)
+        if redirect_uri.scheme.blank?
+          redirect_uri.scheme = original_uri.scheme
+          redirect_uri.authority = original_uri.authority
+        end
+        Rails.logger.debug("#{original_uri} redirected to #{redirect_uri}")
+        content_get_fetch(redirect_uri, limit - 1)
       end
 
       def content_hash
