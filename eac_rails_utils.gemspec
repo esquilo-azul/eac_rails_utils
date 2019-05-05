@@ -26,5 +26,5 @@ Gem::Specification.new do |s|
   # https://github.com/ncri/nested_form_fields
   s.add_dependency 'nested_form_fields'
 
-  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'sqlite3', '~> 1.3.13'
 end
