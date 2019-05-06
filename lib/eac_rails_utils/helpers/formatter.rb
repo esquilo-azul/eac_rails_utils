@@ -4,6 +4,12 @@ module EacRailsUtils
     module Formatter
       include ActionView::Helpers::NumberHelper
 
+      def value_or_sign(value, sign = '-', &block)
+        return sign if value.blank?
+        return yield(value) if block
+        value
+      end
+
       def format_real(value)
         number_to_currency(
           value,
