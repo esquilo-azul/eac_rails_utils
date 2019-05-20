@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'active_support/dependencies'
+
 module EacRailsUtils
   require 'activemodel/associations'
   require 'nested_form_fields'
