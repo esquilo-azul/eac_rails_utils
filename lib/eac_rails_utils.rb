@@ -27,7 +27,6 @@ module EacRailsUtils
   require 'eac/common_form_helper/form_builder'
   require 'eac/common_form_helper'
   require_dependency 'eac/data_table_helper'
-  require 'eac/download_fixtures'
   require 'eac/htmlbeautifier'
   require 'eac/inequality_queries'
   require 'eac/listable'
