@@ -38,7 +38,6 @@ module EacRailsUtils
   require 'eac/no_presence_validator'
   require 'eac/parsers/base'
   require 'eac/parsers/files_test'
-  require 'eac/parsers/ofx'
   require 'eac/simple_cache'
   require 'eac/source_target_fixtures'
   require 'eac/test_utils'
