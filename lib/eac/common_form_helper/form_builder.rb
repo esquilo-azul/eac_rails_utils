@@ -8,6 +8,7 @@ module Eac
       include DateField
       include RadioSelectField
       include FieldsFor
+      include FileField
       include SelectField
       include TimeField
       include YearMonthField
