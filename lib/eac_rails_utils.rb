@@ -29,7 +29,6 @@ module EacRailsUtils
   require_dependency 'eac/data_table_helper'
   require 'eac/htmlbeautifier'
   require 'eac/inequality_queries'
-  require 'eac/listable'
   require 'eac/menus_helper'
   require 'eac/menus_helper/bootstrap_gui_builder'
   require 'eac/menus_helper/data_builder'
