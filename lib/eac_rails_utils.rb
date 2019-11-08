@@ -26,7 +26,7 @@ module EacRailsUtils
   require 'eac/common_form_helper/form_builder/year_month_field'
   require 'eac/common_form_helper/form_builder'
   require 'eac/common_form_helper'
-  require_dependency 'eac/data_table_helper'
+  require 'eac/data_table_helper'
   require 'eac/htmlbeautifier'
   require 'eac/inequality_queries'
   require 'eac/menus_helper'
