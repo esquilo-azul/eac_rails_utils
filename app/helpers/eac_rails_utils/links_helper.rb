@@ -2,22 +2,19 @@
 module EacRailsUtils
   module LinksHelper
     def short_delete_link(object)
-      value_or_sign(object, '') do |value|
-        link_to '', object_path(value),
-                class: 'delete_link', method: :delete, target: '_blank',
-                title: ::I18n.t('eac_rails_base0.links.delete_object', label: value.to_s),
-                data: {
-                  confirm: ::I18n.t('eac_rails_base0.links.delete_confirm', label: value.to_s)
-                }
-      end
+      short_object_link object, '', class: 'delete_link', method: :delete, target: '_blank',
+                                    title: ::I18n.t('eac_rails_base0.links.delete_object',
+                                                    label: object.to_s),
+                                    data: {
+                                      confirm: ::I18n.t('eac_rails_base0.links.delete_confirm',
+                                                        label: object.to_s)
+                                    }
     end
 
     def short_edit_link(object)
-      value_or_sign(object, '') do |value|
-        link_to '', object_path(value, 'edit'),
-                class: 'edit_link', target: '_blank',
-                title: ::I18n.t('eac_rails_base0.links.edit_object', label: value.to_s)
-      end
+      short_object_link object, 'edit', class: 'edit_link', target: '_blank',
+                                        title: ::I18n.t('eac_rails_base0.links.edit_object',
+                                                        label: object.to_s)
     end
 
     def short_goto_link(url)
@@ -51,10 +48,15 @@ module EacRailsUtils
     private
 
     def short_detail_show_link(object, detail)
-      value_or_sign(object, detail ? 'detail' : nil) do |value|
-        link_to '', object_path(value),
-                class: 'show_link', target: '_blank',
-                title: ::I18n.t('eac_rails_base0.links.show_object', label: value.to_s)
+      short_object_link object,
+                        detail ? 'detail' : nil,
+                        class: 'show_link', target: '_blank',
+                        title: ::I18n.t('eac_rails_base0.links.show_object', label: object.to_s)
+    end
+
+    def short_object_link(object, action = nil, options = {})
+      value_or_sign(object, '') do |value|
+        link_to '', object_path(value, action), options
       end
     end
 
