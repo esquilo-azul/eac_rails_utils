@@ -11,7 +11,7 @@ module EacRailsUtils
   require 'eac_rails_utils/patches/action_controller_base'
   require 'eac_rails_utils/patches/model_attribute_required'
   require 'eac_rails_utils/patches/ofx_parser'
-  require 'eac_rails_utils/rails/engine'
+  require 'eac_rails_utils/engine'
   require 'eac_rails_utils/tableless_model'
   require 'eac/cpf_validator'
   require 'eac/common_form_helper/form_builder/association_select_field'
