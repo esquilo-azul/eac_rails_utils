@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 module EacRailsUtils
   module FormatterHelper
-    include ActionView::Helpers::NumberHelper
+    extend ::ActiveSupport::Concern
+
+    included do
+      include ActionView::Helpers::NumberHelper
+    end
 
     def value_or_sign(value, sign = '-', &block)
       return sign if value.blank?
