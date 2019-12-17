@@ -23,7 +23,7 @@ module EacRailsUtils
       )
     end
 
-    def format_percentage(float_value)
+    def eac_number_to_percentage(float_value)
       number_to_percentage(float_value * 100, precision: 0)
     end
 
