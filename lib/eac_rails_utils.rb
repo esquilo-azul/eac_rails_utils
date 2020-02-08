@@ -7,11 +7,10 @@ module EacRailsUtils
   require 'ofx-parser'
   require 'virtus'
 
-  require_dependency 'eac_rails_utils/helpers/formatter'
   require 'eac_rails_utils/patches/action_controller_base'
   require 'eac_rails_utils/patches/model_attribute_required'
   require 'eac_rails_utils/patches/ofx_parser'
-  require 'eac_rails_utils/rails/engine'
+  require 'eac_rails_utils/engine'
   require 'eac_rails_utils/tableless_model'
   require 'eac/cpf_validator'
   require 'eac/common_form_helper/form_builder/association_select_field'
@@ -41,7 +40,6 @@ module EacRailsUtils
   require 'eac/source_target_fixtures'
   require 'eac/test_utils'
 
-  ActionView::Base.send :include, ::EacRailsUtils::Helpers::Formatter
   ActionView::Base.send :include, Eac::CommonFormHelper
   ActionView::Base.send :include, Eac::DataTableHelper
   ActionView::Base.send :include, Eac::MenusHelper
