@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'test_helper'
 
 module Eac
@@ -27,7 +28,7 @@ module Eac
       r = ::Eac::SourceTargetFixtures.new(fixtures_dir).source_files
       assert_equal 2, r.count
 
-      %w(a.source.html b.source.html).each do |expected|
+      %w[a.source.html b.source.html].each do |expected|
         assert r.include?(File.join(fixtures_dir, expected)), expected
       end
     end
@@ -35,7 +36,7 @@ module Eac
     private
 
     def fixtures_dir
-      File.expand_path('../source_target_fixtures_test_files', __FILE__)
+      File.expand_path('source_target_fixtures_test_files', __dir__)
     end
   end
 end

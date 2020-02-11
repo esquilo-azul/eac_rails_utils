@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eac
   module CommonFormHelper
     def common_form(model_instance, options = {}, &block)
@@ -29,6 +31,7 @@ module Eac
       s = ActiveSupport::SafeBuffer.new
       model_instance.errors.each do |k, v|
         next if field_errors_showed.include?(k)
+
         s << content_tag(:div, "#{k}: #{v}", class: 'error')
       end
       s

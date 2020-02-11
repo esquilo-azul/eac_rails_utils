@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Eac
   module CommonFormHelper
     class FormBuilder
@@ -19,6 +20,7 @@ module Eac
         def listable_select_options(field_name)
           return nil unless model_instance.class.respond_to?(:lists)
           return nil unless model_instance.class.lists.respond_to?(field_name)
+
           model_instance.class.lists.send(field_name).options
         end
       end

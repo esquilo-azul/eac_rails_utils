@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module EacRailsUtils
   module LinksHelper
     def short_delete_link(object)
@@ -20,7 +21,8 @@ module EacRailsUtils
     def short_goto_link(url)
       value_or_sign(url, '') do |value|
         link_to '', value, class: 'goto_link', target: '_blank',
-                           title: ::I18n.t('eac_rails_base0.links.goto_url', url: value.to_s)
+                           title: ::I18n.t('eac_rails_base0.links.goto_url', url: value.to_s),
+                           rel: 'noopener'
       end
     end
 
@@ -38,6 +40,7 @@ module EacRailsUtils
       while current_class
         path = object_path_by_class(current_class, action)
         return send(path, object) if respond_to?(path)
+
         tried_paths << path
         current_class = current_class.superclass
       end

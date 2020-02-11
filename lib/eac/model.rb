@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eac
   module Model
     # Adiciona as mensagens de erro de record. As mensagens de uma coluna X em record
@@ -22,7 +24,8 @@ module Eac
     end
 
     def fetch_column_errors(record, record_column, self_column, options = {})
-      return if options[:skip] && options[:skip].include?(record_column)
+      return if options[:skip]&.include?(record_column)
+
       record.errors[record_column].each do |message|
         fetch_error_column_message(self_column, message, options[:default_column],
                                    "#{record.class.human_attribute_name(record_column)}: ")
@@ -35,9 +38,8 @@ module Eac
     end
 
     def save_or_raise
-      unless save
-        fail "Falha ao tentar salvar #{self.class.name}: #{errors_to_string}"
-      end
+      raise "Falha ao tentar salvar #{self.class.name}: #{errors_to_string}" unless save
+
       self
     end
 
@@ -57,13 +59,14 @@ module Eac
     # ainda não a possui
     def add_error_message(column, message)
       return if errors[column].include?(message)
+
       errors.add(column, message)
     end
 
     # Produz uma lista de campos-mensagens, em ordem de preferência,
     # que podem receber uma mensagem de falha.
     def build_self_columns_messages(column, message, default_column,
-        default_column_message_prefix)
+                                    default_column_message_prefix)
       r = { column => message }
       m = /^(.+)_id$/.match(column)
       if m

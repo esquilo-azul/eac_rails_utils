@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eac
   module MenusHelper
     # http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3
@@ -8,7 +10,8 @@ module Eac
       end
 
       def build(entries)
-        fail "Argument \"entries\" is not a array" unless entries.is_a?(Array)
+        raise 'Argument "entries" is not a array' unless entries.is_a?(Array)
+
         @view.content_tag(:ul, class: "nav navbar-nav #{@options[:class]}".strip) do
           menu_entries(entries)
         end
@@ -28,12 +31,12 @@ module Eac
         elsif entry[:type] == :item
           menu_item(entry)
         else
-          fail "Unknown menu entry type: \"#{entry[:type]}\""
+          raise "Unknown menu entry type: \"#{entry[:type]}\""
         end
       end
 
       def menu_group(entry)
-        if entry[:level] == 0
+        if entry[:level].zero?
           menu_group_root(entry)
         else
           menu_group_sub(entry)
@@ -82,7 +85,7 @@ module Eac
           options[:method] = options[:link_method]
           options.delete(:link_method)
         end
-        options[:class] = "#{@options[:button_class]}".strip if entry[:level] == 0
+        options[:class] = (@options[:button_class]).to_s.strip if entry[:level].zero?
         options
       end
     end

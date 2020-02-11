@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'test_helper'
 
 module Eac
@@ -9,7 +10,7 @@ module Eac
       end
 
       def data
-        YAML.load(File.read(@source))
+        YAML.load(File.read(@source)) # rubocop:disable Security/YAMLLoad
       end
     end
 

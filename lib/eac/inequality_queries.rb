@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Eac
   # == Example:
   #
@@ -25,7 +26,7 @@ module Eac
 
     module ClassMethods
       def add_inequality_queries(attribute)
-        %w(gt gteq lt lteq).each do |ineq|
+        %w[gt gteq lt lteq].each do |ineq|
           scope "by_#{attribute}_#{ineq}", lambda { |v|
             where(arel_table[attribute].send(ineq, v))
           }

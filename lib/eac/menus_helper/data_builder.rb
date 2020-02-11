@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eac
   module MenusHelper
     class DataBuilder
@@ -12,7 +14,8 @@ module Eac
       private
 
       def build_entries(entries, level)
-        fail 'Argument "entries" is not a hash' unless entries.is_a?(Hash)
+        raise 'Argument "entries" is not a hash' unless entries.is_a?(Hash)
+
         r = entries.map { |k, v| build_entry(k, v, level) }.select { |e| e }
         r.empty? ? nil : r
       end
@@ -28,12 +31,14 @@ module Eac
       def build_group(label, menu_entries, level)
         e = build_entries(menu_entries, level + 1)
         return nil unless e
+
         { type: :group, label: label, children: e, level: level }
       end
 
       def build_item(label, value, level)
         path, options = menu_item_options(value)
         return nil unless can_access_path?(path, options[:link_method])
+
         { type: :item, label: label, path: path, options: options, level: level }
       end
 

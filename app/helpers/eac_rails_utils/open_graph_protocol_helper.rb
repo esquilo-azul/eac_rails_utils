@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module EacRailsUtils
   module OpenGraphProtocolHelper
     OGP_META_DEFAULT_PREFIX = 'og'
@@ -89,6 +90,7 @@ module EacRailsUtils
 
       def tag
         return ::ActiveSupport::SafeBuffer.new unless content?
+
         view.tag(:meta, prefix: view.ogp_prefix, property: property_value, content: content)
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_record'
 
 module EacRailsUtils
@@ -27,5 +29,6 @@ end
 
 [::ActiveRecord::Base, ::ActiveModel::Model].each do |c|
   next if c.included_modules.include? ::EacRailsUtils::Patches::ModelAttributeRequired
+
   c.include ::EacRailsUtils::Patches::ModelAttributeRequired
 end

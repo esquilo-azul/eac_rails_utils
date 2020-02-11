@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eac
   module MenusHelper
     class GuiBuilder
@@ -6,7 +8,8 @@ module Eac
       end
 
       def build(entries, options = {})
-        fail "Argument \"entries\" is not a array" unless entries.is_a?(Array)
+        raise 'Argument "entries" is not a array' unless entries.is_a?(Array)
+
         @view.content_tag(:ul, options) do
           b = ActiveSupport::SafeBuffer.new
           entries.map { |v| menu_entry(v) }.each { |e| b << e }
@@ -22,7 +25,7 @@ module Eac
         elsif entry[:type] == :item
           menu_item(entry[:label], entry[:path], entry[:options])
         else
-          fail "Unknown menu entry type: \"#{entry[:type]}\""
+          raise "Unknown menu entry type: \"#{entry[:type]}\""
         end
       end
 

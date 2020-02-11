@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module EacRailsUtils
   class TablelessModel
     include ActiveModel::Model
@@ -34,7 +35,7 @@ module EacRailsUtils
     end
 
     class AttributesBuilder
-      DATE_TIME_FIELDS = %i(year month day hour min sec).freeze
+      DATE_TIME_FIELDS = %i[year month day hour min sec].freeze
 
       def initialize(model_class, values)
         @model_class = model_class
@@ -59,9 +60,9 @@ module EacRailsUtils
 
       def parse_array_attr_key(key)
         m = /\A(.+)\(([0-9]+)(.)\)\z/.match(key)
-        if m
-          ::OpenStruct.new(key: m[1], index: m[2].to_i - 1, converter: array_value_converter(m[3]))
-        end
+        return unless m
+
+        ::OpenStruct.new(key: m[1], index: m[2].to_i - 1, converter: array_value_converter(m[3]))
       end
 
       def array_value_set(array_attr, value)
@@ -83,6 +84,7 @@ module EacRailsUtils
       def date_time_attribute?(key)
         attr = @model_class.attributes[key]
         return false unless attr
+
         raise attr.to_s
       end
     end

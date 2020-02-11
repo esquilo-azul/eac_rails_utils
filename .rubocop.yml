@@ -22,6 +22,10 @@ Metrics/MethodLength:
     - '**/db/migrate/*'
     - 'test/**/*_test.rb'
 
+Rails/HelperInstanceVariable:
+  Exclude:
+    - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
+
 Style/AsciiComments:
   Enabled: false
 

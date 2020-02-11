@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_dependency 'eac/data_table_helper/column'
 require_dependency 'eac/data_table_helper/setup'
 require_dependency 'eac/data_table_helper/data_table'

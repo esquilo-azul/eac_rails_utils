@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eac
   module CommonFormHelper
     class FormBuilder
@@ -35,7 +37,8 @@ module Eac
           if model_instance.class.respond_to?(:reflect_on_association)
             return model_instance.class.reflect_on_association(field_name).send(method)
           end
-          fail "#{model_instance.class} não possui um método \"reflect_on_association\". " \
+
+          raise "#{model_instance.class} não possui um método \"reflect_on_association\". " \
             "Defina explicitamente a opção :#{key}"
         end
       end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module EacRailsUtils
   module FormatterHelper
     extend ::ActiveSupport::Concern
@@ -10,6 +11,7 @@ module EacRailsUtils
     def value_or_sign(value, sign = '-', &block)
       return sign if value.blank?
       return yield(value) if block
+
       value
     end
 

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # frozen_string_literal: true
 
 require 'yaml'
@@ -57,6 +56,7 @@ module Eac
       basenames = Set.new
       Dir.foreach(fixtures_directory) do |item|
         next if item == '.' || item == '..'
+
         b = self.class.source_target_basename(item)
         basenames << b if b.present?
       end

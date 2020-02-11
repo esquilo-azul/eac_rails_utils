@@ -32,20 +32,22 @@ module Eac
         end
       end
 
-      def row(r)
+      def row(record)
         @view.content_tag(:tr) do
-          @view.safe_join(@setup.columns.map { |c| @view.content_tag('td', c.record_value(r)) << "\n" })
+          @view.safe_join(
+            @setup.columns.map { |c| @view.content_tag('td', c.record_value(record)) << "\n" }
+          )
         end << "\n"
       end
 
       def script
-        @view.javascript_tag <<EOS
-$(document).ready(function () {
-  $('##{id}').DataTable({
-    paging: #{@setup.paging ? 'true' : 'false'}
-        });
-  });
-EOS
+        @view.javascript_tag <<~JS_CODE
+          $(document).ready(function () {
+            $('##{id}').DataTable({
+              paging: #{@setup.paging ? 'true' : 'false'}
+                  });
+            });
+        JS_CODE
       end
 
       def id
