@@ -27,5 +27,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'nested_form_fields'
 
   s.add_development_dependency 'rubocop', '~> 0.80.0'
+  s.add_development_dependency 'rubocop-rails', '~> 2.4.2'
   s.add_development_dependency 'sqlite3', '~> 1.3.13'
 end
