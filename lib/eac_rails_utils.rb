@@ -36,7 +36,6 @@ module EacRailsUtils
   require 'eac/menus_helper/gui_builder'
   require 'eac/model'
   require 'eac/no_presence_validator'
-  require 'eac/source_target_fixtures'
   require 'eac/test_utils'
 
   ActionView::Base.include Eac::CommonFormHelper
