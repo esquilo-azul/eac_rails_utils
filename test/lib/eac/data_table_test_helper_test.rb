@@ -3,7 +3,7 @@
 require 'test_helper'
 
 module Eac
-  class DataTableTestHelper < ActionView::TestCase
+  class DataTableTestHelperTest < ActionView::TestCase
     include ::Eac::DataTableHelper
 
     class Person
