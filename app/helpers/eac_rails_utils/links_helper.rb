@@ -35,7 +35,7 @@ module EacRailsUtils
     end
 
     def object_path(object, action = nil)
-      current_class = object.class
+      current_class = object_class(object)
       tried_paths = []
       while current_class
         path = object_path_by_class(current_class, action)
@@ -67,6 +67,13 @@ module EacRailsUtils
       path = "#{klass.name.underscore.tr('/', '_')}_url"
       path = "#{action}_#{path}" if action.present?
       path
+    end
+
+    def object_class(object)
+      return object.entity_class if object.respond_to?(:entity_class)
+      return object.__getobj__.class if object.respond_to?(:__getobj__)
+
+      object.class
     end
   end
 end
