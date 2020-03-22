@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Eac
   module CommonFormHelper
     class FormBuilder
@@ -67,6 +68,7 @@ module Eac
 
       def field_errors_errors(field_name)
         return nil unless model_instance.errors.messages[field_name]
+
         s = ActiveSupport::SafeBuffer.new
         model_instance.errors.messages[field_name].each { |error| s << field_error(error) }
         @field_errors_showed.add(field_name)

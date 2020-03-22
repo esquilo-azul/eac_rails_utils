@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'ofx-parser'
 
 module EacRailsUtils
@@ -14,9 +15,9 @@ module EacRailsUtils
         end
 
         module ClassMethods
-          def build_transaction(t)
+          def build_transaction(transaction)
             r = super
-            r.currate = (t / 'CURRENCY/CURRATE').inner_text
+            r.currate = (transaction / 'CURRENCY/CURRATE').inner_text
             r
           end
         end
@@ -32,11 +33,11 @@ end
 unless ::OfxParser::OfxParser.included_modules.include?(
   ::EacRailsUtils::Patches::OfxParser::OfxParser
 )
-  ::OfxParser::OfxParser.send(:include, ::EacRailsUtils::Patches::OfxParser::OfxParser)
+  ::OfxParser::OfxParser.include ::EacRailsUtils::Patches::OfxParser::OfxParser
 end
 
 unless ::OfxParser::Transaction.included_modules.include?(
   ::EacRailsUtils::Patches::OfxParser::Transaction
 )
-  ::OfxParser::Transaction.send(:include, ::EacRailsUtils::Patches::OfxParser::Transaction)
+  ::OfxParser::Transaction.include ::EacRailsUtils::Patches::OfxParser::Transaction
 end

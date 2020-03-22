@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'active_support/dependencies'
 
 module EacRailsUtils
@@ -35,11 +36,9 @@ module EacRailsUtils
   require 'eac/menus_helper/gui_builder'
   require 'eac/model'
   require 'eac/no_presence_validator'
-  require 'eac/parsers/files_test'
-  require 'eac/source_target_fixtures'
   require 'eac/test_utils'
 
-  ActionView::Base.send :include, Eac::CommonFormHelper
-  ActionView::Base.send :include, Eac::DataTableHelper
-  ActionView::Base.send :include, Eac::MenusHelper
+  ActionView::Base.include Eac::CommonFormHelper
+  ActionView::Base.include Eac::DataTableHelper
+  ActionView::Base.include Eac::MenusHelper
 end

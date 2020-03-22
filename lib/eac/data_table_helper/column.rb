@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Eac
   module DataTableHelper
     class Column
@@ -12,8 +13,8 @@ module Eac
         @block = block
       end
 
-      def record_value(r)
-        v = Node.new(r, @path).value
+      def record_value(record)
+        v = Node.new(record, @path).value
         if v.present?
           @block ? @block.call(v) : v
         else
@@ -35,9 +36,11 @@ module Eac
 
         def value
           return @node if @node.nil? || @path.empty?
+
           subpath = @path.dup
           n = subpath.shift
           return Node.new(@node.send(n), subpath).value if @node.respond_to?(n)
+
           raise "Instance of #{@node.class} does not respond to #{n}"
         end
       end

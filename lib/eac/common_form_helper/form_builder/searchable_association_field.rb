@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eac
   module CommonFormHelper
     class FormBuilder
@@ -42,17 +44,19 @@ module Eac
         end
 
         def association_column
-          @form_builder.model_instance && @form_builder.model_instance.send(@field_name)
+          @form_builder.model_instance&.send(@field_name)
         end
 
         def initial_id
           return association_column.id if association_column
+
           ''
         end
 
         def initial_label
           return association_column.to_s if association_column
           return params[visible_input_name] if params.key?(visible_input_name)
+
           ''
         end
 
@@ -66,7 +70,7 @@ module Eac
 
         def json_options
           r = {}
-          [:hidden_input_id, :visible_input_id, :initial_id, :initial_label, :url].each do |k|
+          %i[hidden_input_id visible_input_id initial_id initial_label url].each do |k|
             r[k] = send(k)
           end
           r.to_json

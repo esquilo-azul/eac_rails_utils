@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eac
   module CommonFormHelper
     class FormBuilder

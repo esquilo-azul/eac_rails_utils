@@ -1,0 +1,42 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - '**/*/db/schema.rb'
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/AbcSize:
+  Exclude:
+    - '**/db/migrate/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.gemspec'
+
+Metrics/MethodLength:
+  Exclude:
+    - '**/db/migrate/*'
+    - 'test/**/*_test.rb'
+
+Rails/HelperInstanceVariable:
+  Exclude:
+    - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: false

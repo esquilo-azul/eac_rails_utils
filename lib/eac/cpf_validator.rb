@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 module Eac
   class CpfValidator < ActiveModel::EachValidator
     def validate_each(record, attribute, value)
       return if Cpf.new(value).valid?
+
       record.errors[attribute] << (options[:message] ||
           'CPF inválido (9 caracteres, somente dígitos)')
     end
@@ -13,6 +16,7 @@ module Eac
 
       def valid?
         return false if input_invalid?
+
         digito_verificador1_calculo == values[9] && digito_verificador2_calculo == values[10]
       end
 
@@ -25,8 +29,8 @@ module Eac
       end
 
       def null?
-        %w(12345678909 11111111111 22222222222 33333333333 44444444444 55555555555
-           66666666666 77777777777 88888888888 99999999999 00000000000).member?(digits.join)
+        %w[12345678909 11111111111 22222222222 33333333333 44444444444 55555555555
+           66666666666 77777777777 88888888888 99999999999 00000000000].member?(digits.join)
       end
 
       def digits
@@ -53,7 +57,7 @@ module Eac
           c -= 1
         end
         s -= (11 * (s / 11))
-        (s == 0 || s == 1) ? 0 : 11 - s
+        [0, 1].include?(s) ? 0 : 11 - s
       end
     end
   end
