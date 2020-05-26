@@ -2,14 +2,14 @@
 
 require 'test_helper'
 
-module Eac
+module EacRailsUtils
   class CpfValidatorTest < ActiveSupport::TestCase
     class M1
       include ActiveModel::Model
 
       attr_accessor :cpf
 
-      validates :cpf, 'eac/cpf' => true, allow_nil: true
+      validates :cpf, 'eac_rails_utils/cpf' => true, allow_nil: true
     end
 
     def setup

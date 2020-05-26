@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Eac
+module EacRailsUtils
   class CpfValidator < ActiveModel::EachValidator
     def validate_each(record, attribute, value)
       return if Cpf.new(value).valid?
