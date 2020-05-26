@@ -9,5 +9,4 @@ module EacRailsUtils
   require 'action_view/base'
   ActionView::Base.include Eac::CommonFormHelper
   ActionView::Base.include Eac::DataTableHelper
-  ActionView::Base.include Eac::MenusHelper
 end

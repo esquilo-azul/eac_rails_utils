@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Eac
+module EacRailsUtils
   module MenusHelper
     # http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3
     class BootstrapGuiBuilder

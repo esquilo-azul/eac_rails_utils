@@ -2,7 +2,7 @@
 
 require 'eac_ruby_utils/require_sub'
 
-module Eac
+module EacRailsUtils
   module MenusHelper
     ::EacRubyUtils.require_sub __FILE__
 
