@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
+require 'eac_ruby_utils/require_sub'
+
 module Eac
   module CommonFormHelper
     class FormBuilder
+      ::EacRubyUtils.require_sub __FILE__
+
       include AssociationSelectField
       include CommonTextFields
       include CurrencyField

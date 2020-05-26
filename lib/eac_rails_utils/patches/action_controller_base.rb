@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'action_controller/base'
+
 module EacRailsUtils
   module Patches
     module ActionControllerBasePatch

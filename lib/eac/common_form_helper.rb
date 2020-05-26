@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+require 'eac_ruby_utils/require_sub'
+
 module Eac
   module CommonFormHelper
+    ::EacRubyUtils.require_sub __FILE__
+
     def common_form(model_instance, options = {}, &block)
       submit_label = options.delete(:submit_label)
       options[:html] ||= {}

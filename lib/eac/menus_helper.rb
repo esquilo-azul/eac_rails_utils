@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+require 'eac_ruby_utils/require_sub'
+
 module Eac
   module MenusHelper
+    ::EacRubyUtils.require_sub __FILE__
+
     def dropdown_menu(entries)
       entries = DataBuilder.new(self).build(entries)
       return nil unless entries

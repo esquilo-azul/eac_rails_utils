@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_dependency 'eac/data_table_helper/column'
-require_dependency 'eac/data_table_helper/setup'
-require_dependency 'eac/data_table_helper/data_table'
+require 'eac_ruby_utils/require_sub'
 
 module Eac
   module DataTableHelper
+    ::EacRubyUtils.require_sub __FILE__
+
     def data_table(dataset, &block)
       ::Eac::DataTableHelper::DataTable.new(self, dataset, &block).output
     end

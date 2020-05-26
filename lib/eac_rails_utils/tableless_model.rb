@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'activemodel/associations'
+require 'virtus'
+
 module EacRailsUtils
   class TablelessModel
     include ActiveModel::Model
