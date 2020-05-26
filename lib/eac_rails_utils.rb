@@ -4,5 +4,4 @@ require 'eac_ruby_utils/require_sub'
 
 module EacRailsUtils
   ::EacRubyUtils.require_sub __FILE__
-  require_relative 'eac'
 end
