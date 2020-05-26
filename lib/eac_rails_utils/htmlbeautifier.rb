@@ -2,7 +2,7 @@
 
 require 'htmlbeautifier'
 
-module Eac
+module EacRailsUtils
   class Htmlbeautifier
     def self.beautify(string)
       ::HtmlBeautifier.beautify(string, tab_stops: 2) + "\n"
