@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Eac
+module EacRailsUtils
   module CommonFormHelper
     class FormBuilder
       module AssociationSelectField

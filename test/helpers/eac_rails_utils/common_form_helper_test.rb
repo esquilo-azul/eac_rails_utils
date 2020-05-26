@@ -2,9 +2,9 @@
 
 require 'test_helper'
 
-module Eac
+module EacRailsUtils
   class CommonFormHelperTest < ActionView::TestCase
-    include Eac::CommonFormHelper
+    include ::EacRailsUtils::CommonFormHelper
 
     setup do
       reset_test_database

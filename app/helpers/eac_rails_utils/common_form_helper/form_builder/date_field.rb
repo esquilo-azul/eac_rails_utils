@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module Eac
+module EacRailsUtils
   module CommonFormHelper
     class FormBuilder
-      module TimeField
-        def time_field(field_name, options = {})
+      module DateField
+        def date_field(field_name, options = {})
           field_options = options.extract!(:use_month_numbers, :use_two_digit_numbers,
                                            :use_short_month, :add_month_numbers, :use_month_names,
                                            :month_format_string, :date_separator, :start_year,
@@ -12,7 +12,7 @@ module Eac
                                            :order, :include_blank, :default, :selected, :disabled,
                                            :prompt, :with_css_classes)
           field(field_name, options) do
-            @helper.content_tag(:div, @form.time_select(field_name, field_options),
+            @helper.content_tag(:div, @form.date_select(field_name, field_options),
                                 class: 'form-control-complex')
           end
         end
