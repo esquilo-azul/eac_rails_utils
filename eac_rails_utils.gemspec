@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'activemodel-associations', '~> 0.2'
   s.add_dependency 'bootstrap-sass', '>= 3.3.6'
+  s.add_dependency 'eac_ruby_utils', '~> 0.33', '>= 0.33.1'
   s.add_dependency 'htmlbeautifier', '>= 1.1.1'
   s.add_dependency 'ofx-parser', '>= 1.1.0'
   s.add_dependency 'rails', '>= 4.2.11.1'
