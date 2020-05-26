@@ -2,9 +2,9 @@
 
 require 'test_helper'
 
-module Eac
+module EacRailsUtils
   class DataTableTestHelperTest < ActionView::TestCase
-    include ::Eac::DataTableHelper
+    include ::EacRailsUtils::DataTableHelper
 
     class Person
       attr_reader :name, :age, :job

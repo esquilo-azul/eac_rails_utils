@@ -2,12 +2,12 @@
 
 require 'eac_ruby_utils/require_sub'
 
-module Eac
+module EacRailsUtils
   module DataTableHelper
     ::EacRubyUtils.require_sub __FILE__
 
     def data_table(dataset, &block)
-      ::Eac::DataTableHelper::DataTable.new(self, dataset, &block).output
+      ::EacRailsUtils::DataTableHelper::DataTable.new(self, dataset, &block).output
     end
   end
 end

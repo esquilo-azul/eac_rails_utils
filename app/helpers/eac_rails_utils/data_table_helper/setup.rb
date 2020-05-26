@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Eac
+module EacRailsUtils
   module DataTableHelper
     class Setup
       attr_reader :columns
@@ -12,7 +12,7 @@ module Eac
       end
 
       def column(label, path = nil, &block)
-        @columns << ::Eac::DataTableHelper::Column.new(label, path, block)
+        @columns << ::EacRailsUtils::DataTableHelper::Column.new(label, path, block)
       end
     end
   end

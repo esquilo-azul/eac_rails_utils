@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-module Eac
+module EacRailsUtils
   module DataTableHelper
     class DataTable
       def initialize(view, dataset)
         @view = view
         @dataset = dataset
-        @setup = ::Eac::DataTableHelper::Setup.new
+        @setup = ::EacRailsUtils::DataTableHelper::Setup.new
         yield(@setup)
       end
 

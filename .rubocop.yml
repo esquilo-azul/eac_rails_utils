@@ -25,6 +25,7 @@ Metrics/MethodLength:
 
 Rails/HelperInstanceVariable:
   Exclude:
+    - app/helpers/eac_rails_utils/data_table**/**/*.rb
     - app/helpers/eac_rails_utils/menus_helper**/**/*.rb
     - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
 
