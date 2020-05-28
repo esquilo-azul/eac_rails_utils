@@ -32,6 +32,7 @@ module EacRailsUtils
 
       class ActiveModelStub
         include ActiveModel::Model
+        include ::EacRailsUtils::Models::AttributeRequired
 
         attr_accessor :name, :age
         validates :name, presence: true
