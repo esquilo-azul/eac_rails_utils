@@ -7,7 +7,8 @@ module EacRailsUtils
         def select_field(field_name, options = {})
           options = options.dup
           field(field_name, options) do
-            form.select(field_name, select_options(field_name, options))
+            form.select(field_name, select_options(field_name, options),
+                        options, options[:html] || {})
           end
         end
 
