@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'activemodel/associations'
+require 'eac_rails_utils/patches/active_model_associations'
 require 'virtus'
 
 module EacRailsUtils
