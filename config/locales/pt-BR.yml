@@ -1,0 +1,8 @@
+pt-BR:
+  eac_rails_utils:
+    links:
+      delete_confirm: Confirma a remoção de "%{label}"?
+      delete_object: Remover "%{label}".
+      edit_object: Editar "%{label}".
+      goto_url: Ir para %{url}.
+      show_object: Mostrar "%{label}".

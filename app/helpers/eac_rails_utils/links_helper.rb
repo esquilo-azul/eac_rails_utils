@@ -4,24 +4,24 @@ module EacRailsUtils
   module LinksHelper
     def short_delete_link(object)
       short_object_link object, '', class: 'delete_link', method: :delete, target: '_blank',
-                                    title: ::I18n.t('eac_rails_base0.links.delete_object',
+                                    title: ::I18n.t('eac_rails_utils.links.delete_object',
                                                     label: object.to_s),
                                     data: {
-                                      confirm: ::I18n.t('eac_rails_base0.links.delete_confirm',
+                                      confirm: ::I18n.t('eac_rails_utils.links.delete_confirm',
                                                         label: object.to_s)
                                     }
     end
 
     def short_edit_link(object)
       short_object_link object, 'edit', class: 'edit_link', target: '_blank',
-                                        title: ::I18n.t('eac_rails_base0.links.edit_object',
+                                        title: ::I18n.t('eac_rails_utils.links.edit_object',
                                                         label: object.to_s)
     end
 
     def short_goto_link(url)
       value_or_sign(url, '') do |value|
         link_to '', value, class: 'goto_link', target: '_blank',
-                           title: ::I18n.t('eac_rails_base0.links.goto_url', url: value.to_s),
+                           title: ::I18n.t('eac_rails_utils.links.goto_url', url: value.to_s),
                            rel: 'noopener'
       end
     end
@@ -54,7 +54,7 @@ module EacRailsUtils
       short_object_link object,
                         detail ? 'detail' : nil,
                         class: 'show_link', target: '_blank',
-                        title: ::I18n.t('eac_rails_base0.links.show_object', label: object.to_s)
+                        title: ::I18n.t('eac_rails_utils.links.show_object', label: object.to_s)
     end
 
     def short_object_link(object, action = nil, options = {})

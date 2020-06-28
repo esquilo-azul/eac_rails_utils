@@ -1,0 +1,8 @@
+en:
+  eac_rails_utils:
+    links:
+      delete_confirm: Do you confirm "%{label}"'s removal?
+      delete_object: Remove "%{label}".
+      edit_object: Edit "%{label}".
+      goto_url: Go to %{url}.
+      show_object: Show "%{label}".
