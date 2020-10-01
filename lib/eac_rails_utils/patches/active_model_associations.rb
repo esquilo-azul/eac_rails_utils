@@ -27,6 +27,8 @@ module ActiveModel
   module Associations
     module Hooks
       def self.init
+        return unless ::Rails.version < '5'
+
         ActiveSupport.on_load(:active_record) do
           ActiveRecord::Associations::AssociationScope.prepend(
             ::EacRailsUtils::Patches::ActiveModelAssociations::ScopeExtensionPatch
