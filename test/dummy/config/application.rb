@@ -9,6 +9,6 @@ require 'eac_rails_utils'
 
 module Dummy
   class Application < Rails::Application
-    config.active_record.raise_in_transactional_callbacks = true
+    config.active_record.raise_in_transactional_callbacks = true if ::Rails.version < '5'
   end
 end
