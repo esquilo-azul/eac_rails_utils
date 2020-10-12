@@ -27,5 +27,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'nested_form_fields'
 
   s.add_development_dependency 'eac_ruby_gem_support', '~> 0.1'
+  s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'sqlite3', '~> 1.3.13'
 end
