@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'eac_ruby_utils/require_sub'
+require 'eac_ruby_utils/core_ext'
 
 module EacRailsUtils
   module CommonFormHelper
-    ::EacRubyUtils.require_sub __FILE__
+    require_sub __FILE__
 
     def common_form(model_instance, options = {}, &block)
       submit_label = options.delete(:submit_label)
