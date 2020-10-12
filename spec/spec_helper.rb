@@ -1,6 +1,26 @@
 # frozen_string_literal: true
 
+require 'spec_helper'
+ENV['RAILS_ENV'] ||= 'test'
+dummy_app = ::File.expand_path('../test/dummy', __dir__)
+require ::File.join(dummy_app, 'config', 'environment')
+ActiveRecord::Migrator.migrations_paths = [
+  ::File.join(dummy_app, 'db', 'migrate')
+]
+
+abort('The Rails environment is running in production mode!') if Rails.env.production?
+require 'rspec/rails'
+
+begin
+  ActiveRecord::Migration.maintain_test_schema!
+rescue ActiveRecord::PendingMigrationError => e
+  puts e.to_s.strip
+  exit 1
+end
+
 RSpec.configure do |config|
+  config.use_transactional_fixtures = true
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -9,4 +29,6 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  # config.filter_rails_from_backtrace!
 end
