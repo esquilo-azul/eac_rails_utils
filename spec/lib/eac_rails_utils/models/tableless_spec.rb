@@ -22,4 +22,8 @@ RSpec.describe(::EacRailsUtils::Models::Tableless) do
   it { expect(record.tempo.hour).to eq(12) }
   it { expect(record.tempo.minute).to eq(13) }
   it { expect(record.tempo.second).to eq(14) }
+
+  describe '#columns_names' do
+    it { expect(model.columns_names).to eq(%i[tempo]) }
+  end
 end
