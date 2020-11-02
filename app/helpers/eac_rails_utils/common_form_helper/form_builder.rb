@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'eac_ruby_utils/require_sub'
-require 'eac_rails_utils/models/attribute_required'
+require 'eac_rails_utils/models/validations'
 
 module EacRailsUtils
   module CommonFormHelper
@@ -93,8 +93,8 @@ module EacRailsUtils
 
       def field_label(field_name, label, required)
         if required.nil?
-          required = ::EacRailsUtils::Models::AttributeRequired
-                     .required?(model_instance, field_name)
+          required = ::EacRailsUtils::Models::Validations
+                     .column_required?(model_instance, field_name)
         end
         @form.label(field_name, label, class: required ? 'required' : 'optional')
       end
