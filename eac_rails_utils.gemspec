@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'bootstrap-sass', '>= 3.3.6'
   s.add_dependency 'eac_ruby_utils', '~> 0.49'
   s.add_dependency 'htmlbeautifier', '>= 1.1.1'
-  s.add_dependency 'rails', '>= 4.2.11.1'
+  s.add_dependency 'rails', '>= 4.2.11'
   s.add_dependency 'virtus', '>= 1.0.5'
 
   # Formulários aninhados
