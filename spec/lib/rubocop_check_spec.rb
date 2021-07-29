@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-::EacRubyGemSupport::Rspec.default.describe_rubocop
+::EacRubyUtils::Rspec.default_setup.describe_rubocop
