@@ -1,4 +1,2 @@
 Gemfile.lock
-test/dummy/db/test.sqlite3
-test/dummy/log
 pkg/**/*
