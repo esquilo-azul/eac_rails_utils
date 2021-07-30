@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
-dummy_app = ::File.expand_path('../test/dummy', __dir__)
+dummy_app = ::File.expand_path('./support/rails_app', __dir__)
 require ::File.join(dummy_app, 'config', 'environment')
 ActiveRecord::Migrator.migrations_paths = [
   ::File.join(dummy_app, 'db', 'migrate')
