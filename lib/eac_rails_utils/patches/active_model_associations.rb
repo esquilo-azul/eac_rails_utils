@@ -26,13 +26,17 @@ end
 module ActiveModel
   module Associations
     module Hooks
-      def self.init
-        return unless ::Rails.version < '5'
+      class << self
+        def init
+          init_rails_4 if ::EacRailsUtils::Patches::Rails4.enabled?
+        end
 
-        ActiveSupport.on_load(:active_record) do
-          ActiveRecord::Associations::AssociationScope.prepend(
-            ::EacRailsUtils::Patches::ActiveModelAssociations::ScopeExtensionPatch
-          )
+        def init_rails_4
+          ActiveSupport.on_load(:active_record) do
+            ActiveRecord::Associations::AssociationScope.prepend(
+              ::EacRailsUtils::Patches::ActiveModelAssociations::ScopeExtensionPatch
+            )
+          end
         end
       end
     end
