@@ -14,7 +14,7 @@ module ActiveModel
         def init_rails_4
           ActiveSupport.on_load(:active_record) do
             ActiveRecord::Associations::AssociationScope.prepend(
-              ::EacRailsUtils::Patches::Rails4::ActiveModelAssociations::ScopeExtensionPatch
+              ::EacRailsUtils::Patches::Rails4.ActiveRecordAssociationsAssociationScope
             )
           end
         end
