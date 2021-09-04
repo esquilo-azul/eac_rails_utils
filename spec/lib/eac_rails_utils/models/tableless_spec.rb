@@ -16,6 +16,27 @@ RSpec.describe(::EacRailsUtils::Models::Tableless) do
   it { expect(record.tempo.second).to eq(14) }
 
   describe '#columns_names' do
-    it { expect(model.columns_names).to eq(%i[tempo]) }
+    it { expect(model.columns_names).to eq(%i[tempo job_id]) }
+  end
+
+  describe '#belongs_to' do
+    context 'when value is nil' do
+      before { record.job = nil }
+
+      it { expect(record).not_to be_valid }
+    end
+
+    context 'when values has association type' do
+      before { record.job = ::Job.new }
+
+      it { expect(record.job).to be_a(::Job) }
+      it { expect(record).to be_valid }
+    end
+
+    context 'when value has not association type' do
+      it do
+        expect { record.job = ::User.new }.to raise_error(::ActiveRecord::AssociationTypeMismatch)
+      end
+    end
   end
 end
