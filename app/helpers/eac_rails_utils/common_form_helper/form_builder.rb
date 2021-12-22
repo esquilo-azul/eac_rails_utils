@@ -8,7 +8,6 @@ module EacRailsUtils
     class FormBuilder
       ::EacRubyUtils.require_sub __FILE__
 
-      include AssociationSelectField
       include CommonTextFields
       include CurrencyField
       include DateField
@@ -25,6 +24,11 @@ module EacRailsUtils
         @form = form
         @helper = helper
         @field_errors_showed = Set.new
+      end
+
+      def association_select_field(field_name, options = {})
+        ::EacRailsUtils::CommonFormHelper::FormBuilder::AssociationSelectField
+          .new(self, field_name, options).output
       end
 
       def model_instance

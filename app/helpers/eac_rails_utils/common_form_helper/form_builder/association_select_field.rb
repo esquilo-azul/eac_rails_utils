@@ -3,18 +3,34 @@
 module EacRailsUtils
   module CommonFormHelper
     class FormBuilder
-      module AssociationSelectField
-        def association_select_field(field_name, options = {})
-          options = options.dup
-          methods = extract_methods(options)
-          select_options = extract_select_options(options)
-          collection = extract_association_key(field_name, options, :collection, :all)
-          foreign_key =  extract_association_key(field_name, options, :foreign_key,
-                                                 :association_foreign_key)
-          field(field_name, options) do
-            form.collection_select(foreign_key, collection, methods[:value], methods[:text],
-                                   select_options, class: 'form-control')
+      class AssociationSelectField
+        common_constructor :builder, :field_name, :options, default: [{}] do
+          self.options = options.dup
+        end
+
+        delegate :model_instance, to: :builder
+
+        def collection
+          extract_association_key(:collection, :all)
+        end
+
+        def foreign_key
+          extract_association_key(:foreign_key, :association_foreign_key)
+        end
+
+        def methods
+          extract_methods(options)
+        end
+
+        def output
+          builder.send(:field, field_name, options) do
+            builder.form.collection_select(foreign_key, collection, methods[:value], methods[:text],
+                                           select_options, class: 'form-control')
           end
+        end
+
+        def select_options
+          extract_select_options(options)
         end
 
         private
@@ -28,8 +44,8 @@ module EacRailsUtils
           options.extract!(:prompt, :include_blank)
         end
 
-        def extract_association_key(field_name, options, key, method)
-          return options.delete(key) if options.key?(key)
+        def extract_association_key(key, method)
+          return options.fetch(key) if options.key?(key)
           if model_instance.class.respond_to?(:reflect_on_association)
             return model_instance.class.reflect_on_association(field_name).send(method)
           end
