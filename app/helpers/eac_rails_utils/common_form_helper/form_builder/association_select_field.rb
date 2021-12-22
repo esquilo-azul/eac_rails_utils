@@ -11,11 +11,15 @@ module EacRailsUtils
         delegate :model_instance, to: :builder
 
         def collection
-          extract_association_key(:collection, :all)
+          extract_association_key(:collection, *(
+              ::Rails.version < '5' ? [:all] : %i[klass all]
+            ))
         end
 
         def foreign_key
-          extract_association_key(:foreign_key, :association_foreign_key)
+          extract_association_key(:foreign_key, (
+              ::Rails.version < '5' ? :association_foreign_key : :join_foreign_key
+            ))
         end
 
         def methods
@@ -35,6 +39,15 @@ module EacRailsUtils
 
         private
 
+        def association_reflection
+          if model_instance.class.respond_to?(:reflect_on_association)
+            model_instance.class.reflect_on_association(field_name)
+          else
+            raise "#{model_instance.class} não possui um método \"reflect_on_association\". " \
+              "Defina explicitamente a opção :#{key}"
+          end
+        end
+
         def extract_methods(options)
           { value: options.delete(:value_method) || :id, text:
               options.delete(:text_method) || :to_s }
@@ -44,14 +57,12 @@ module EacRailsUtils
           options.extract!(:prompt, :include_blank)
         end
 
-        def extract_association_key(key, method)
-          return options.fetch(key) if options.key?(key)
-          if model_instance.class.respond_to?(:reflect_on_association)
-            return model_instance.class.reflect_on_association(field_name).send(method)
+        def extract_association_key(key, *methods)
+          if options.key?(key)
+            options.fetch(key)
+          else
+            methods.inject(association_reflection) { |a, e| a.send(e) }
           end
-
-          raise "#{model_instance.class} não possui um método \"reflect_on_association\". " \
-            "Defina explicitamente a opção :#{key}"
         end
       end
     end
