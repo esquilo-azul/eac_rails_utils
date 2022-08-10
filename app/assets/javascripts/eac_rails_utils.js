@@ -6,3 +6,4 @@
 //= require nested_form_fields
 //= require datatables.min
 //= require dataTables.bootstrap.min
+//= require eac_rails_utils/url_helper
