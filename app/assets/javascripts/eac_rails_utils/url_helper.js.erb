@@ -1,0 +1,14 @@
+if (typeof EacRailsUtils == "undefined") {
+  EacRailsUtils = function() {};
+}
+
+EacRailsUtils.UrlHelper = function () {
+};
+
+<% require_dependency 'eac_rails_utils/url_helper' %>
+EacRailsUtils.UrlHelper.BASE_PATH = <%= ::EacRailsUtils::UrlHelper.relative_url_root
+  .gsub(%r{/+\z}, '').to_json %>;
+
+EacRailsUtils.UrlHelper.path_for = function(subPath) {
+  return EacRailsUtils.UrlHelper.BASE_PATH + '/' + subPath.replace(/^\/+/, '');
+}
