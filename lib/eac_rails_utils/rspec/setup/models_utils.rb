@@ -12,9 +12,9 @@ module EacRailsUtils
               send(record_variable).send("#{attribute}=", value)
             end
 
-            it "#{record_variable} should be {valid ? '' : 'not '}valid" do
-              expect(send(record_variable).valid?).to send("be_#{valid ? 'truthy' : 'falsy'}"),
-                                                      send(record_variable).errors.messages
+            it "#{record_variable} should be #{valid ? '' : 'not '}valid" do
+              expect(send(record_variable).valid?).to(send("be_#{valid ? 'truthy' : 'falsy'}"),
+                                                      -> { send(record_variable).errors.messages })
             end
           end
         end
