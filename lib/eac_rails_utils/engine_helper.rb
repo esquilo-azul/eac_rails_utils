@@ -5,10 +5,15 @@ require 'eac_ruby_utils/core_ext'
 module EacRailsUtils
   module EngineHelper
     common_concern do
+      append_autoload_paths
       append_self_migrations
     end
 
     module ClassMethods
+      def append_autoload_paths
+        config.autoload_paths += Dir["#{config.root}/lib/**/"]
+      end
+
       def append_self_migrations
         initializer :append_migrations do |app|
           config.paths['db/migrate'].expanded.each do |expanded_path|
