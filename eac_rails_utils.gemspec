@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'eac_ruby_utils', '~> 0.117', '>= 0.117.1'
   s.add_dependency 'htmlbeautifier', '~> 1.4', '>= 1.4.2'
   s.add_dependency 'rails', '>= 4.2.11'
-  s.add_dependency 'virtus', '>= 1.0.5'
+  s.add_dependency 'virtus', '~> 2.0'
 
   # Formulários aninhados
   # https://github.com/ncri/nested_form_fields
