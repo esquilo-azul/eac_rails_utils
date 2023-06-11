@@ -6,9 +6,6 @@ module EacRailsUtils
   module DataTableHelper
     class DataTable
       common_constructor :view, :dataset, :setup_block, block_arg: true
-        @setup = ::EacRailsUtils::DataTableHelper::Setup.new
-        setup_block.call(@setup)
-      end
 
       def output
         view.content_tag(:table, id: id) do
@@ -21,7 +18,7 @@ module EacRailsUtils
       def head
         view.content_tag(:thead) do
           view.content_tag(:tr) do
-            view.safe_join(@setup.columns.map { |c| view.content_tag('th', c.label) })
+            view.safe_join(setup.columns.map { |c| view.content_tag('th', c.label) })
           end
         end
       end
@@ -35,7 +32,7 @@ module EacRailsUtils
       def row(record)
         view.content_tag(:tr) do
           view.safe_join(
-            @setup.columns.map { |c| view.content_tag('td', c.record_value(record)) << "\n" }
+            setup.columns.map { |c| view.content_tag('td', c.record_value(record)) << "\n" }
           )
         end << "\n"
       end
@@ -52,6 +49,15 @@ module EacRailsUtils
 
       def id
         @id ||= SecureRandom.hex(32)
+      end
+
+      # @return [EacRailsUtils::DataTableHelper::Setup]
+      def setup
+        @setup ||= begin
+          r = ::EacRailsUtils::DataTableHelper::Setup.new
+          setup_block.call(r)
+          r
+        end
       end
     end
   end
