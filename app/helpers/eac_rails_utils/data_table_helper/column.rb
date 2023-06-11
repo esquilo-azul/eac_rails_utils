@@ -20,7 +20,7 @@ module EacRailsUtils
       end
 
       def record_value(record)
-        v = Node.new(record, path).value
+        v = ::EacRailsUtils::DataTableHelper::ColumnNode.new(record, path).value
         if v.present?
           block ? block.call(v) : v
         else
@@ -46,23 +46,6 @@ module EacRailsUtils
 
       def node_value(node, subpath)
         return node if subpath.empty?
-      end
-
-      class Node
-        def initialize(node, path)
-          @node = node
-          @path = path
-        end
-
-        def value
-          return @node if @node.nil? || @path.empty?
-
-          subpath = @path.dup
-          n = subpath.shift
-          return Node.new(@node.send(n), subpath).value if @node.respond_to?(n)
-
-          raise "Instance of #{@node.class} does not respond to #{n}"
-        end
       end
     end
   end
