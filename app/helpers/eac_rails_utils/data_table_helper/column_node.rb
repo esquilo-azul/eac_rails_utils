@@ -7,9 +7,14 @@ module EacRailsUtils
     class ColumnNode
       common_constructor :node, :path
 
+      # @return [Boolean]
+      def ended?
+        node.nil? || path.empty?
+      end
+
       # @return [Object]
       def value # rubocop:disable Metrics/AbcSize
-        return node if node.nil? || path.empty?
+        return node if ended?
 
         subpath = path.dup
         n = subpath.shift
