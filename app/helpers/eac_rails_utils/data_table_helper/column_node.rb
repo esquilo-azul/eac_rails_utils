@@ -13,9 +13,14 @@ module EacRailsUtils
       end
 
       # @return [Object]
-      def value # rubocop:disable Metrics/AbcSize
-        return node if ended?
+      def value
+        ended? ? node : child_value
+      end
 
+      private
+
+      # @return [Object]
+      def child_value
         subpath = path.dup
         n = subpath.shift
         return self.class.new(node.send(n), subpath).value if node.respond_to?(n)
