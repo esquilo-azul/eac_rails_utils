@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
+require 'eac_ruby_utils/core_ext'
+
 module EacRailsUtils
   module DataTableHelper
     class DataTable
-      def initialize(view, dataset)
-        @view = view
-        @dataset = dataset
+      common_constructor :view, :dataset, :setup_block, block_arg: true
         @setup = ::EacRailsUtils::DataTableHelper::Setup.new
-        yield(@setup)
+        setup_block.call(@setup)
       end
 
       def output
-        @view.content_tag(:table, id: id) do
+        view.content_tag(:table, id: id) do
           head << body
         end << script
       end
@@ -19,29 +19,29 @@ module EacRailsUtils
       private
 
       def head
-        @view.content_tag(:thead) do
-          @view.content_tag(:tr) do
-            @view.safe_join(@setup.columns.map { |c| @view.content_tag('th', c.label) })
+        view.content_tag(:thead) do
+          view.content_tag(:tr) do
+            view.safe_join(@setup.columns.map { |c| view.content_tag('th', c.label) })
           end
         end
       end
 
       def body
-        @view.content_tag(:tbody) do
-          @view.safe_join(@dataset.map { |r| row(r) })
+        view.content_tag(:tbody) do
+          view.safe_join(dataset.map { |r| row(r) })
         end
       end
 
       def row(record)
-        @view.content_tag(:tr) do
-          @view.safe_join(
-            @setup.columns.map { |c| @view.content_tag('td', c.record_value(record)) << "\n" }
+        view.content_tag(:tr) do
+          view.safe_join(
+            @setup.columns.map { |c| view.content_tag('td', c.record_value(record)) << "\n" }
           )
         end << "\n"
       end
 
       def script
-        @view.javascript_tag <<~JS_CODE
+        view.javascript_tag <<~JS_CODE
           $(document).ready(function () {
             $('##{id}').DataTable({
               paging: #{@setup.paging ? 'true' : 'false'}
