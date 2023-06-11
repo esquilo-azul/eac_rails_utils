@@ -32,7 +32,7 @@ module EacRailsUtils
       def row(record)
         view.content_tag(:tr) do
           view.safe_join(
-            setup.columns.map { |c| view.content_tag('td', c.record_value(record)) << "\n" }
+            setup.columns.map { |c| value_cell(c, record) << "\n" }
           )
         end << "\n"
       end
@@ -59,6 +59,8 @@ module EacRailsUtils
           r
         end
       end
+
+      require_sub __FILE__, require_mode: :kernel
     end
   end
 end
