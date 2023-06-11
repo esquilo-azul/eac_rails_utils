@@ -11,8 +11,8 @@ module EacRailsUtils
         @paging = true
       end
 
-      def column(label, path = nil, &block)
-        @columns << ::EacRailsUtils::DataTableHelper::Column.new(label, path, block)
+      def column(*args, &block)
+        @columns << ::EacRailsUtils::DataTableHelper::Column.new(args, block)
       end
     end
   end

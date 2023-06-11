@@ -7,8 +7,16 @@ module EacRailsUtils
     class Column
       EMPTY_VALUE = '-'
 
-      common_constructor :label, :path, :block do
-        self.path = path.to_s.split('.')
+      common_constructor :args, :block
+
+      # @return [String]
+      def label
+        args[0]
+      end
+
+      # @return [String]
+      def path
+        args[1].to_s.split('.')
       end
 
       def record_value(record)
