@@ -1,22 +1,20 @@
 # frozen_string_literal: true
 
+require 'eac_ruby_utils/core_ext'
+
 module EacRailsUtils
   module DataTableHelper
     class Column
       EMPTY_VALUE = '-'
 
-      attr_reader :label
-
-      def initialize(label, path, block)
-        @label = label
-        @path = path.to_s.split('.')
-        @block = block
+      common_constructor :label, :path, :block do
+        self.path = path.to_s.split('.')
       end
 
       def record_value(record)
-        v = Node.new(record, @path).value
+        v = Node.new(record, path).value
         if v.present?
-          @block ? @block.call(v) : v
+          block ? block.call(v) : v
         else
           EMPTY_VALUE
         end
