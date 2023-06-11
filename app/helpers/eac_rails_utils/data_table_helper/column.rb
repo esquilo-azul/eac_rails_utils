@@ -28,6 +28,11 @@ module EacRailsUtils
         end
       end
 
+      # @return [Hash]
+      def value_cell_attributes
+        @value_cell_attributes ||= {}
+      end
+
       private
 
       def node_value(node, subpath)
