@@ -28,6 +28,15 @@ module EacRailsUtils
         end
       end
 
+      # @param attribute [Symbol]
+      # @param value [Proc, Object]
+      # @return [self]
+      def value_cell(attribute, value = nil, &block)
+        value_cell_attributes[attribute.to_sym] = block.if_present(value)
+
+        self
+      end
+
       # @return [Hash]
       def value_cell_attributes
         @value_cell_attributes ||= {}
