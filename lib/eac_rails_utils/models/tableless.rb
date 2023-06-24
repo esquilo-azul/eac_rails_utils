@@ -24,25 +24,11 @@ module EacRailsUtils
         super(build_attributes(values))
       end
 
-      def attributes=(values)
-        super(build_attributes(values))
-      end
-
-      # need hash like accessor, used internal Rails
-      def [](attr)
-        send(attr)
-      end
-
-      # need hash like accessor, used internal Rails
-      def []=(attr, value)
-        send("#{attr}=", value)
-      end
-
       def save!
         save || raise("#{self.class}.save failed: #{errors.messages}")
       end
 
-      require_sub __FILE__, require_mode: :kernel
+      require_sub __FILE__, require_mode: :kernel, include_modules: :include
     end
   end
 end
