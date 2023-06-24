@@ -10,16 +10,6 @@ module EacRailsUtils
       include Virtus.model
       include ActiveModel::Associations
 
-      class << self
-        def columns
-          attribute_set.each.to_a
-        end
-
-        def columns_names
-          columns.map(&:name)
-        end
-      end
-
       def initialize(values = {})
         super(build_attributes(values))
       end
