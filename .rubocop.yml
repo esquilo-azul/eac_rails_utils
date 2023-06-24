@@ -9,6 +9,7 @@ AllCops:
     - '**/*/db/schema.rb'
     - lib/active_model/**/*
     - lib/active_record/**/*
+    - lib/activemodel/associations.rb
 
 Layout/LineLength:
   Max: 100
