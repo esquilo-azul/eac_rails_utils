@@ -7,6 +7,7 @@ AllCops:
   TargetRubyVersion: 2.4
   Exclude:
     - '**/*/db/schema.rb'
+    - lib/active_model/**/*
 
 Layout/LineLength:
   Max: 100
