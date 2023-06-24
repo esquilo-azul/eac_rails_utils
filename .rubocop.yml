@@ -8,6 +8,7 @@ AllCops:
   Exclude:
     - '**/*/db/schema.rb'
     - lib/active_model/**/*
+    - lib/active_record/**/*
 
 Layout/LineLength:
   Max: 100
