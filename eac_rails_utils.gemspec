@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'Rakefile']
   s.test_files = Dir['test/**/*']
 
+  s.add_dependency 'activemodel'
   s.add_dependency 'activemodel-associations', '~> 0.2'
   s.add_dependency 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
   s.add_dependency 'eac_ruby_utils', '~> 0.118'
