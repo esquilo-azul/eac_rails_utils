@@ -4,6 +4,7 @@ module EacRailsUtils
   module Models
     class Tableless
       class BuildAttributes
+        acts_as_instance_method
         DATE_TIME_FIELDS = %i[year month day hour min sec].freeze
 
         def initialize(model_class, values)
@@ -12,7 +13,7 @@ module EacRailsUtils
           values.each { |k, v| add(k, v) }
         end
 
-        def to_attributes
+        def result
           @values
         end
 

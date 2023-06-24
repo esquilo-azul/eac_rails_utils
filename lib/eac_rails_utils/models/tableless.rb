@@ -42,13 +42,7 @@ module EacRailsUtils
         save || raise("#{self.class}.save failed: #{errors.messages}")
       end
 
-      private
-
-      def build_attributes(values)
-        ::EacRailsUtils::Models::Tableless::BuildAttributes.new(self.class, values).to_attributes
-      end
-
-      require_sub __FILE__
+      require_sub __FILE__, require_mode: :kernel
     end
   end
 end
