@@ -1,7 +1,19 @@
 # frozen_string_literal: true
 
 RSpec.describe(::EacRailsUtils::Models::Tableless) do
-  let(:model) { StubbedTablelessModel }
+  let(:model) do
+    ::Class.new(described_class) do
+      def self.name
+        'StubbedTablelessModel'
+      end
+
+      attribute :tempo, DateTime
+
+      attribute :job_id, Integer
+      belongs_to :job, class_name: 'Job'
+      validates :job, presence: true
+    end
+  end
   let(:record) do
     model.new('tempo(1i)' => '9', 'tempo(2i)' => '10', 'tempo(3i)' => '11',
               'tempo(4i)' => '12', 'tempo(5i)' => '13', 'tempo(6i)' => '14')
