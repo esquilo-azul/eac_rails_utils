@@ -38,6 +38,18 @@ RSpec.describe(::EacRailsUtils::Models::Tableless) do
       it { expect(record).not_to be_valid }
     end
 
+    context 'when value is set by foreign key' do
+      let(:job) { ::Job.create!(name: 'A Job') }
+
+      before do
+        record.job_id = job.id
+      end
+
+      it { expect(job.id).to be_present }
+      it { expect(record.job).to be_a(::Job) }
+      it { expect(record).to be_valid }
+    end
+
     context 'when values has association type' do
       before { record.job = ::Job.new }
 
