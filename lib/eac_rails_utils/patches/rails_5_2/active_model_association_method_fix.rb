@@ -18,7 +18,7 @@ module EacRailsUtils
         private
 
         def the_module
-          ::ActiveModel::Associations::ClassMethods
+          ::EacRailsUtils::Models::TablelessAssociations::ClassMethods
         end
 
         def perform

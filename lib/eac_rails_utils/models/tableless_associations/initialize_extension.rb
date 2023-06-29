@@ -1,4 +1,4 @@
-module ActiveModel::Associations
+module EacRailsUtils::Models::TablelessAssociations
   module InitializeExtension
     extend ActiveSupport::Concern
 

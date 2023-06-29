@@ -1,8 +1,8 @@
 require "active_model"
 require "active_record"
 require "active_support"
-require "active_model/associations"
-require "active_model/associations/hooks"
+require "eac_rails_utils/models/tableless_associations"
+require "eac_rails_utils/models/tableless_associations/hooks"
 
 # Load Railtie
 begin
@@ -11,5 +11,5 @@ rescue LoadError
 end
 
 if defined?(Rails)
-  require "active_model/associations/railtie"
+  require "eac_rails_utils/models/tableless_associations/railtie"
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_model/associations/hooks'
+require 'eac_rails_utils/models/tableless_associations/hooks'
 require 'eac_ruby_utils/require_sub'
 
 module EacRailsUtils

@@ -1,4 +1,4 @@
-module ActiveModel::Associations
+module EacRailsUtils::Models::TablelessAssociations
   module AssociationScopeExtension
     if ActiveRecord.version >= Gem::Version.new("5.0.0.beta")
       def add_constraints(scope, owner, association_klass, refl, chain_head, chain_tail)

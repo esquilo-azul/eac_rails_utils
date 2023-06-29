@@ -7,7 +7,8 @@ AllCops:
   TargetRubyVersion: 2.7
   Exclude:
     - '**/*/db/schema.rb'
-    - lib/active_model/**/*
+    - lib/eac_rails_utils/models/tableless_associations.rb
+    - lib/eac_rails_utils/models/tableless_associations/**/*.rb
     - lib/active_record/**/*
     - lib/activemodel/associations.rb
 

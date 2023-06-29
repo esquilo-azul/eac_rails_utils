@@ -8,7 +8,7 @@ module EacRailsUtils
     class Tableless
       include ActiveModel::Model
       include Virtus.model
-      include ActiveModel::Associations
+      include EacRailsUtils::Models::TablelessAssociations
 
       def initialize(values = {})
         super(build_attributes(values))
