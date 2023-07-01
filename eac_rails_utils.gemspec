@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'Rakefile']
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'activerecord'
   s.add_dependency 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
   s.add_dependency 'eac_ruby_utils', '~> 0.118'
   s.add_dependency 'htmlbeautifier', '~> 1.4', '>= 1.4.2'
