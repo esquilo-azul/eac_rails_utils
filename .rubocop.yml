@@ -3,7 +3,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRailsVersion: 4.2
+  TargetRailsVersion: 5.2
   TargetRubyVersion: 2.4
   Exclude:
     - '**/*/db/schema.rb'
