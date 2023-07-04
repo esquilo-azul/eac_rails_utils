@@ -4,7 +4,7 @@ require:
 
 AllCops:
   TargetRailsVersion: 5.2
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.7
   Exclude:
     - '**/*/db/schema.rb'
     - lib/active_model/**/*
