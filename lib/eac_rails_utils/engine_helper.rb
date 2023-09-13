@@ -4,6 +4,13 @@ require 'eac_ruby_utils/core_ext'
 
 module EacRailsUtils
   module EngineHelper
+    class << self
+      # @return [EacRailsUtils::Menus::Group]
+      def root_menu
+        @root_menu ||= ::EacRailsUtils::Menus::Group.new(:root)
+      end
+    end
+
     common_concern do
       append_autoload_paths
       append_self_migrations
@@ -20,6 +27,11 @@ module EacRailsUtils
             app.config.paths['db/migrate'] << expanded_path
           end
         end
+      end
+
+      # @return [EacRailsUtils::Menus::Group]
+      def root_menu
+        ::EacRailsUtils::EnginesHelper.root_menu
       end
     end
   end
