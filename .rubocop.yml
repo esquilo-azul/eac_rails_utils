@@ -27,10 +27,6 @@ Metrics/MethodLength:
     - '**/db/migrate/*'
     - 'test/**/*_test.rb'
 
-Metrics/ParameterLists:
-  Exclude:
-    - lib/eac_rails_utils/models/tableless_associations/association_scope_extension.rb
-
 Naming/PredicateName:
   Exclude:
     - lib/eac_rails_utils/models/tableless_associations.rb

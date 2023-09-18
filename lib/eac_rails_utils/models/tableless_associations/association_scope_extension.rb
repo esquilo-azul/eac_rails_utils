@@ -1,7 +1,7 @@
 module EacRailsUtils::Models::TablelessAssociations
   module AssociationScopeExtension
     if ActiveRecord.version >= Gem::Version.new("5.0.0.beta")
-      def add_constraints(scope, owner, association_klass, refl, chain_head, chain_tail)
+      def add_constraints(scope, owner, association_klass, refl, chain_head, chain_tail) # rubocop:disable Metrics/ParameterLists
         if refl.options[:active_model]
           target_ids = refl.options[:target_ids]
           return scope.where(id: owner[target_ids])
