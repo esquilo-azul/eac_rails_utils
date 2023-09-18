@@ -13,10 +13,6 @@ AllCops:
 Layout/LineLength:
   Max: 100
 
-Lint/UnusedMethodArgument:
-  Exclude:
-    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
-
 Metrics/AbcSize:
   Exclude:
     - '**/db/migrate/*'

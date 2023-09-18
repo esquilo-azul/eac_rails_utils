@@ -14,7 +14,7 @@ module EacRailsUtils::Models::TablelessAssociations
         if ActiveRecord.version < Gem::Version.new("4.1")
 
       # override
-      def dangerous_attribute_method?(name)
+      def dangerous_attribute_method?(_name)
         false
       end
 
