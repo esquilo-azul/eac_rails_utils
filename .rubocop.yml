@@ -13,10 +13,6 @@ AllCops:
 Layout/LineLength:
   Max: 100
 
-Lint/AssignmentInCondition:
-  Exclude:
-    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
-
 Lint/SendWithMixinArgument:
   Exclude:
     - lib/eac_rails_utils/models/tableless_associations/hooks.rb
