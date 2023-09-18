@@ -7,7 +7,7 @@ module EacRailsUtils
         extend ActiveSupport::Concern
 
         included do
-          if ActiveRecord.version >= Gem::Version.new("4.1.2")
+          if ActiveRecord.version >= Gem::Version.new('4.1.2')
             class_attribute :_reflections
             self._reflections = ActiveSupport::HashWithIndifferentAccess.new
           else
@@ -17,7 +17,7 @@ module EacRailsUtils
         end
 
         module ClassMethods
-          if ActiveRecord.version < Gem::Version.new("4.1")
+          if ActiveRecord.version < Gem::Version.new('4.1')
             def create_reflection(macro, name, scope, options, active_record)
               case macro
               when :has_many, :belongs_to
@@ -31,7 +31,7 @@ module EacRailsUtils
           end
 
           def reflect_on_association(association)
-            if ActiveRecord.version >= Gem::Version.new("4.1.2")
+            if ActiveRecord.version >= Gem::Version.new('4.1.2')
               _reflections[association.to_s]
             else
               reflections[association]
