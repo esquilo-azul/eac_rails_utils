@@ -24,7 +24,7 @@ module EacRailsUtils
 
           # dummy table name
           def pluralize_table_names
-            self.to_s.pluralize
+            to_s.pluralize
           end
 
           def clear_reflections_cache

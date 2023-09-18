@@ -52,11 +52,6 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: false
 
-Style/RedundantSelf:
-  Exclude:
-    - lib/eac_rails_utils/models/tableless_associations/active_record_reflection.rb
-    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
-
 Style/StringLiterals:
   Exclude:
     - lib/eac_rails_utils/models/tableless_associations/active_record_reflection.rb

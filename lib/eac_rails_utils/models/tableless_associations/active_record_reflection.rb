@@ -25,7 +25,7 @@ module EacRailsUtils
                 reflection = klass.new(macro, name, scope, options, active_record)
               end
 
-              self.reflections = self.reflections.merge(name => reflection)
+              self.reflections = reflections.merge(name => reflection)
               reflection
             end
           end
