@@ -29,7 +29,7 @@ module EacRailsUtils
         end
 
         # define association like ActiveRecord
-        def has_many(name, scope = nil, options = {}, &extension)
+        def has_many(name, scope = nil, options = {}, &extension) # rubocop:disable Naming/PredicateName
           options.reverse_merge!(active_model: true, target_ids: "#{name.to_s.singularize}_ids")
           if scope.is_a?(Hash)
             options.merge!(scope)

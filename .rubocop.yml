@@ -27,10 +27,6 @@ Metrics/MethodLength:
     - '**/db/migrate/*'
     - 'test/**/*_test.rb'
 
-Naming/PredicateName:
-  Exclude:
-    - lib/eac_rails_utils/models/tableless_associations.rb
-
 Rails/ApplicationRecord:
   Enabled: false
 
