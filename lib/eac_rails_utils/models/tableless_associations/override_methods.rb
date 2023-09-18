@@ -56,14 +56,12 @@ module EacRailsUtils
 
           def compute_type_from_candidates(type_name)
             compute_type_candidates(type_name).each do |candidate|
-              begin
-                constant = ActiveSupport::Dependencies.constantize(candidate)
-                return constant if candidate == constant.to_s
-                # We don't want to swallow NoMethodError < NameError errors
-              rescue NoMethodError
-                raise
-              rescue NameError # rubocop:disable Lint/SuppressedException
-              end
+              constant = ActiveSupport::Dependencies.constantize(candidate)
+              return constant if candidate == constant.to_s
+              # We don't want to swallow NoMethodError < NameError errors
+            rescue NoMethodError
+              raise
+            rescue NameError # rubocop:disable Lint/SuppressedException
             end
 
             raise NameError.new("uninitialized constant #{candidates.first}", candidates.first)
