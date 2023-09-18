@@ -10,7 +10,7 @@ module EacRailsUtils::Models::TablelessAssociations
           mod
         end
       end
-      alias :generated_feature_methods :generated_association_methods \
+      alias generated_feature_methods generated_association_methods \
         if ActiveRecord.version < Gem::Version.new("4.1")
 
       # override
@@ -81,7 +81,7 @@ module EacRailsUtils::Models::TablelessAssociations
     def read_attribute(name)
       send(name)
     end
-    alias :_read_attribute :read_attribute
+    alias _read_attribute read_attribute
 
     # dummy
     def new_record?

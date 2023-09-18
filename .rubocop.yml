@@ -37,10 +37,6 @@ Rails/HelperInstanceVariable:
     - app/helpers/eac_rails_utils/menus_helper**/**/*.rb
     - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
 
-Style/Alias:
-  Exclude:
-    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
-
 Style/AsciiComments:
   Enabled: false
 
