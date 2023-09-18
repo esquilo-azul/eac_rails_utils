@@ -7,13 +7,41 @@ AllCops:
   TargetRubyVersion: 2.7
   Exclude:
     - '**/*/db/schema.rb'
-    - lib/eac_rails_utils/models/tableless_associations.rb
-    - lib/eac_rails_utils/models/tableless_associations/**/*.rb
     - lib/active_record/**/*
     - lib/activemodel/associations.rb
 
+Layout/ExtraSpacing:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/active_record_reflection.rb
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+
 Layout/LineLength:
   Max: 100
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations.rb
+    - lib/eac_rails_utils/models/tableless_associations/hooks.rb
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+
+Layout/SpaceAroundOperators:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/active_record_reflection.rb
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+
+Lint/AssignmentInCondition:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+
+Lint/SendWithMixinArgument:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/hooks.rb
+
+Lint/SuppressedException:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+
+Lint/UnusedMethodArgument:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
 
 Metrics/AbcSize:
   Exclude:
@@ -27,7 +55,16 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
     - '**/db/migrate/*'
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
     - 'test/**/*_test.rb'
+
+Metrics/ParameterLists:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/association_scope_extension.rb
+
+Naming/PredicateName:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations.rb
 
 Rails/ApplicationRecord:
   Enabled: false
@@ -39,11 +76,44 @@ Rails/HelperInstanceVariable:
     - app/helpers/eac_rails_utils/menus_helper**/**/*.rb
     - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
 
+Style/Alias:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+
 Style/AsciiComments:
   Enabled: false
 
+Style/ClassAndModuleChildren:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/active_record_reflection.rb
+    - lib/eac_rails_utils/models/tableless_associations/association_scope_extension.rb
+    - lib/eac_rails_utils/models/tableless_associations/autosave_association.rb
+    - lib/eac_rails_utils/models/tableless_associations/hooks.rb
+    - lib/eac_rails_utils/models/tableless_associations/initialize_extension.rb
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+    - lib/eac_rails_utils/models/tableless_associations/railtie.rb
+
+Style/ConditionalAssignment:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+
 Style/Documentation:
   Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations.rb
+    - lib/eac_rails_utils/models/tableless_associations/active_record_reflection.rb
+    - lib/eac_rails_utils/models/tableless_associations/association_scope_extension.rb
+    - lib/eac_rails_utils/models/tableless_associations/autosave_association.rb
+    - lib/eac_rails_utils/models/tableless_associations/hooks.rb
+    - lib/eac_rails_utils/models/tableless_associations/initialize_extension.rb
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+    - lib/eac_rails_utils/models/tableless_associations/railtie.rb
+
+Style/GuardClause:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
 
 Style/HashEachMethods:
   Enabled: false
@@ -53,3 +123,18 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: false
+
+Style/RedundantBegin:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+
+Style/RedundantSelf:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/active_record_reflection.rb
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+
+Style/StringLiterals:
+  Exclude:
+    - lib/eac_rails_utils/models/tableless_associations/active_record_reflection.rb
+    - lib/eac_rails_utils/models/tableless_associations/association_scope_extension.rb
+    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
