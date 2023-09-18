@@ -67,7 +67,8 @@ module EacRailsUtils::Models::TablelessAssociations
       if association.nil?
         reflection = self.class.reflect_on_association(name)
         if reflection.options[:active_model]
-          association = ActiveRecord::Associations::HasManyForActiveModelAssociation.new(self, reflection)
+          association = ActiveRecord::Associations::HasManyForActiveModelAssociation
+                        .new(self, reflection)
         else
           association = reflection.association_class.new(self, reflection)
         end
@@ -92,7 +93,8 @@ module EacRailsUtils::Models::TablelessAssociations
     # override
     def validate_collection_association(reflection)
       if association = association_instance_get(reflection.name)
-        if records = associated_records_to_validate_or_save(association, false, reflection.options[:autosave])
+        if records = associated_records_to_validate_or_save(association,
+                                                            false, reflection.options[:autosave])
           records.each { |record| association_valid?(reflection, record) }
         end
       end
