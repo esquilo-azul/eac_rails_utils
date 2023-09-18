@@ -51,7 +51,7 @@ module EacRailsUtils::Models::TablelessAssociations
               # We don't want to swallow NoMethodError < NameError errors
             rescue NoMethodError
               raise
-            rescue NameError
+            rescue NameError # rubocop:disable Lint/SuppressedException
             end
           end
 
