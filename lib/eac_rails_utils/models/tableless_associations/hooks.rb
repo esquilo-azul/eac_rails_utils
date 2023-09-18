@@ -3,8 +3,7 @@ module EacRailsUtils::Models::TablelessAssociations
     def self.init
       ActiveSupport.on_load(:active_record) do
         require 'eac_rails_utils/models/tableless_associations/association_scope_extension'
-        ActiveRecord::Associations::AssociationScope.send(
-          :prepend,
+        ActiveRecord::Associations::AssociationScope.prepend(
           EacRailsUtils::Models::TablelessAssociations::AssociationScopeExtension
         )
       end
