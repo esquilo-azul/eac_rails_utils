@@ -40,16 +40,6 @@ Rails/HelperInstanceVariable:
 Style/AsciiComments:
   Enabled: false
 
-Style/ClassAndModuleChildren:
-  Exclude:
-    - lib/eac_rails_utils/models/tableless_associations/active_record_reflection.rb
-    - lib/eac_rails_utils/models/tableless_associations/association_scope_extension.rb
-    - lib/eac_rails_utils/models/tableless_associations/autosave_association.rb
-    - lib/eac_rails_utils/models/tableless_associations/hooks.rb
-    - lib/eac_rails_utils/models/tableless_associations/initialize_extension.rb
-    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
-    - lib/eac_rails_utils/models/tableless_associations/railtie.rb
-
 Style/ConditionalAssignment:
   Exclude:
     - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
