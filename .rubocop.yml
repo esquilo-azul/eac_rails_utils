@@ -40,10 +40,6 @@ Rails/HelperInstanceVariable:
 Style/AsciiComments:
   Enabled: false
 
-Style/ConditionalAssignment:
-  Exclude:
-    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
-
 Style/Documentation:
   Enabled: false
 
