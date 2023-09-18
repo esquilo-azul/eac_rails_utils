@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'eac_rails_utils/models/tableless_associations/initialize_extension'
 require 'eac_rails_utils/models/tableless_associations/active_record_reflection'
 require 'eac_rails_utils/models/tableless_associations/autosave_association'
