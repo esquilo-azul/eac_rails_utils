@@ -39,24 +39,30 @@ module EacRailsUtils::Models::TablelessAssociations
           # the type_name is an absolute reference.
           ActiveSupport::Dependencies.constantize(type_name)
         else
-          # Build a list of candidates to search for
-          candidates = []
-          name.scan(/::|$/) { candidates.unshift "#{$`}::#{type_name}" }
-          candidates << type_name
-
-          candidates.each do |candidate|
-            begin
-              constant = ActiveSupport::Dependencies.constantize(candidate)
-              return constant if candidate == constant.to_s
-              # We don't want to swallow NoMethodError < NameError errors
-            rescue NoMethodError
-              raise
-            rescue NameError # rubocop:disable Lint/SuppressedException
-            end
-          end
-
-          raise NameError.new("uninitialized constant #{candidates.first}", candidates.first)
+          compute_type_from_candidates(type_name)
         end
+      end
+
+      # Build a list of candidates to search for
+      def compute_type_candidates(type_name)
+        candidates = []
+        name.scan(/::|$/) { candidates.unshift "#{$`}::#{type_name}" }
+        candidates << type_name
+      end
+
+      def compute_type_from_candidates(type_name)
+        compute_type_candidates(type_name).each do |candidate|
+          begin
+            constant = ActiveSupport::Dependencies.constantize(candidate)
+            return constant if candidate == constant.to_s
+            # We don't want to swallow NoMethodError < NameError errors
+          rescue NoMethodError
+            raise
+          rescue NameError # rubocop:disable Lint/SuppressedException
+          end
+        end
+
+        raise NameError.new("uninitialized constant #{candidates.first}", candidates.first)
       end
     end
 
@@ -65,13 +71,7 @@ module EacRailsUtils::Models::TablelessAssociations
       association = association_instance_get(name)
 
       if association.nil?
-        reflection = self.class.reflect_on_association(name)
-        if reflection.options[:active_model]
-          association = ActiveRecord::Associations::HasManyForActiveModelAssociation
-                        .new(self, reflection)
-        else
-          association = reflection.association_class.new(self, reflection)
-        end
+        association = association_by_reflection(name)
         association_instance_set(name, association)
       end
 
@@ -89,6 +89,15 @@ module EacRailsUtils::Models::TablelessAssociations
     end
 
     private
+
+    def association_by_reflection(name)
+      reflection = self.class.reflect_on_association(name)
+      if reflection.options[:active_model]
+        ::ActiveRecord::Associations::HasManyForActiveModelAssociation.new(self, reflection)
+      else
+        reflection.association_class.new(self, reflection)
+      end
+    end
 
     # override
     def validate_collection_association(reflection)

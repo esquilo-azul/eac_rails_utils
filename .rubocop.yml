@@ -25,7 +25,6 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
     - '**/db/migrate/*'
-    - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
     - 'test/**/*_test.rb'
 
 Metrics/ParameterLists:
