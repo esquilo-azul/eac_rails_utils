@@ -65,7 +65,7 @@ module EacRailsUtils::Models::TablelessAssociations
       association = association_instance_get(name)
 
       if association.nil?
-        reflection  = self.class.reflect_on_association(name)
+        reflection = self.class.reflect_on_association(name)
         if reflection.options[:active_model]
           association = ActiveRecord::Associations::HasManyForActiveModelAssociation.new(self, reflection)
         else

@@ -17,7 +17,7 @@ module EacRailsUtils::Models::TablelessAssociations
         def create_reflection(macro, name, scope, options, active_record)
           case macro
           when :has_many, :belongs_to
-            klass =  ActiveRecord::Reflection::AssociationReflection
+            klass = ActiveRecord::Reflection::AssociationReflection
             reflection = klass.new(macro, name, scope, options, active_record)
           end
 
