@@ -24,7 +24,7 @@ module EacRailsUtils
 
       module ClassMethods
         # define association like ActiveRecord
-        def belongs_to(name, scope = nil, options = {})
+        def belongs_to(name, scope = nil, **options)
           reflection = ActiveRecord::Associations::Builder::BelongsTo
                        .build(self, name, scope, options)
           ActiveRecord::Reflection.add_reflection self, name, reflection
