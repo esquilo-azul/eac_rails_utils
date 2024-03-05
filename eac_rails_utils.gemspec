@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Código reutilizável para as aplicações Rails da E.A.C..'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'Rakefile']
+  s.required_ruby_version = '>= 2.7'
 
   s.add_dependency 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
   s.add_dependency 'eac_ruby_utils', '~> 0.121'
