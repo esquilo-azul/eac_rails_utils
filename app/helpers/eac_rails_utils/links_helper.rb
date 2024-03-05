@@ -45,7 +45,7 @@ module EacRailsUtils
         current_class = current_class.superclass
       end
       raise "Path not found for {object: #{object.class}, action: \"#{action}\"}" \
-        "(Tried: #{tried_paths})"
+            "(Tried: #{tried_paths})"
     end
 
     private

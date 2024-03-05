@@ -20,7 +20,7 @@ module EacRailsUtils
         def javascript_currency_mask(hidden_id, visible_id)
           helper.content_tag :script do
             helper.raw("new CurrencyField('#{hidden_id}', '#{visible_id}', " \
-                "#{mask_money_options});")
+                       "#{mask_money_options});")
           end
         end
 

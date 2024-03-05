@@ -44,7 +44,7 @@ module EacRailsUtils
             model_instance.class.reflect_on_association(field_name)
           else
             raise "#{model_instance.class} não possui um método \"reflect_on_association\". " \
-              "Defina explicitamente a opção :#{key}"
+                  "Defina explicitamente a opção :#{key}"
           end
         end
 

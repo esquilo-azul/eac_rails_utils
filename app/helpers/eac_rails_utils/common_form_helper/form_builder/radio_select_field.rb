@@ -39,7 +39,7 @@ module EacRailsUtils
           end
 
           raise "#{model_instance.class} não possui um método \"reflect_on_association\". " \
-            "Defina explicitamente a opção :#{key}"
+                "Defina explicitamente a opção :#{key}"
         end
       end
     end

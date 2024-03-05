@@ -1,12 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Layout/LineEndStringConcatenationIndentation:
-  Exclude:
-  - app/helpers/eac_rails_utils/common_form_helper/form_builder/association_select_field.rb
-  - app/helpers/eac_rails_utils/common_form_helper/form_builder/currency_field.rb
-  - app/helpers/eac_rails_utils/common_form_helper/form_builder/radio_select_field.rb
-  - app/helpers/eac_rails_utils/links_helper.rb
 Layout/LineLength:
   Exclude:
   - lib/active_record/associations/builder/has_many_for_active_model.rb
