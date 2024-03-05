@@ -1,6 +1,6 @@
 module ActiveRecord::Associations
   class HasManyForActiveModelAssociation < HasManyAssociation
-    # remove conditions: owner.new_record?, foreign_key_present? 
+    # remove conditions: owner.new_record?, foreign_key_present?
     def find_target?
       !loaded? && klass
     end
