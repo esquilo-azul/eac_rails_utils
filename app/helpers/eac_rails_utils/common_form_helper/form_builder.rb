@@ -98,7 +98,7 @@ module EacRailsUtils
       def field_label(field_name, label, required)
         if required.nil?
           required = ::EacRailsUtils::Models::Validations
-                     .column_required?(model_instance, field_name)
+                       .column_required?(model_instance, field_name)
         end
         @form.label(field_name, label, class: required ? 'required' : 'optional')
       end

@@ -26,7 +26,7 @@ module EacRailsUtils
         # define association like ActiveRecord
         def belongs_to(name, scope = nil, **options)
           reflection = ActiveRecord::Associations::Builder::BelongsTo
-                       .build(self, name, scope, options)
+                         .build(self, name, scope, options)
           ActiveRecord::Reflection.add_reflection self, name, reflection
         end
 
@@ -39,7 +39,7 @@ module EacRailsUtils
           end
 
           reflection = ActiveRecord::Associations::Builder::HasManyForActiveModel
-                       .build(self, name, scope, options, &extension)
+                         .build(self, name, scope, options, &extension)
           ActiveRecord::Reflection.add_reflection self, name, reflection
 
           mixin = generated_association_methods

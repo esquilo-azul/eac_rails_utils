@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-  - app/helpers/eac_rails_utils/common_form_helper/form_builder.rb
-  - lib/eac_rails_utils/models/tableless_associations.rb
 Layout/SpaceAroundMethodCallOperator:
   Exclude:
   - lib/eac_rails_utils/models/test_utils.rb
