@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Gemspec/DeprecatedAttributeAssignment:
-  Exclude:
-  - eac_rails_utils.gemspec
 Gemspec/RequiredRubyVersion:
   Exclude:
   - eac_rails_utils.gemspec
