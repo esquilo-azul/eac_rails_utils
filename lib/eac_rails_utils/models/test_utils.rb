@@ -22,7 +22,7 @@ module EacRailsUtils
           assert record.errors[c].empty?,
                  "Column: #{c} should not have errors (#{record.errors[c]})"
         end
-        fields_with_error. each do |c|
+        fields_with_error.each do |c|
           assert_not record.errors[c].empty?, "Column: #{c} should have errors"
         end
       end

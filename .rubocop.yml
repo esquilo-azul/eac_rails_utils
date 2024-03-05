@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Layout/SpaceAroundMethodCallOperator:
-  Exclude:
-  - lib/eac_rails_utils/models/test_utils.rb
 Layout/TrailingWhitespace:
   Exclude:
   - lib/active_record/associations/has_many_for_active_model_association.rb
