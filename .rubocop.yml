@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Layout/LeadingCommentSpace:
-  Exclude:
-  - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
-  - lib/eac_rails_utils/models/tableless_associations/railtie.rb
 Layout/LineEndStringConcatenationIndentation:
   Exclude:
   - app/helpers/eac_rails_utils/common_form_helper/form_builder/association_select_field.rb

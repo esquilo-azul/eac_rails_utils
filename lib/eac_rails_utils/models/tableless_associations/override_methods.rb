@@ -69,7 +69,7 @@ module EacRailsUtils
         end
 
         # use by association accessor
-        def association(name) #:nodoc:
+        def association(name) # :nodoc:
           association = association_instance_get(name)
 
           if association.nil?

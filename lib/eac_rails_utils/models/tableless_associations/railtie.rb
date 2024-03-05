@@ -3,7 +3,7 @@
 module EacRailsUtils
   module Models
     module TablelessAssociations
-      class Railtie < ::Rails::Railtie #:nodoc:
+      class Railtie < ::Rails::Railtie # :nodoc:
         initializer 'activemodel-associations' do |_|
           EacRailsUtils::Models::TablelessAssociations::Hooks.init
         end
