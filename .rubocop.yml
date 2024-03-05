@@ -1,53 +1,187 @@
-require:
-  - rubocop-rails
-  - rubocop-rspec
-
-AllCops:
-  TargetRailsVersion: 5.2
-  TargetRubyVersion: 2.7
+---
+inherit_gem:
+  eac_rails_gem_support: ".rubocop.yml"
+Gemspec/DeprecatedAttributeAssignment:
   Exclude:
-    - '**/*/db/schema.rb'
-    - lib/active_record/**/*
-    - lib/activemodel/associations.rb
-
+  - eac_rails_utils.gemspec
+Gemspec/RequiredRubyVersion:
+  Exclude:
+  - eac_rails_utils.gemspec
+Layout/EmptyLinesAroundAttributeAccessor:
+  Exclude:
+  - spec/lib/eac_rails_utils/models/validations_spec.rb
+  - spec/validators/eac_rails_utils/yaml_validator_spec.rb
+Layout/LeadingCommentSpace:
+  Exclude:
+  - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+  - lib/eac_rails_utils/models/tableless_associations/railtie.rb
+Layout/LineEndStringConcatenationIndentation:
+  Exclude:
+  - app/helpers/eac_rails_utils/common_form_helper/form_builder/association_select_field.rb
+  - app/helpers/eac_rails_utils/common_form_helper/form_builder/currency_field.rb
+  - app/helpers/eac_rails_utils/common_form_helper/form_builder/radio_select_field.rb
+  - app/helpers/eac_rails_utils/links_helper.rb
 Layout/LineLength:
-  Max: 100
-
+  Exclude:
+  - lib/active_record/associations/builder/has_many_for_active_model.rb
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+  - app/helpers/eac_rails_utils/common_form_helper/form_builder.rb
+  - lib/eac_rails_utils/models/tableless_associations.rb
+Layout/SpaceAroundMethodCallOperator:
+  Exclude:
+  - lib/eac_rails_utils/models/test_utils.rb
+Layout/TrailingWhitespace:
+  Exclude:
+  - lib/active_record/associations/has_many_for_active_model_association.rb
+Lint/AssignmentInCondition:
+  Exclude:
+  - lib/active_record/associations/has_many_for_active_model_association.rb
+Lint/SuppressedException:
+  Exclude:
+  - lib/activemodel/associations.rb
+Lint/SymbolConversion:
+  Exclude:
+  - app/helpers/eac_rails_utils/menus_helper/data_builder.rb
+  - lib/eac_rails_utils/patches/rails_5_2/active_model_association_method_fix.rb
 Metrics/AbcSize:
   Exclude:
-    - '**/db/migrate/*'
-
-Metrics/BlockLength:
-  Exclude:
-    - '**/*.gemspec'
-    - 'spec/**/*_spec.rb'
-
+  - lib/active_record/associations/has_many_for_active_model_association.rb
 Metrics/MethodLength:
   Exclude:
-    - '**/db/migrate/*'
-    - 'test/**/*_test.rb'
-
-Rails/ApplicationRecord:
-  Enabled: false
-
+  - lib/active_record/associations/has_many_for_active_model_association.rb
+  - lib/eac_rails_utils/models/tableless_associations.rb
+Naming/AccessorMethodName:
+  Exclude:
+  - lib/active_record/associations/has_many_for_active_model_association.rb
+Naming/VariableNumber:
+  Exclude:
+  - lib/eac_rails_utils/patches/active_model_associations.rb
+  - spec/lib/eac_rails_utils/menus/group_spec.rb
+RSpec/FilePath:
+  Exclude:
+  - spec/lib/eac_rails_utils/models/tableless/belongs_to_spec.rb
+  - spec/lib/eac_rails_utils/models/tableless/has_many_to_spec.rb
+  - spec/lib/eac_rails_utils/patches/numeric/number_helper_spec.rb
+RSpec/IndexedLet:
+  Exclude:
+  - spec/lib/eac_rails_utils/menus/group_spec.rb
+  - spec/lib/eac_rails_utils/models/fetch_errors_spec.rb
+  - spec/lib/eac_rails_utils/models/tableless/has_many_to_spec.rb
+RSpec/SpecFilePathFormat:
+  Exclude:
+  - spec/lib/eac_rails_utils/models/tableless/belongs_to_spec.rb
+  - spec/lib/eac_rails_utils/models/tableless/has_many_to_spec.rb
+  - spec/lib/eac_rails_utils/patches/numeric/number_helper_spec.rb
+Rails/DeprecatedActiveModelErrorsMethods:
+  Exclude:
+  - app/validators/eac_rails_utils/cpf_validator.rb
+  - app/validators/eac_rails_utils/immutable_validator.rb
+  - app/validators/eac_rails_utils/no_presence_validator.rb
+  - app/validators/eac_rails_utils/yaml_validator.rb
+  - lib/eac_rails_utils/models/fetch_errors.rb
 Rails/HelperInstanceVariable:
   Exclude:
-    - app/helpers/eac_rails_utils/common_form**/**/*.rb
-    - app/helpers/eac_rails_utils/data_table**/**/*.rb
-    - app/helpers/eac_rails_utils/menus_helper**/**/*.rb
-    - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
-
-Style/AsciiComments:
-  Enabled: false
-
-Style/Documentation:
-  Enabled: false
-
+  - app/helpers/eac_rails_utils/common_form_helper/form_builder/date_field.rb
+  - app/helpers/eac_rails_utils/common_form_helper/form_builder/searchable_association_field.rb
+  - app/helpers/eac_rails_utils/common_form_helper/form_builder/time_field.rb
+  - app/helpers/eac_rails_utils/common_form_helper/form_builder.rb
+  - app/helpers/eac_rails_utils/data_table_helper/data_table.rb
+  - app/helpers/eac_rails_utils/data_table_helper/setup.rb
+  - app/helpers/eac_rails_utils/menus_helper/bootstrap_gui_builder.rb
+  - app/helpers/eac_rails_utils/menus_helper/data_builder.rb
+  - app/helpers/eac_rails_utils/menus_helper/gui_builder.rb
+  - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
+Rails/RedundantPresenceValidationOnBelongsTo:
+  Exclude:
+  - spec/lib/eac_rails_utils/models/tableless/belongs_to_spec.rb
+  - spec/support/rails_app_append/app/models/user.rb
+Style/ClassAndModuleChildren:
+  Exclude:
+  - lib/active_record/associations/builder/has_many_for_active_model.rb
+  - lib/active_record/associations/has_many_for_active_model_association.rb
+Style/DocumentDynamicEvalDefinition:
+  Exclude:
+  - lib/eac_rails_utils/models/tableless_associations.rb
+Style/FrozenStringLiteralComment:
+  Exclude:
+  - lib/active_record/associations/builder/has_many_for_active_model.rb
+  - lib/active_record/associations/has_many_for_active_model_association.rb
+  - lib/activemodel/associations.rb
+Style/GuardClause:
+  Exclude:
+  - lib/active_record/associations/builder/has_many_for_active_model.rb
 Style/HashEachMethods:
-  Enabled: false
-
-Style/HashTransformKeys:
-  Enabled: false
-
+  Exclude:
+  - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
+  - lib/eac_rails_utils/models/fetch_errors.rb
 Style/HashTransformValues:
-  Enabled: false
+  Exclude:
+  - app/helpers/eac_rails_utils/data_table_helper/data_table/value_cell.rb
+Style/IfUnlessModifier:
+  Exclude:
+  - lib/active_record/associations/builder/has_many_for_active_model.rb
+  - lib/activemodel/associations.rb
+Style/MapToHash:
+  Exclude:
+  - app/helpers/eac_rails_utils/data_table_helper/data_table/value_cell.rb
+Style/MutableConstant:
+  Exclude:
+  - lib/active_record/associations/builder/has_many_for_active_model.rb
+Style/OpenStructUse:
+  Exclude:
+  - lib/eac_rails_utils/models/tableless/build_attributes.rb
+Style/PercentLiteralDelimiters:
+  Exclude:
+  - lib/active_record/associations/builder/has_many_for_active_model.rb
+Style/PerlBackrefs:
+  Exclude:
+  - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+Style/RedundantConstantBase:
+  Exclude:
+  - Gemfile
+  - config/initializers/json.rb
+  - lib/eac_rails_utils/patches/active_model.rb
+  - lib/eac_rails_utils/patches/numeric.rb
+  - spec/helpers/eac_rails_utils/common_form_helper_spec.rb
+  - spec/helpers/eac_rails_utils/data_table_helper_spec.rb
+  - spec/helpers/eac_rails_utils/formatter_helper_spec.rb
+  - spec/lib/eac_rails_utils/menus/group_spec.rb
+  - spec/lib/eac_rails_utils/models/fetch_errors_spec.rb
+  - spec/lib/eac_rails_utils/models/tableless/belongs_to_spec.rb
+  - spec/lib/eac_rails_utils/models/tableless/has_many_to_spec.rb
+  - spec/lib/eac_rails_utils/models/tableless_spec.rb
+  - spec/lib/eac_rails_utils/models/validations_spec.rb
+  - spec/lib/eac_rails_utils/patches/numeric/number_helper_spec.rb
+  - spec/lib/rubocop_check_spec.rb
+  - spec/spec_helper.rb
+  - spec/support/rails_app_append/db/migrate/20230529233000_create_immutable_stubs.rb
+  - spec/validators/eac_rails_utils/cpf_validator_spec.rb
+  - spec/validators/eac_rails_utils/immutable_validator_spec.rb
+  - spec/validators/eac_rails_utils/yaml_validator_spec.rb
+Style/RedundantLineContinuation:
+  Exclude:
+  - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
+Style/RedundantReturn:
+  Exclude:
+  - app/helpers/eac_rails_utils/data_table_helper/column.rb
+Style/RedundantSelf:
+  Exclude:
+  - lib/active_record/associations/builder/has_many_for_active_model.rb
+Style/RedundantStringEscape:
+  Exclude:
+  - app/helpers/eac_rails_utils/menus_helper.rb
+Style/StringConcatenation:
+  Exclude:
+  - lib/eac_rails_utils/htmlbeautifier.rb
+  - lib/eac_rails_utils/models/fetch_errors.rb
+Style/StringLiterals:
+  Exclude:
+  - lib/active_record/associations/builder/has_many_for_active_model.rb
+  - lib/activemodel/associations.rb
+Style/SuperWithArgsParentheses:
+  Exclude:
+  - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
+Style/SymbolArray:
+  Exclude:
+  - lib/active_record/associations/builder/has_many_for_active_model.rb
