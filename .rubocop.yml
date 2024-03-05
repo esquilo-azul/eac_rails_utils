@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Layout/LineLength:
-  Exclude:
-  - lib/active_record/associations/builder/has_many_for_active_model.rb
 Layout/MultilineMethodCallIndentation:
   Exclude:
   - app/helpers/eac_rails_utils/common_form_helper/form_builder.rb
