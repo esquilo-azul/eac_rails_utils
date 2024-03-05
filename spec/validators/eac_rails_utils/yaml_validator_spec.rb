@@ -10,6 +10,7 @@
       end
 
       attr_accessor :yaml_attr
+
       validates :yaml_attr, 'eac_rails_utils/yaml' => true
     end
   end

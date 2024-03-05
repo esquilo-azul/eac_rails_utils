@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Layout/EmptyLinesAroundAttributeAccessor:
-  Exclude:
-  - spec/lib/eac_rails_utils/models/validations_spec.rb
-  - spec/validators/eac_rails_utils/yaml_validator_spec.rb
 Layout/LeadingCommentSpace:
   Exclude:
   - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
