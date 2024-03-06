@@ -14,7 +14,7 @@ module EacRailsUtils
             init_rails_5_2 if ::EacRailsUtils::Patches::Rails52.enabled?
           end
 
-          def init_rails_4
+          def init_rails_4 # rubocop:disable Naming/VariableNumber
             ActiveSupport.on_load(:active_record) do
               ActiveRecord::Associations::AssociationScope.prepend(
                 ::EacRailsUtils::Patches::Rails4::ActiveRecordAssociationsAssociationScope
@@ -22,7 +22,7 @@ module EacRailsUtils
             end
           end
 
-          def init_rails_5_2
+          def init_rails_5_2 # rubocop:disable Naming/VariableNumber
             rails_5_2_fix_activemodel_associations_methods
           end
 

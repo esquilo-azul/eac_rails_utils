@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Naming/VariableNumber:
-  Exclude:
-  - lib/eac_rails_utils/patches/active_model_associations.rb
-  - spec/lib/eac_rails_utils/menus/group_spec.rb
 RSpec/FilePath:
   Exclude:
   - spec/lib/eac_rails_utils/models/tableless/belongs_to_spec.rb
