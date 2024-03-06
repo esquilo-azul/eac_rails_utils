@@ -1,11 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-RSpec/IndexedLet:
-  Exclude:
-  - spec/lib/eac_rails_utils/menus/group_spec.rb
-  - spec/lib/eac_rails_utils/models/fetch_errors_spec.rb
-  - spec/lib/eac_rails_utils/models/tableless/has_many_to_spec.rb
 RSpec/SpecFilePathFormat:
   Exclude:
   - spec/lib/eac_rails_utils/models/tableless/belongs_to_spec.rb

@@ -4,8 +4,8 @@ RSpec.describe(::EacRailsUtils::Menus::Group) do
   let(:root) { described_class.new(:root, nil) }
   let(:sub1) { root.group(:sub1) }
   let(:sub1_1) { sub1.group(:sub1_1) } # rubocop:disable Naming/VariableNumber
-  let(:action1) { sub1.action(:action1) }
-  let(:action2) { sub1_1.action(:engine2, :action1) }
+  let(:action1) { sub1.action(:action1) } # rubocop:disable RSpec/IndexedLet
+  let(:action2) { sub1_1.action(:engine2, :action1) } # rubocop:disable RSpec/IndexedLet
 
   describe '#label_translate_key' do
     {

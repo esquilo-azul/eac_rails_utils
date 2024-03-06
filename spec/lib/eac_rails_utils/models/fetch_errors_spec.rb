@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ::RSpec.describe(::EacRailsUtils::Models::FetchErrors) do
-  let(:model1) do
+  let(:model1) do # rubocop:disable RSpec/IndexedLet
     ::Class.new do
       include ActiveModel::Model
       include EacRailsUtils::Models::FetchErrors
@@ -13,7 +13,7 @@
     end
   end
 
-  let(:model2) do
+  let(:model2) do # rubocop:disable RSpec/IndexedLet
     ::Class.new do
       include ActiveModel::Model
       attr_accessor :name, :myage, :account_id, :country
@@ -33,8 +33,8 @@
     end
   end
 
-  let(:m1) { model1.new }
-  let(:m2) { model2.new }
+  let(:m1) { model1.new } # rubocop:disable RSpec/IndexedLet
+  let(:m2) { model2.new } # rubocop:disable RSpec/IndexedLet
 
   before do
     m1.valid?
