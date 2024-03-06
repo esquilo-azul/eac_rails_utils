@@ -32,7 +32,7 @@ module ActiveRecord::Associations
       end
 
       other_array.each do |record|
-        if index = @target.index(record)
+        if (index = @target.index(record))
           @target[index] = record
         else
           @target << record
@@ -50,7 +50,7 @@ module ActiveRecord::Associations
       owner[target_ids].concat(flatten_records.map(&:id))
 
       flatten_records.each do |record|
-        if index = @target.index(record)
+        if (index = @target.index(record))
           @target[index] = record
         else
           @target << record

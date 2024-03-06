@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Lint/AssignmentInCondition:
-  Exclude:
-  - lib/active_record/associations/has_many_for_active_model_association.rb
 Lint/SuppressedException:
   Exclude:
   - lib/activemodel/associations.rb
