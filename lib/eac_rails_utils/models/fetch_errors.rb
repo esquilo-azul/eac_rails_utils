@@ -10,7 +10,7 @@ module EacRailsUtils
       # Um array de colunas pode ser passado em options[:skip] de colunas em record que não
       # terão suas falhas adicionadas.
       def fetch_record_errors(record, options = {})
-        record.errors.keys.each do |column|
+        record.errors.keys.each do |column| # rubocop:disable Rails/DeprecatedActiveModelErrorsMethods
           fetch_column_errors(record, column, column, options)
         end
       end

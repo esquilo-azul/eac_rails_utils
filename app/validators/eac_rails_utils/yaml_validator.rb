@@ -16,23 +16,23 @@ module EacRailsUtils
 
       return if ::EacRubyUtils::Yaml.yaml?(string_value)
 
-      record.errors[attribute] << (options[:message] || DEFAULT_INVALID_YAML_MESSAGE)
+      record.errors.add(attribute, options[:message] || DEFAULT_INVALID_YAML_MESSAGE)
     end
 
     protected
 
     # @param value [Object]
     # @return [String, nil]
-    def stringfy_value(value) # rubocop:disable Metrics/AbcSize
+    def stringfy_value(value)
       unless value.respond_to?(:to_s)
-        record.errors[attribute] << (options[:message] || DEFAULT_TO_S_UNAVAILABLE_MESSAGE)
+        record.errors.add(attribute, options[:message] || DEFAULT_TO_S_UNAVAILABLE_MESSAGE)
         return nil
       end
 
       r = value.to_s
       return r if value.is_a?(::String)
 
-      record.errors[attribute] << (options[:message] || DEFAULT_NOT_A_STRING_MESSAGE)
+      record.errors.add(attribute, options[:message] || DEFAULT_NOT_A_STRING_MESSAGE)
       nil
     end
   end

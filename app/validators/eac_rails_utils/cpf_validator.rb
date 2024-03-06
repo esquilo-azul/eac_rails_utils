@@ -5,7 +5,7 @@ module EacRailsUtils
     def validate_each(record, attribute, value)
       return if Cpf.new(value).valid?
 
-      record.errors[attribute] << (options[:message] ||
+      record.errors[attribute] << (options[:message] || # rubocop:disable Rails/DeprecatedActiveModelErrorsMethods
           'CPF inválido (9 caracteres, somente dígitos)')
     end
 

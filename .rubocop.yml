@@ -1,13 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Rails/DeprecatedActiveModelErrorsMethods:
-  Exclude:
-  - app/validators/eac_rails_utils/cpf_validator.rb
-  - app/validators/eac_rails_utils/immutable_validator.rb
-  - app/validators/eac_rails_utils/no_presence_validator.rb
-  - app/validators/eac_rails_utils/yaml_validator.rb
-  - lib/eac_rails_utils/models/fetch_errors.rb
 Rails/HelperInstanceVariable:
   Exclude:
   - app/helpers/eac_rails_utils/common_form_helper/form_builder/date_field.rb
