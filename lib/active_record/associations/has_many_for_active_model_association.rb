@@ -62,7 +62,7 @@ module ActiveRecord::Associations
 
     private
 
-    def get_records
+    def get_records # rubocop:disable Naming/AccessorMethodName
       return scope.to_a if reflection.scope_chain.any?(&:any?)
 
       target_ids = reflection.options[:target_ids]
