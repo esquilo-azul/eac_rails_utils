@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Lint/SymbolConversion:
-  Exclude:
-  - app/helpers/eac_rails_utils/menus_helper/data_builder.rb
-  - lib/eac_rails_utils/patches/rails_5_2/active_model_association_method_fix.rb
 Metrics/AbcSize:
   Exclude:
   - lib/active_record/associations/has_many_for_active_model_association.rb

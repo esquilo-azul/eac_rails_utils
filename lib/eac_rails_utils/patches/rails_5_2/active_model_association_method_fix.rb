@@ -12,7 +12,7 @@ module EacRailsUtils
         end
 
         def original_method_new_name
-          "original_#{method_name}".to_sym
+          :"original_#{method_name}"
         end
 
         private

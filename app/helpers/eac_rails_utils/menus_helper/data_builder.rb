@@ -51,7 +51,7 @@ module EacRailsUtils
       end
 
       def can_access_path?(path, method)
-        if @view.respond_to?(:'can_by_path?')
+        if @view.respond_to?(:can_by_path?)
           @view.can_by_path?(path, method)
         else
           true
