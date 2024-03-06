@@ -7,7 +7,7 @@ require "eac_rails_utils/models/tableless_associations/hooks"
 # Load Railtie
 begin
   require "rails"
-rescue LoadError
+rescue LoadError # rubocop:disable Lint/SuppressedException
 end
 
 if defined?(Rails)
