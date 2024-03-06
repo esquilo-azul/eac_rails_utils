@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe(::EacRailsUtils::Models::Tableless) do
+RSpec.describe(::EacRailsUtils::Models::Tableless) do # rubocop:disable RSpec/FilePath
   let(:model) do
     ::Class.new(described_class) do
       def self.name
