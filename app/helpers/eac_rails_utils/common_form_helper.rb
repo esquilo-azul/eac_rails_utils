@@ -37,10 +37,10 @@ module EacRailsUtils
 
     def errors_not_showed(model_instance, field_errors_showed)
       s = ActiveSupport::SafeBuffer.new
-      model_instance.errors.each do |k, v|
-        next if field_errors_showed.include?(k)
+      model_instance.errors.each do |error|
+        next if field_errors_showed.include?(error.attribute)
 
-        s << content_tag(:div, "#{k}: #{v}", class: 'error')
+        s << content_tag(:div, "#{error.attribute}: #{error.message}", class: 'error')
       end
       s
     end
