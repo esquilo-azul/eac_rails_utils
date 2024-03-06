@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Metrics/AbcSize:
-  Exclude:
-  - lib/active_record/associations/has_many_for_active_model_association.rb
 Metrics/MethodLength:
   Exclude:
   - lib/active_record/associations/has_many_for_active_model_association.rb

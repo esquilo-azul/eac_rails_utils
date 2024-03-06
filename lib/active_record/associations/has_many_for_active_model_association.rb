@@ -20,7 +20,7 @@ module ActiveRecord::Associations
     end
 
     # full replace simplely
-    def replace(other_array)
+    def replace(other_array) # rubocop:disable Metrics/AbcSize
       original_target = load_target.dup
       other_array.each { |val| raise_on_type_mismatch!(val) }
       target_ids = reflection.options[:target_ids]
@@ -41,7 +41,7 @@ module ActiveRecord::Associations
     end
 
     # no need transaction
-    def concat(*records)
+    def concat(*records) # rubocop:disable Metrics/AbcSize
       load_target
       flatten_records = records.flatten
       flatten_records.each { |val| raise_on_type_mismatch!(val) }
