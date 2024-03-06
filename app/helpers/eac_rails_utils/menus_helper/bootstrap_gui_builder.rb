@@ -5,14 +5,14 @@ module EacRailsUtils
     # http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3
     class BootstrapGuiBuilder
       def initialize(view, options = {})
-        @view = view
-        @options = options
+        @view = view # rubocop:disable Rails/HelperInstanceVariable
+        @options = options # rubocop:disable Rails/HelperInstanceVariable
       end
 
       def build(entries)
         raise 'Argument "entries" is not a array' unless entries.is_a?(Array)
 
-        @view.content_tag(:ul, class: "nav navbar-nav #{@options[:class]}".strip) do
+        @view.content_tag(:ul, class: "nav navbar-nav #{@options[:class]}".strip) do # rubocop:disable Rails/HelperInstanceVariable
           menu_entries(entries)
         end
       end
@@ -44,38 +44,38 @@ module EacRailsUtils
       end
 
       def menu_group_root(entry)
-        @view.content_tag(:li, class: 'dropdown') do
+        @view.content_tag(:li, class: 'dropdown') do # rubocop:disable Rails/HelperInstanceVariable
           menu_group_root_button(entry) << menu_group_root_children(entry)
         end
       end
 
       def menu_group_root_button(entry)
-        @view.content_tag(:a, :role => 'button', 'data-toggle' => 'dropdown',
-                              :class => "btn #{@options[:button_class]}",
+        @view.content_tag(:a, :role => 'button', 'data-toggle' => 'dropdown', # rubocop:disable Rails/HelperInstanceVariable
+                              :class => "btn #{@options[:button_class]}", # rubocop:disable Rails/HelperInstanceVariable
                               :'data-target' => '#') do
-          ActiveSupport::SafeBuffer.new(entry[:label]) << ' ' << @view.tag(:span, class: 'caret')
+          ActiveSupport::SafeBuffer.new(entry[:label]) << ' ' << @view.tag(:span, class: 'caret') # rubocop:disable Rails/HelperInstanceVariable
         end
       end
 
       def menu_group_root_children(entry)
-        @view.content_tag(:ul, class: 'dropdown-menu multi-level', role: 'menu',
+        @view.content_tag(:ul, class: 'dropdown-menu multi-level', role: 'menu', # rubocop:disable Rails/HelperInstanceVariable
                                'aria-labelledby': 'dropdownMenu') do
           menu_entries(entry[:children])
         end
       end
 
       def menu_group_sub(entry)
-        @view.content_tag(:li, class: 'dropdown-submenu') do
-          @view.link_to(entry[:label], '#', tabindex: -1) <<
-            @view.content_tag(:ul, class: 'dropdown-menu') do
+        @view.content_tag(:li, class: 'dropdown-submenu') do # rubocop:disable Rails/HelperInstanceVariable
+          @view.link_to(entry[:label], '#', tabindex: -1) << # rubocop:disable Rails/HelperInstanceVariable
+            @view.content_tag(:ul, class: 'dropdown-menu') do # rubocop:disable Rails/HelperInstanceVariable
               menu_entries(entry[:children])
             end
         end
       end
 
       def menu_item(entry)
-        @view.content_tag(:li) do
-          @view.link_to(entry[:label], entry[:path], menu_item_options(entry))
+        @view.content_tag(:li) do # rubocop:disable Rails/HelperInstanceVariable
+          @view.link_to(entry[:label], entry[:path], menu_item_options(entry)) # rubocop:disable Rails/HelperInstanceVariable
         end
       end
 
@@ -85,7 +85,7 @@ module EacRailsUtils
           options[:method] = options[:link_method]
           options.delete(:link_method)
         end
-        options[:class] = (@options[:button_class]).to_s.strip if entry[:level].zero?
+        options[:class] = (@options[:button_class]).to_s.strip if entry[:level].zero? # rubocop:disable Rails/HelperInstanceVariable
         options
       end
     end

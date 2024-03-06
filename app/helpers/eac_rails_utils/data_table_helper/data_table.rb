@@ -41,7 +41,7 @@ module EacRailsUtils
         view.javascript_tag <<~JS_CODE
           $(document).ready(function () {
             $('##{id}').DataTable({
-              paging: #{@setup.paging ? 'true' : 'false'}
+              paging: #{setup.paging ? 'true' : 'false'} # rubocop:disable Rails/HelperInstanceVariable
                   });
             });
         JS_CODE

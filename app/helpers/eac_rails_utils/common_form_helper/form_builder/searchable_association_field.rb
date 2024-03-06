@@ -5,23 +5,23 @@ module EacRailsUtils
     class FormBuilder
       class SearchableAssociationField
         def initialize(form_builder, field_name, options)
-          @form_builder = form_builder
-          @field_name = field_name
-          @options = options
+          @form_builder = form_builder # rubocop:disable Rails/HelperInstanceVariable
+          @field_name = field_name # rubocop:disable Rails/HelperInstanceVariable
+          @options = options # rubocop:disable Rails/HelperInstanceVariable
         end
 
         def hidden_input
-          @form_builder.form.hidden_field(hidden_input_name, id: hidden_input_id)
+          @form_builder.form.hidden_field(hidden_input_name, id: hidden_input_id) # rubocop:disable Rails/HelperInstanceVariable
         end
 
         def visible_input
-          @form_builder.helper.text_field_tag(visible_input_name, '', id: visible_input_id,
+          @form_builder.helper.text_field_tag(visible_input_name, '', id: visible_input_id, # rubocop:disable Rails/HelperInstanceVariable
                                                                       class: 'form-control')
         end
 
         def javascript_tag
-          @form_builder.helper.content_tag(:script) do
-            @form_builder.helper.raw("new InputSearchable(#{json_options});")
+          @form_builder.helper.content_tag(:script) do # rubocop:disable Rails/HelperInstanceVariable
+            @form_builder.helper.raw("new InputSearchable(#{json_options});") # rubocop:disable Rails/HelperInstanceVariable
           end
         end
 
@@ -32,7 +32,7 @@ module EacRailsUtils
         end
 
         def hidden_input_name
-          "#{@field_name}_id"
+          "#{@field_name}_id" # rubocop:disable Rails/HelperInstanceVariable
         end
 
         def visible_input_id
@@ -40,11 +40,11 @@ module EacRailsUtils
         end
 
         def visible_input_name
-          "#{@field_name}_search"
+          "#{@field_name}_search" # rubocop:disable Rails/HelperInstanceVariable
         end
 
         def association_column
-          @form_builder.model_instance&.send(@field_name)
+          @form_builder.model_instance&.send(@field_name) # rubocop:disable Rails/HelperInstanceVariable
         end
 
         def initial_id
@@ -61,11 +61,11 @@ module EacRailsUtils
         end
 
         def params
-          @form_builder.helper.params
+          @form_builder.helper.params # rubocop:disable Rails/HelperInstanceVariable
         end
 
         def url
-          @options[:url]
+          @options[:url] # rubocop:disable Rails/HelperInstanceVariable
         end
 
         def json_options

@@ -1,18 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Rails/HelperInstanceVariable:
-  Exclude:
-  - app/helpers/eac_rails_utils/common_form_helper/form_builder/date_field.rb
-  - app/helpers/eac_rails_utils/common_form_helper/form_builder/searchable_association_field.rb
-  - app/helpers/eac_rails_utils/common_form_helper/form_builder/time_field.rb
-  - app/helpers/eac_rails_utils/common_form_helper/form_builder.rb
-  - app/helpers/eac_rails_utils/data_table_helper/data_table.rb
-  - app/helpers/eac_rails_utils/data_table_helper/setup.rb
-  - app/helpers/eac_rails_utils/menus_helper/bootstrap_gui_builder.rb
-  - app/helpers/eac_rails_utils/menus_helper/data_builder.rb
-  - app/helpers/eac_rails_utils/menus_helper/gui_builder.rb
-  - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
 Rails/RedundantPresenceValidationOnBelongsTo:
   Exclude:
   - spec/lib/eac_rails_utils/models/tableless/belongs_to_spec.rb

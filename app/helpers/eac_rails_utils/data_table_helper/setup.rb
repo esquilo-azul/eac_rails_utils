@@ -7,14 +7,14 @@ module EacRailsUtils
       attr_accessor :paging
 
       def initialize
-        @columns = []
-        @paging = true
+        @columns = [] # rubocop:disable Rails/HelperInstanceVariable
+        @paging = true # rubocop:disable Rails/HelperInstanceVariable
       end
 
       # @return [EacRailsUtils::DataTableHelper::Column]
       def column(*args, &block)
         column = ::EacRailsUtils::DataTableHelper::Column.new(args, block)
-        @columns << column
+        @columns << column # rubocop:disable Rails/HelperInstanceVariable
         column
       end
     end
