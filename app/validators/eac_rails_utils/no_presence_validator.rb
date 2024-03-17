@@ -6,7 +6,7 @@ module EacRailsUtils
     def validate_each(record, attribute, _value)
       return if record.send(attribute).blank?
 
-      record.errors[attribute] << (options[:message] || 'must be blank') # rubocop:disable Rails/DeprecatedActiveModelErrorsMethods
+      record.errors.add(attribute, options[:message] || 'must be blank')
     end
   end
 end
