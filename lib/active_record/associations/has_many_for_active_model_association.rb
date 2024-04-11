@@ -1,4 +1,4 @@
-module ActiveRecord::Associations # rubocop:disable Style/ClassAndModuleChildren
+module ActiveRecord::Associations # rubocop:disable Style/ClassAndModuleChildren, Style/FrozenStringLiteralComment
   class HasManyForActiveModelAssociation < HasManyAssociation
     # remove conditions: owner.new_record?, foreign_key_present?
     def find_target?

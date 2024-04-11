@@ -1,4 +1,4 @@
-require "active_model"
+require "active_model" # rubocop:disable Style/FrozenStringLiteralComment
 require "active_record"
 require "active_support"
 require "eac_rails_utils/models/tableless_associations"

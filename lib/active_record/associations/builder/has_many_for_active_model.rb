@@ -1,4 +1,4 @@
-module ActiveRecord::Associations::Builder # rubocop:disable Style/ClassAndModuleChildren
+module ActiveRecord::Associations::Builder # rubocop:disable Style/ClassAndModuleChildren, Style/FrozenStringLiteralComment
   class HasManyForActiveModel < HasMany
     if ActiveRecord.version >= Gem::Version.new("5.0.0.beta")
       AR_CALLBACK_METHODS = %i(define_callback before_validation after_validation before_save

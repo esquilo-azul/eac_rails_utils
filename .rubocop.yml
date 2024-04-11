@@ -1,11 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Style/FrozenStringLiteralComment:
-  Exclude:
-  - lib/active_record/associations/builder/has_many_for_active_model.rb
-  - lib/active_record/associations/has_many_for_active_model_association.rb
-  - lib/activemodel/associations.rb
 Style/GuardClause:
   Exclude:
   - lib/active_record/associations/builder/has_many_for_active_model.rb
