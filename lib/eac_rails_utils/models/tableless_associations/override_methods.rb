@@ -50,7 +50,9 @@ module EacRailsUtils
           # Build a list of candidates to search for
           def compute_type_candidates(type_name)
             candidates = []
-            name.scan(/::|$/) { candidates.unshift "#{$`}::#{type_name}" }
+            name.scan(/::|$/) do
+              candidates.unshift "#{::Regexp.last_match.pre_match}::#{type_name}"
+            end
             candidates << type_name
           end
 
