@@ -5,8 +5,8 @@ module ActiveRecord::Associations::Builder # rubocop:disable Style/ClassAndModul
                                after_save before_update after_update].freeze
 
       def self.valid_options(_options)
-        super + [:active_model,
-                 :target_ids] - [:through, :dependent, :source, :source_type, :counter_cache, :as]
+        super + %i[active_model
+                   target_ids] - %i[through dependent source source_type counter_cache as]
       end
 
       def self.define_callbacks(model, reflection)
@@ -16,8 +16,8 @@ module ActiveRecord::Associations::Builder # rubocop:disable Style/ClassAndModul
       end
     else
       def valid_options
-        super + [:active_model,
-                 :target_ids] - [:through, :dependent, :source, :source_type, :counter_cache, :as]
+        super + %i[active_model
+                   target_ids] - %i[through dependent source source_type counter_cache as]
       end
     end
   end
