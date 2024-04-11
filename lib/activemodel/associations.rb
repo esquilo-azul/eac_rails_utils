@@ -10,6 +10,4 @@ begin
 rescue LoadError # rubocop:disable Lint/SuppressedException
 end
 
-if defined?(Rails)
-  require "eac_rails_utils/models/tableless_associations/railtie"
-end
+require "eac_rails_utils/models/tableless_associations/railtie" if defined?(Rails)
