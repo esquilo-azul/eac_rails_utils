@@ -22,7 +22,7 @@ module EacRailsUtils
 
         # @return [Hash]
         def tag_attributes
-          column.value_cell_attributes.map { |k, v| [k, tag_attribute_value(v)] }.to_h # rubocop:disable Style/HashTransformValues
+          column.value_cell_attributes.map { |k, v| [k, tag_attribute_value(v)] }.to_h # rubocop:disable Style/HashTransformValues, Style/MapToHash
         end
       end
     end
