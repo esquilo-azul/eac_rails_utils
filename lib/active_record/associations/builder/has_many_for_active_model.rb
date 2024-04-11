@@ -10,7 +10,7 @@ module ActiveRecord::Associations::Builder # rubocop:disable Style/ClassAndModul
       end
 
       def self.define_callbacks(model, reflection)
-        return unless AR_CALLBACK_METHODS.all? { |meth| self.respond_to?(meth) }
+        return unless AR_CALLBACK_METHODS.all? { |meth| respond_to?(meth) }
 
         super
       end

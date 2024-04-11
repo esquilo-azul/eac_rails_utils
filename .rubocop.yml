@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Style/RedundantSelf:
-  Exclude:
-  - lib/active_record/associations/builder/has_many_for_active_model.rb
 Style/RedundantStringEscape:
   Exclude:
   - app/helpers/eac_rails_utils/menus_helper.rb
