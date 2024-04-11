@@ -43,7 +43,7 @@ module EacRailsUtils
           ActiveRecord::Reflection.add_reflection self, name, reflection
 
           mixin = generated_association_methods
-          mixin.class_eval <<-CODE, __FILE__, __LINE__ + 1
+          mixin.class_eval <<-CODE, __FILE__, __LINE__ + 1 # rubocop:disable Style/DocumentDynamicEvalDefinition
           def #{options[:target_ids]}=(other_ids)
             @#{options[:target_ids]} = other_ids
             association(:#{name}).reset
