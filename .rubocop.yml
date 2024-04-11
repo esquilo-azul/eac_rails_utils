@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Style/RedundantLineContinuation:
-  Exclude:
-  - lib/eac_rails_utils/models/tableless_associations/override_methods.rb
 Style/RedundantReturn:
   Exclude:
   - app/helpers/eac_rails_utils/data_table_helper/column.rb
