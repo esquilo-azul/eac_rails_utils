@@ -12,7 +12,7 @@ module EacRailsUtils
 
       id = SecureRandom.hex(5)
       GuiBuilder.new(self).build(entries, id: id, class: 'jMenu') <<
-        javascript_tag("$(document).ready(function(){$('\##{id}').jMenu();});")
+        javascript_tag("$(document).ready(function(){$('##{id}').jMenu();});")
     end
 
     def bootstrap_dropdown_menu(entries, options = {})
