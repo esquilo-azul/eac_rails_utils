@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Style/OpenStructUse:
-  Exclude:
-  - lib/eac_rails_utils/models/tableless/build_attributes.rb
 Style/PercentLiteralDelimiters:
   Exclude:
   - lib/active_record/associations/builder/has_many_for_active_model.rb

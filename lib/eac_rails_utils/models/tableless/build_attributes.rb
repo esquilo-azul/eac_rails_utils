@@ -32,7 +32,7 @@ module EacRailsUtils
           m = /\A(.+)\(([0-9]+)(.)\)\z/.match(key)
           return unless m
 
-          ::OpenStruct.new(key: m[1], index: m[2].to_i - 1, converter: array_value_converter(m[3]))
+          ::OpenStruct.new(key: m[1], index: m[2].to_i - 1, converter: array_value_converter(m[3])) # rubocop:disable Style/OpenStructUse
         end
 
         def array_value_set(array_attr, value)
