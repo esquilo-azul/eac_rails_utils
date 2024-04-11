@@ -9,7 +9,7 @@ RSpec.describe(::EacRailsUtils::Models::Tableless) do # rubocop:disable RSpec/Fi
 
       attribute :job_id, Integer
       belongs_to :job, class_name: 'Job'
-      validates :job, presence: true
+      validates :job, presence: true # rubocop:disable Rails/RedundantPresenceValidationOnBelongsTo
     end
   end
   let(:record) { model.new }
