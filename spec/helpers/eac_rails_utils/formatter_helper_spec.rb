@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-::RSpec.describe(EacRailsUtils::FormatterHelper, type: :helper) do
+RSpec.describe(EacRailsUtils::FormatterHelper, type: :helper) do
   brl_currency = { a: '1', b: '1,2', c: '1,23', d: '123.456.789,01',
                    e: 'R$1,23', f: 'R$ 123.4,56' }
   float_currency = { a: 1, b: 1.2, c: 1.23, d: 123_456_789.01,

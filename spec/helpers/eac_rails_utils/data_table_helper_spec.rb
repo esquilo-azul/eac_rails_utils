@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-::RSpec.describe(EacRailsUtils::DataTableHelper, type: :helper) do
+RSpec.describe(EacRailsUtils::DataTableHelper, type: :helper) do
   let(:person_class) do
-    ::Class.new do
+    Class.new do
       attr_reader :name, :age, :job
 
       def initialize(name, age, job)
@@ -14,7 +14,7 @@
   end
 
   let(:job_class) do
-    ::Class.new do
+    Class.new do
       attr_reader :name, :id
 
       def initialize(name)

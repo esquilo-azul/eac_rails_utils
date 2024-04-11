@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-::RSpec.describe(::EacRailsUtils::CpfValidator) do
+RSpec.describe(EacRailsUtils::CpfValidator) do
   include_examples 'active_model_attribute_validator', [
     '85630275305',
     '66244374487',

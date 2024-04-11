@@ -1,28 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Style/RedundantConstantBase:
-  Exclude:
-  - Gemfile
-  - config/initializers/json.rb
-  - lib/eac_rails_utils/patches/active_model.rb
-  - lib/eac_rails_utils/patches/numeric.rb
-  - spec/helpers/eac_rails_utils/common_form_helper_spec.rb
-  - spec/helpers/eac_rails_utils/data_table_helper_spec.rb
-  - spec/helpers/eac_rails_utils/formatter_helper_spec.rb
-  - spec/lib/eac_rails_utils/menus/group_spec.rb
-  - spec/lib/eac_rails_utils/models/fetch_errors_spec.rb
-  - spec/lib/eac_rails_utils/models/tableless/belongs_to_spec.rb
-  - spec/lib/eac_rails_utils/models/tableless/has_many_to_spec.rb
-  - spec/lib/eac_rails_utils/models/tableless_spec.rb
-  - spec/lib/eac_rails_utils/models/validations_spec.rb
-  - spec/lib/eac_rails_utils/patches/numeric/number_helper_spec.rb
-  - spec/lib/rubocop_check_spec.rb
-  - spec/spec_helper.rb
-  - spec/support/rails_app_append/db/migrate/20230529233000_create_immutable_stubs.rb
-  - spec/validators/eac_rails_utils/cpf_validator_spec.rb
-  - spec/validators/eac_rails_utils/immutable_validator_spec.rb
-  - spec/validators/eac_rails_utils/yaml_validator_spec.rb
 Style/RedundantLineContinuation:
   Exclude:
   - lib/eac_rails_utils/models/tableless_associations/override_methods.rb

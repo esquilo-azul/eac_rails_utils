@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe(::EacRailsUtils::CommonFormHelper, type: :helper) do
+RSpec.describe(EacRailsUtils::CommonFormHelper, type: :helper) do
   describe '#common_form' do
     it do # rubocop:disable RSpec/ExampleLength
       expect do

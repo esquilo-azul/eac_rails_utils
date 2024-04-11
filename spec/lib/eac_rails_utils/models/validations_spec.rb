@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe ::EacRailsUtils::Models::Validations do
+RSpec.describe EacRailsUtils::Models::Validations do
   let(:stub_model) do
-    ::Class.new do
+    Class.new do
       def self.model_name
         ActiveModel::Name.new(self, nil, 'StubModel')
       end
@@ -29,7 +29,7 @@ RSpec.describe ::EacRailsUtils::Models::Validations do
           attribute, value, valid = test_data
           errop = valid ? :to : :not_to
 
-          let(:model) { ::Object.const_get(model_const) }
+          let(:model) { Object.const_get(model_const) }
 
           before { model.include(described_class) }
 
@@ -56,7 +56,7 @@ RSpec.describe ::EacRailsUtils::Models::Validations do
       User: [[:job, true], [:password, true], [:email, true]] }.each do |model_const, test_datas|
       test_datas.each do |test_data|
         context "with model #{model_const} and test_data=#{test_data}" do
-          let(:model) { ::Object.const_get(model_const) }
+          let(:model) { Object.const_get(model_const) }
           let(:attribute) { test_data[0] }
           let(:expected) { test_data[1] }
 

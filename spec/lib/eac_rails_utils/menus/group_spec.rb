@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe(::EacRailsUtils::Menus::Group) do
+RSpec.describe(EacRailsUtils::Menus::Group) do
   let(:root) { described_class.new(:root, nil) }
   let(:sub1) { root.group(:sub1) }
   let(:sub1_1) { sub1.group(:sub1_1) } # rubocop:disable Naming/VariableNumber

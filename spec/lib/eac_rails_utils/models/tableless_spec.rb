@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe(::EacRailsUtils::Models::Tableless) do
+RSpec.describe(EacRailsUtils::Models::Tableless) do
   let(:model) do
-    ::Class.new(described_class) do
+    Class.new(described_class) do
       def self.name
         'StubbedTablelessModel'
       end
@@ -17,7 +17,7 @@ RSpec.describe(::EacRailsUtils::Models::Tableless) do
               'tempo(4i)' => '12', 'tempo(5i)' => '13', 'tempo(6i)' => '14')
   end
 
-  it { expect(record.tempo).to be_a(::DateTime) }
+  it { expect(record.tempo).to be_a(DateTime) }
   it { expect(record.tempo.year).to eq(9) }
   it { expect(record.tempo.month).to eq(10) }
   it { expect(record.tempo.day).to eq(11) }

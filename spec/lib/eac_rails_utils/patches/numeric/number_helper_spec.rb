@@ -2,7 +2,7 @@
 
 require 'eac_rails_utils/patches/numeric/number_helper'
 
-::RSpec.describe(::Numeric) do # rubocop:disable RSpec/FilePath, RSpec/SpecFilePathFormat
+RSpec.describe(Numeric) do # rubocop:disable RSpec/FilePath, RSpec/SpecFilePathFormat
   let(:instance) { 1234.567 }
 
   describe '#with_precision' do

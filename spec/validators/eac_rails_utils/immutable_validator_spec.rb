@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-::RSpec.describe(::EacRailsUtils::ImmutableValidator) do
-  let(:model) { ::ImmutableStub }
+RSpec.describe(EacRailsUtils::ImmutableValidator) do
+  let(:model) { ImmutableStub }
 
   context 'when record is created' do
     let(:record) { model.new }

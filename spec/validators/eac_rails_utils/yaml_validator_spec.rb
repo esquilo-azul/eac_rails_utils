@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-::RSpec.describe(::EacRailsUtils::YamlValidator) do
+RSpec.describe(EacRailsUtils::YamlValidator) do
   include_examples 'active_model_attribute_validator', [
     nil,
     '--- STRING',

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-::RSpec.describe(::EacRailsUtils::Models::FetchErrors) do
+RSpec.describe(EacRailsUtils::Models::FetchErrors) do
   let(:model1) do # rubocop:disable RSpec/IndexedLet
-    ::Class.new do
+    Class.new do
       include ActiveModel::Model
       include EacRailsUtils::Models::FetchErrors
       attr_accessor :name, :age, :account, :country_id, :other
@@ -14,7 +14,7 @@
   end
 
   let(:model2) do # rubocop:disable RSpec/IndexedLet
-    ::Class.new do
+    Class.new do
       include ActiveModel::Model
       attr_accessor :name, :myage, :account_id, :country
 

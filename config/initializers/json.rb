@@ -3,9 +3,9 @@
 def patch_json?
   require 'json'
 
-  ::Gem::Version.new(RUBY_VERSION) >= ::Gem::Version.new('2.7') &&
-    ::Gem::Version.new(JSON::VERSION) < ::Gem::Version.new('2')
-rescue ::LoadError
+  Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.7') &&
+    Gem::Version.new(JSON::VERSION) < Gem::Version.new('2')
+rescue LoadError
   false
 end
 
