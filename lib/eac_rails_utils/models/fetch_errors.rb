@@ -83,7 +83,7 @@ module EacRailsUtils
         b = ''
         errors.messages.each do |field, messages|
           b += ' / ' if b != ''
-          b += field.to_s + ': ' + messages.to_s
+          b += field.to_s + ': ' + messages.to_s # rubocop:disable Style/StringConcatenation
         end
         b
       end
