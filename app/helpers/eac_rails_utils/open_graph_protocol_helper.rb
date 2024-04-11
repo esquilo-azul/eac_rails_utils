@@ -59,7 +59,7 @@ module EacRailsUtils
       attr_reader :parent, :suffix
 
       def initialize(view, parent, suffix)
-        super view
+        super(view)
         @parent = parent # rubocop:disable Rails/HelperInstanceVariable
         @suffix = suffix # rubocop:disable Rails/HelperInstanceVariable
       end

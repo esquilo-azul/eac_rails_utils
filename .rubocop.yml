@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Style/SuperWithArgsParentheses:
-  Exclude:
-  - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
 Style/SymbolArray:
   Exclude:
   - lib/active_record/associations/builder/has_many_for_active_model.rb
