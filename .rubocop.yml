@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Style/HashEachMethods:
-  Exclude:
-  - app/helpers/eac_rails_utils/open_graph_protocol_helper.rb
-  - lib/eac_rails_utils/models/fetch_errors.rb
 Style/HashTransformValues:
   Exclude:
   - app/helpers/eac_rails_utils/data_table_helper/data_table/value_cell.rb

@@ -39,7 +39,7 @@ module EacRailsUtils
       def children_tags
         view.capture do
           view.concat tag
-          @children.values.each do |child| # rubocop:disable Rails/HelperInstanceVariable
+          @children.values.each do |child| # rubocop:disable Rails/HelperInstanceVariable, Style/HashEachMethods
             view.concat(child.children_tags)
             view.concat("\n")
           end
