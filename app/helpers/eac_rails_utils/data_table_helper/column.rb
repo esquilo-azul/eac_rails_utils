@@ -45,7 +45,7 @@ module EacRailsUtils
       private
 
       def node_value(node, subpath)
-        return node if subpath.empty?
+        node if subpath.empty?
       end
     end
   end
