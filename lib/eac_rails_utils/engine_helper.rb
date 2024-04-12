@@ -18,7 +18,7 @@ module EacRailsUtils
 
     module ClassMethods
       def append_autoload_paths
-        config.autoload_paths += Dir["#{config.root}/lib/**/"]
+        config.autoload_paths += Dir["#{config.root}/lib"]
       end
 
       def append_self_migrations
