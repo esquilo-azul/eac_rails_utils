@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.7'
 
   s.add_dependency 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
-  s.add_dependency 'eac_ruby_utils', '~> 0.121'
+  s.add_dependency 'eac_ruby_utils', '~> 0.122'
   s.add_dependency 'rails', '>= 5.2.8.1'
   s.add_dependency 'virtus', '~> 2.0'
 
