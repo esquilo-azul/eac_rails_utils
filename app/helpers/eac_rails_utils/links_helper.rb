@@ -11,6 +11,12 @@ module EacRailsUtils
       action: 'edit', class: 'edit_link', target: '_blank',
       title_translation: 'eac_rails_utils.links.edit_object'
     }.freeze
+    SHORT_DETAIL_SHOW_LINK_OPTIONS = {
+      class: 'show_link', target: '_blank',
+      title_translation: 'eac_rails_utils.links.show_object'
+    }.freeze
+    SHORT_DETAIL_LINK_OPTIONS = SHORT_DETAIL_SHOW_LINK_OPTIONS.merge(action: 'detail')
+    SHORT_SHOW_LINK_OPTIONS = SHORT_DETAIL_SHOW_LINK_OPTIONS.merge(action: '')
 
     def short_delete_link(object)
       short_object_link object, SHORT_DELETE_LINK_OPTIONS
@@ -29,21 +35,14 @@ module EacRailsUtils
     end
 
     def short_show_link(object)
-      short_detail_show_link(object, false)
+      short_object_link object, SHORT_SHOW_LINK_OPTIONS
     end
 
     def short_detail_link(object)
-      short_detail_show_link(object, true)
+      short_object_link object, SHORT_DETAIL_LINK_OPTIONS
     end
 
     private
-
-    def short_detail_show_link(object, detail)
-      short_object_link object,
-                        action: detail ? 'detail' : nil,
-                        class: 'show_link', target: '_blank',
-                        title_translation: 'eac_rails_utils.links.show_object'
-    end
 
     def short_object_link(object, options = {})
       object_link(object, options.merge(name: ''))
