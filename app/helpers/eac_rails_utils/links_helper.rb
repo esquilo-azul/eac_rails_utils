@@ -44,9 +44,7 @@ module EacRailsUtils
     end
 
     def short_object_link(object, action = nil, options = {})
-      value_or_sign(object, '') do |value|
-        link_to '', object_path(value, action), options
-      end
+      object_link(object, options.merge(action: action, name: ''))
     end
 
     require_sub __FILE__, require_mode: :kernel
