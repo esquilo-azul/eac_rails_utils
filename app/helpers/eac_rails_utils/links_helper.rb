@@ -3,14 +3,14 @@
 module EacRailsUtils
   module LinksHelper
     def short_delete_link(object)
-      short_object_link object, '', class: 'delete_link', method: :delete, target: '_blank',
-                                    title_translation: 'eac_rails_utils.links.delete_object',
-                                    confirm_translation: 'eac_rails_utils.links.delete_confirm'
+      short_object_link object, action: '', class: 'delete_link', method: :delete, target: '_blank',
+                                title_translation: 'eac_rails_utils.links.delete_object',
+                                confirm_translation: 'eac_rails_utils.links.delete_confirm'
     end
 
     def short_edit_link(object)
-      short_object_link object, 'edit', class: 'edit_link', target: '_blank',
-                                        title_translation: 'eac_rails_utils.links.edit_object'
+      short_object_link object, action: 'edit', class: 'edit_link', target: '_blank',
+                                title_translation: 'eac_rails_utils.links.edit_object'
     end
 
     def short_goto_link(url)
@@ -33,13 +33,13 @@ module EacRailsUtils
 
     def short_detail_show_link(object, detail)
       short_object_link object,
-                        detail ? 'detail' : nil,
+                        action: detail ? 'detail' : nil,
                         class: 'show_link', target: '_blank',
                         title_translation: 'eac_rails_utils.links.show_object'
     end
 
-    def short_object_link(object, action = nil, options = {})
-      object_link(object, options.merge(action: action, name: ''))
+    def short_object_link(object, options = {})
+      object_link(object, options.merge(name: ''))
     end
 
     require_sub __FILE__, require_mode: :kernel
