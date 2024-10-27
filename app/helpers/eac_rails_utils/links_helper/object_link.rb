@@ -8,12 +8,13 @@ module EacRailsUtils
     #   * :blank_value : text used when +object+ is blank.
     #   * :confirm_translation: translation key for attribute +data.confirm+.
     #   * :name : argument +name+ for the method +link_to+.
+    #   * :title_translation: translation key for attribute +title+.
     # @return [ActiveSupport::SafeBuffer] The link or the blank_sign.
     class ObjectLink
       acts_as_instance_method
       common_constructor :view, :object, :options, default: [{}]
 
-      NON_LINK_TO_OPTIONS = %i[action blank_value confirm_translation name].freeze
+      NON_LINK_TO_OPTIONS = %i[action blank_value confirm_translation name title_translation].freeze
 
       # @return [ActiveSupport::SafeBuffer]
       def result
@@ -44,6 +45,13 @@ module EacRailsUtils
         options[:name] || object.to_s
       end
 
+      # @return [String, nil]
+      def title
+        options[:title_translation].if_present do |v|
+          ::I18n.t(v, label: object.to_s)
+        end
+      end
+
       protected
 
       def apply_confirm(options)
@@ -53,9 +61,15 @@ module EacRailsUtils
         end
       end
 
+      def apply_title(options)
+        title.if_present do |v|
+          options[:title] = v
+        end
+      end
+
       # @return [Hash]
       def link_to_options
-        %w[confirm].each_with_object(options.except(*NON_LINK_TO_OPTIONS)) do |e, a|
+        %w[confirm title].each_with_object(options.except(*NON_LINK_TO_OPTIONS)) do |e, a|
           send("apply_#{e}", a)
         end
       end

@@ -4,15 +4,13 @@ module EacRailsUtils
   module LinksHelper
     def short_delete_link(object)
       short_object_link object, '', class: 'delete_link', method: :delete, target: '_blank',
-                                    title: ::I18n.t('eac_rails_utils.links.delete_object',
-                                                    label: object.to_s),
+                                    title_translation: 'eac_rails_utils.links.delete_object',
                                     confirm_translation: 'eac_rails_utils.links.delete_confirm'
     end
 
     def short_edit_link(object)
       short_object_link object, 'edit', class: 'edit_link', target: '_blank',
-                                        title: ::I18n.t('eac_rails_utils.links.edit_object',
-                                                        label: object.to_s)
+                                        title_translation: 'eac_rails_utils.links.edit_object'
     end
 
     def short_goto_link(url)
@@ -37,7 +35,7 @@ module EacRailsUtils
       short_object_link object,
                         detail ? 'detail' : nil,
                         class: 'show_link', target: '_blank',
-                        title: ::I18n.t('eac_rails_utils.links.show_object', label: object.to_s)
+                        title_translation: 'eac_rails_utils.links.show_object'
     end
 
     def short_object_link(object, action = nil, options = {})
