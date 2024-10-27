@@ -7,14 +7,17 @@ module EacRailsUtils
       title_translation: 'eac_rails_utils.links.delete_object',
       confirm_translation: 'eac_rails_utils.links.delete_confirm'
     }.freeze
+    SHORT_EDIT_LINK_OPTIONS = {
+      action: 'edit', class: 'edit_link', target: '_blank',
+      title_translation: 'eac_rails_utils.links.edit_object'
+    }.freeze
 
     def short_delete_link(object)
       short_object_link object, SHORT_DELETE_LINK_OPTIONS
     end
 
     def short_edit_link(object)
-      short_object_link object, action: 'edit', class: 'edit_link', target: '_blank',
-                                title_translation: 'eac_rails_utils.links.edit_object'
+      short_object_link object, SHORT_EDIT_LINK_OPTIONS
     end
 
     def short_goto_link(url)
