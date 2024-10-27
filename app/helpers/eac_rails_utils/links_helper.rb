@@ -6,10 +6,7 @@ module EacRailsUtils
       short_object_link object, '', class: 'delete_link', method: :delete, target: '_blank',
                                     title: ::I18n.t('eac_rails_utils.links.delete_object',
                                                     label: object.to_s),
-                                    data: {
-                                      confirm: ::I18n.t('eac_rails_utils.links.delete_confirm',
-                                                        label: object.to_s)
-                                    }
+                                    confirm_translation: 'eac_rails_utils.links.delete_confirm'
     end
 
     def short_edit_link(object)
