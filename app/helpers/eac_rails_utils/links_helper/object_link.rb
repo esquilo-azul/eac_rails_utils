@@ -5,17 +5,18 @@ module EacRailsUtils
     # @param object [Object]
     # @param options [Hash] All the values are passed to the link_to method with except of:
     #   * :action : argument +action+ for the method +object_path+.
+    #   * :blank_value : text used when +object+ is blank.
     #   * :name : argument +name+ for the method +link_to+.
     # @return [ActiveSupport::SafeBuffer] The link or the blank_sign.
     class ObjectLink
       acts_as_instance_method
       common_constructor :view, :object, :options, default: [{}]
 
-      NON_LINK_TO_OPTIONS = %i[action name].freeze
+      NON_LINK_TO_OPTIONS = %i[action blank_value name].freeze
 
       # @return [ActiveSupport::SafeBuffer]
       def result
-        view.value_or_sign(object, '') do |value|
+        view.value_or_sign(object, blank_value) do |value|
           view.link_to name, view.object_path(value, action), link_to_options
         end
       end
@@ -23,6 +24,11 @@ module EacRailsUtils
       # @return [String, nil]
       def action
         options[:action]
+      end
+
+      # @return [String, nil]
+      def blank_value
+        options[:blank_value]
       end
 
       # @return [String, nil]
