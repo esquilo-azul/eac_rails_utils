@@ -5,11 +5,16 @@ require 'eac_ruby_utils/core_ext'
 module EacRailsUtils
   module DataTableHelper
     class DataTable
+      CONTAINER_CSS_CLASS = %w[table-responsive].freeze
+      TABLE_CSS_CLASSES = %w[table table-striped].freeze
+
       common_constructor :view, :dataset, :setup_block, block_arg: true
 
       def output
-        view.content_tag(:table, id: id) do
-          head << body
+        view.content_tag(:div, class: CONTAINER_CSS_CLASS) do
+          view.content_tag(:table, id: id, class: TABLE_CSS_CLASSES) do
+            head << body
+          end
         end << script
       end
 
@@ -40,9 +45,9 @@ module EacRailsUtils
       def script
         view.javascript_tag <<~JS_CODE
           $(document).ready(function () {
-            $('##{id}').DataTable({
-              paging: #{setup.paging ? 'true' : 'false'} # rubocop:disable Rails/HelperInstanceVariable
-                  });
+              $('##{id}').DataTable({
+                  paging: #{setup.paging ? 'true' : 'false'} # rubocop:disable Rails/HelperInstanceVariable
+                });
             });
         JS_CODE
       end
