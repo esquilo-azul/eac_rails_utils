@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'activemodel/associations'
 require 'eac_rails_utils/patches/rails_5_2'
 
 module EacRailsUtils
