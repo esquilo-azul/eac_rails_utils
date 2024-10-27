@@ -2,10 +2,14 @@
 
 module EacRailsUtils
   module LinksHelper
+    SHORT_DELETE_LINK_OPTIONS = {
+      action: '', class: 'delete_link', method: :delete, target: '_blank',
+      title_translation: 'eac_rails_utils.links.delete_object',
+      confirm_translation: 'eac_rails_utils.links.delete_confirm'
+    }.freeze
+
     def short_delete_link(object)
-      short_object_link object, action: '', class: 'delete_link', method: :delete, target: '_blank',
-                                title_translation: 'eac_rails_utils.links.delete_object',
-                                confirm_translation: 'eac_rails_utils.links.delete_confirm'
+      short_object_link object, SHORT_DELETE_LINK_OPTIONS
     end
 
     def short_edit_link(object)
