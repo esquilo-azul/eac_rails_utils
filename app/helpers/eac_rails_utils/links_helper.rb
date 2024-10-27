@@ -18,6 +18,7 @@ module EacRailsUtils
     ).freeze
     SHORT_DETAIL_LINK_OPTIONS = SHORT_DETAIL_SHOW_LINK_OPTIONS.merge(action: 'detail')
     SHORT_SHOW_LINK_OPTIONS = SHORT_DETAIL_SHOW_LINK_OPTIONS.merge(action: '')
+    SHOW_LINK_OPTIONS = LINK_OPTIONS.merge(action: '')
 
     # @param object [Object]
     # @param options [Hash]
@@ -48,6 +49,13 @@ module EacRailsUtils
 
     def short_detail_link(object)
       object_link object, SHORT_DETAIL_LINK_OPTIONS
+    end
+
+    # @param object [Object]
+    # @param options [Hash]
+    # @return [ActiveSupport::SafeBuffer]
+    def show_link(object, **options)
+      object_link object, SHOW_LINK_OPTIONS.merge(options)
     end
 
     require_sub __FILE__, require_mode: :kernel
