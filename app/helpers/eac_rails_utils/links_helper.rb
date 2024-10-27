@@ -2,7 +2,8 @@
 
 module EacRailsUtils
   module LinksHelper
-    SHORT_LINK_OPTIONS = { name: '', target: '_blank' }.freeze
+    LINK_OPTIONS = { target: '_blank' }.freeze
+    SHORT_LINK_OPTIONS = LINK_OPTIONS.merge(name: '').freeze
     SHORT_DELETE_LINK_OPTIONS = SHORT_LINK_OPTIONS.merge(
       action: '', class: 'delete_link', method: :delete,
       title_translation: 'eac_rails_utils.links.delete_object',
