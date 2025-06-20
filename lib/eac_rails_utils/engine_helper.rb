@@ -30,9 +30,7 @@ module EacRailsUtils
       end
 
       # @return [EacRailsUtils::Menus::Group]
-      def root_menu
-        ::EacRailsUtils::EnginesHelper.root_menu
-      end
+      delegate :root_menu, to: :'::EacRailsUtils::EnginesHelper'
     end
   end
 end

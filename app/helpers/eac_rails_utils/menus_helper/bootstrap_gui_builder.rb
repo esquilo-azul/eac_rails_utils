@@ -85,7 +85,7 @@ module EacRailsUtils
           options[:method] = options[:link_method]
           options.delete(:link_method)
         end
-        options[:class] = (@options[:button_class]).to_s.strip if entry[:level].zero? # rubocop:disable Rails/HelperInstanceVariable
+        options[:class] = @options[:button_class].to_s.strip if entry[:level].zero? # rubocop:disable Rails/HelperInstanceVariable
         options
       end
     end

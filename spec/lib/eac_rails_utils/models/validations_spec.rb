@@ -34,15 +34,15 @@ RSpec.describe EacRailsUtils::Models::Validations do
           before { model.include(described_class) }
 
           it {
-            expect(described_class.column_errors(model, attribute, value)).send(errop, be_empty)
+            expect(described_class.column_errors(model, attribute, value)).send(errop, be_empty) # rubocop:disable RSpec/MissingExpectationTargetMethod
           }
 
           it { expect(described_class.column_valid?(model, attribute, value)).to eq(valid) }
-          it { expect(model.column_errors(attribute, value)).send(errop, be_empty) }
+          it { expect(model.column_errors(attribute, value)).send(errop, be_empty) } # rubocop:disable RSpec/MissingExpectationTargetMethod
           it { expect(model.column_valid?(attribute, value)).to eq(valid) }
 
           it {
-            expect(model.new(attribute => value).attribute_errors(attribute)).send(errop, be_empty)
+            expect(model.new(attribute => value).attribute_errors(attribute)).send(errop, be_empty) # rubocop:disable RSpec/MissingExpectationTargetMethod
           }
 
           it { expect(model.new(attribute => value).attribute_valid?(attribute)).to eq(valid) }

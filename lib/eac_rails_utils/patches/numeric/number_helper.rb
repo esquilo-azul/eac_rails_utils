@@ -23,9 +23,7 @@ class Numeric
   end
 
   # @return [Object] A object that extends [ActionView::Helpers::NumberHelper]
-  def number_helper
-    self.class.number_helper
-  end
+  delegate :number_helper, to: :class
 
   # @return [String]
   def to_currency(options = {})

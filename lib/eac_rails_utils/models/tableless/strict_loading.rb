@@ -16,9 +16,7 @@ module EacRailsUtils
         end
 
         # @return [Boolean]
-        def strict_loading?
-          self.class.strict_loading?
-        end
+        delegate :strict_loading?, to: :class
       end
     end
   end
