@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_rails_utils/models/tableless_associations/initialize_extension'
-require 'eac_rails_utils/models/tableless_associations/active_record_reflection'
-require 'eac_rails_utils/models/tableless_associations/autosave_association'
-require 'eac_rails_utils/models/tableless_associations/override_methods'
-require 'eac_rails_utils/models/tableless_associations/has_many_for_active_model'
-require 'eac_rails_utils/models/tableless_associations/has_many_for_active_model_association'
 require 'active_support/core_ext/module'
 
 module EacRailsUtils

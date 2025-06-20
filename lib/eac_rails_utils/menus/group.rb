@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_rails_utils/menus/action'
-require 'eac_rails_utils/menus/node'
-require 'eac_ruby_utils/core_ext'
-
 module EacRailsUtils
   module Menus
     class Group < ::EacRailsUtils::Menus::Node

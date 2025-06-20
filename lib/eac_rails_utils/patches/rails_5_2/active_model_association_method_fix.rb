@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_rails_utils/models/tableless_associations'
-require 'eac_rails_utils/models/tableless_associations/hooks'
-require 'eac_ruby_utils/core_ext'
-
 module EacRailsUtils
   module Patches
     module Rails52

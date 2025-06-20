@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-require 'eac_rails_utils/engine_helper'
+require 'rails'
+require 'active_model'
+require 'active_record'
+require 'virtus'
 require 'eac_rails_utils/patches'
 require 'nested_form_fields'
 

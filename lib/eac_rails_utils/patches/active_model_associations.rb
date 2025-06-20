@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_rails_utils/patches/rails_5_2'
-
 module EacRailsUtils
   module Models
     module TablelessAssociations

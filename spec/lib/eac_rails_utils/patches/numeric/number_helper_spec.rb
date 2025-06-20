@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_rails_utils/patches/numeric/number_helper'
-
 RSpec.describe(Numeric) do # rubocop:disable RSpec/RSpec/SpecFilePathFormat
   let(:instance) { 1234.567 }
 

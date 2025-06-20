@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
-require 'eac_ruby_utils/require_sub'
+require 'eac_ruby_utils'
+EacRubyUtils::RootModuleSetup.perform __FILE__ do
+  ignore 'patches'
+end
 
 module EacRailsUtils
-  ::EacRubyUtils.require_sub __FILE__
 end
+
+require 'rails'
+
+require 'eac_rails_utils/engine'
