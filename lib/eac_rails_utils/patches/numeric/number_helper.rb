@@ -57,6 +57,6 @@ class Numeric
 
   # @return [String]
   def with_precision(options = {})
-    number_helper.number_with_precision(self, default_precision_options(options).print_debug)
+    number_helper.number_with_precision(self, default_precision_options(options))
   end
 end
