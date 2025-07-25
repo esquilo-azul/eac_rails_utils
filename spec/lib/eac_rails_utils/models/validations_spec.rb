@@ -7,6 +7,7 @@ RSpec.describe EacRailsUtils::Models::Validations do
         ActiveModel::Name.new(self, nil, 'StubModel')
       end
       include ActiveModel::Model
+
       attr_accessor :age, :name
 
       validates :age, allow_nil: true, numericality: {

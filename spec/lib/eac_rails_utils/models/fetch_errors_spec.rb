@@ -5,6 +5,7 @@ RSpec.describe(EacRailsUtils::Models::FetchErrors) do
     Class.new do
       include ActiveModel::Model
       include EacRailsUtils::Models::FetchErrors
+
       attr_accessor :name, :age, :account, :country_id, :other
 
       def self.model_name
@@ -16,6 +17,7 @@ RSpec.describe(EacRailsUtils::Models::FetchErrors) do
   let(:model2) do # rubocop:disable RSpec/IndexedLet
     Class.new do
       include ActiveModel::Model
+
       attr_accessor :name, :myage, :account_id, :country
 
       validate :my_validate

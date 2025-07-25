@@ -11,6 +11,7 @@ module EacRailsUtils
             @generated_association_methods ||= begin
               mod = const_set(:GeneratedAssociationMethods, Module.new)
               include mod
+
               mod
             end
           end
