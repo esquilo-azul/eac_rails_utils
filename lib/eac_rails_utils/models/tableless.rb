@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'virtus'
+
 module EacRailsUtils
   module Models
     class Tableless
