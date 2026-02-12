@@ -2,8 +2,6 @@
 
 module EacRailsUtils
   module MenusHelper
-    ::EacRubyUtils.require_sub __FILE__
-
     def dropdown_menu(entries)
       entries = DataBuilder.new(self).build(entries)
       return nil unless entries

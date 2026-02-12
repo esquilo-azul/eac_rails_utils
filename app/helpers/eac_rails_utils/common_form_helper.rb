@@ -7,7 +7,6 @@ module EacRailsUtils
     common_concern do
       include ::ActionView::Helpers::FormHelper
     end
-    require_sub __FILE__
 
     def common_form(model_instance, options = {}, &block)
       submit_label = options.delete(:submit_label)

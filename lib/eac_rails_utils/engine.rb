@@ -1,14 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails'
-require 'active_model'
-require 'active_record'
-require 'eac_ruby_utils'
-require 'virtus'
-require 'eac_rails_utils/patches'
-require 'nested_form_fields'
-require 'eac_rails_utils/engine_helper'
-
 module EacRailsUtils
   class Engine < ::Rails::Engine
     include ::EacRailsUtils::EngineHelper

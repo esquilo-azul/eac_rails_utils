@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-require 'eac_rails_utils/models/validations'
-
 module EacRailsUtils
   module CommonFormHelper
     class FormBuilder
-      ::EacRubyUtils.require_sub __FILE__
-
       include CommonTextFields
       include CurrencyField
       include DateField

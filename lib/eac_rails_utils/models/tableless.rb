@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_rails_utils/models/tableless_associations'
-
 module EacRailsUtils
   module Models
     class Tableless
