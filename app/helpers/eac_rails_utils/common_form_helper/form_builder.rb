@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_ruby_utils/require_sub'
 require 'eac_rails_utils/models/validations'
 
 module EacRailsUtils

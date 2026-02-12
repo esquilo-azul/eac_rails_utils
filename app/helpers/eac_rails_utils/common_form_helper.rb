@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'action_view/helpers/form_helper'
-require 'eac_ruby_utils/core_ext'
 
 module EacRailsUtils
   module CommonFormHelper

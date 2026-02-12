@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_ruby_utils/yaml'
-
 module EacRailsUtils
   class YamlValidator < ActiveModel::EachValidator
     DEFAULT_INVALID_YAML_MESSAGE = 'is not a valid YAML'
