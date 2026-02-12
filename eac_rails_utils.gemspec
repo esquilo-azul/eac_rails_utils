@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
   s.add_dependency 'eac_ruby_utils', '~> 0.130'
-  s.add_dependency 'rails', '>= 5.2.8.1'
+  s.add_dependency 'railties', '>= 5.2.8.1'
   s.add_dependency 'virtus', '~> 2.0'
 
   # Formulários aninhados
