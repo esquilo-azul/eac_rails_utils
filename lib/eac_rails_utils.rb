@@ -10,7 +10,6 @@ end
 
 require 'rails'
 require 'action_view' # Fix "require 'nested_form_fields'"
-require 'active_model'
 require 'active_record'
 require 'nested_form_fields'
 require 'virtus'
