@@ -12,7 +12,7 @@ module EacRailsUtils
                                            :order, :include_blank, :default, :selected, :disabled,
                                            :prompt, :with_css_classes)
           field(field_name, options) do
-            @helper.content_tag(:div, @form.date_select(field_name, field_options), # rubocop:disable Rails/HelperInstanceVariable
+            @helper.content_tag(:div, @form.date_select(field_name, field_options),
                                 class: 'form-control-complex')
           end
         end

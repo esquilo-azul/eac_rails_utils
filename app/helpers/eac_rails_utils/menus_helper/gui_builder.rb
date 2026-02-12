@@ -4,13 +4,13 @@ module EacRailsUtils
   module MenusHelper
     class GuiBuilder
       def initialize(view)
-        @view = view # rubocop:disable Rails/HelperInstanceVariable
+        @view = view
       end
 
       def build(entries, options = {})
         raise 'Argument "entries" is not a array' unless entries.is_a?(Array)
 
-        @view.content_tag(:ul, options) do # rubocop:disable Rails/HelperInstanceVariable
+        @view.content_tag(:ul, options) do
           b = ActiveSupport::SafeBuffer.new
           entries.map { |v| menu_entry(v) }.each { |e| b << e }
           b
@@ -30,14 +30,14 @@ module EacRailsUtils
       end
 
       def menu_group(label, children)
-        @view.content_tag(:li) do # rubocop:disable Rails/HelperInstanceVariable
-          @view.link_to(label) << build(children) # rubocop:disable Rails/HelperInstanceVariable
+        @view.content_tag(:li) do
+          @view.link_to(label) << build(children)
         end
       end
 
       def menu_item(label, path, options)
-        @view.content_tag(:li) do # rubocop:disable Rails/HelperInstanceVariable
-          @view.link_to(label, path, menu_item_link_options(options)) # rubocop:disable Rails/HelperInstanceVariable
+        @view.content_tag(:li) do
+          @view.link_to(label, path, menu_item_link_options(options))
         end
       end
 

@@ -28,18 +28,18 @@ module EacRailsUtils
       attr_reader :view
 
       def initialize(view)
-        @view = view # rubocop:disable Rails/HelperInstanceVariable
-        @children = ::ActiveSupport::HashWithIndifferentAccess.new # rubocop:disable Rails/HelperInstanceVariable
+        @view = view
+        @children = ::ActiveSupport::HashWithIndifferentAccess.new
       end
 
       def child(child_suffix)
-        @children[child_suffix] ||= Entry.new(view, self, child_suffix) # rubocop:disable Rails/HelperInstanceVariable
+        @children[child_suffix] ||= Entry.new(view, self, child_suffix)
       end
 
       def children_tags
         view.capture do
           view.concat tag
-          @children.values.each do |child| # rubocop:disable Rails/HelperInstanceVariable, Style/HashEachMethods
+          @children.values.each do |child| # rubocop:disable Style/HashEachMethods
             view.concat(child.children_tags)
             view.concat("\n")
           end
@@ -60,8 +60,8 @@ module EacRailsUtils
 
       def initialize(view, parent, suffix)
         super(view)
-        @parent = parent # rubocop:disable Rails/HelperInstanceVariable
-        @suffix = suffix # rubocop:disable Rails/HelperInstanceVariable
+        @parent = parent
+        @suffix = suffix
       end
 
       def components

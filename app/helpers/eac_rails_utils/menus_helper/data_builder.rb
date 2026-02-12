@@ -4,7 +4,7 @@ module EacRailsUtils
   module MenusHelper
     class DataBuilder
       def initialize(view)
-        @view = view # rubocop:disable Rails/HelperInstanceVariable
+        @view = view
       end
 
       def build(entries)
@@ -51,8 +51,8 @@ module EacRailsUtils
       end
 
       def can_access_path?(path, method)
-        if @view.respond_to?(:can_by_path?) # rubocop:disable Rails/HelperInstanceVariable
-          @view.can_by_path?(path, method) # rubocop:disable Rails/HelperInstanceVariable
+        if @view.respond_to?(:can_by_path?)
+          @view.can_by_path?(path, method)
         else
           true
         end

@@ -3,7 +3,7 @@
 RSpec.describe(EacRailsUtils::FormatterHelper, type: :helper) do
   brl_currency = { a: '1', b: '1,2', c: '1,23', d: '123.456.789,01',
                    e: 'R$1,23', f: 'R$ 123.4,56' }
-  float_currency = { a: 1, b: 1.2, c: 1.23, d: 123_456_789.01,
+  float_currency = { a: 1, b: 1.2, c: 1.23, d: 123_456_789.01, # rubocop:disable RSpec/LeakyLocalVariable
                      e: 1.23, f: 123_4.56 }
 
   brl_currency.each do |k, v|

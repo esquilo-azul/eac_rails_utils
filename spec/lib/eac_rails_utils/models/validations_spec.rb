@@ -27,8 +27,8 @@ RSpec.describe EacRailsUtils::Models::Validations do
                   [:age, 200, false], [:age, 40, true]] }.each do |model_const, test_datas|
       test_datas.each do |test_data|
         context "with model #{model_const} and test_data=#{test_data}" do
-          attribute, value, valid = test_data
-          errop = valid ? :to : :not_to
+          attribute, value, valid = test_data # rubocop:disable RSpec/LeakyLocalVariable
+          errop = valid ? :to : :not_to # rubocop:disable RSpec/LeakyLocalVariable
 
           let(:model) { Object.const_get(model_const) }
 

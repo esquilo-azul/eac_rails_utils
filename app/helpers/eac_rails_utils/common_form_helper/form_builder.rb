@@ -21,9 +21,9 @@ module EacRailsUtils
       attr_reader :form, :helper, :field_errors_showed
 
       def initialize(form, helper)
-        @form = form # rubocop:disable Rails/HelperInstanceVariable
-        @helper = helper # rubocop:disable Rails/HelperInstanceVariable
-        @field_errors_showed = Set.new # rubocop:disable Rails/HelperInstanceVariable
+        @form = form
+        @helper = helper
+        @field_errors_showed = Set.new
       end
 
       def association_select_field(field_name, options = {})
@@ -36,15 +36,15 @@ module EacRailsUtils
       end
 
       def hidden_field(field_name, options = {})
-        @form.hidden_field(field_name, options) # rubocop:disable Rails/HelperInstanceVariable
+        @form.hidden_field(field_name, options)
       end
 
       def check_box_field(field_name, options = {})
-        field(field_name, options) { @form.check_box(field_name, options) } # rubocop:disable Rails/HelperInstanceVariable
+        field(field_name, options) { @form.check_box(field_name, options) }
       end
 
       def file_field(field_name, options = {})
-        field(field_name, options) { @form.file_field(field_name, options) } # rubocop:disable Rails/HelperInstanceVariable
+        field(field_name, options) { @form.file_field(field_name, options) }
       end
 
       def searchable_association_field(field_name, options = {})
@@ -57,7 +57,7 @@ module EacRailsUtils
       private
 
       def field(field_name, options)
-        @helper.content_tag(:div, class: 'form-group') do # rubocop:disable Rails/HelperInstanceVariable
+        @helper.content_tag(:div, class: 'form-group') do
           s = field_label(field_name, options[:label], options[:required])
           s << ' '
           s << yield()
@@ -80,7 +80,7 @@ module EacRailsUtils
 
         s = ActiveSupport::SafeBuffer.new
         model_instance.errors.messages[field_name].each { |error| s << field_error(error) }
-        @field_errors_showed.add(field_name) # rubocop:disable Rails/HelperInstanceVariable
+        @field_errors_showed.add(field_name)
         s
       end
 
@@ -90,7 +90,7 @@ module EacRailsUtils
       end
 
       def field_error(error_message)
-        @helper.content_tag(:div, class: 'error') do # rubocop:disable Rails/HelperInstanceVariable
+        @helper.content_tag(:div, class: 'error') do
           error_message
         end
       end
@@ -100,7 +100,7 @@ module EacRailsUtils
           required = ::EacRailsUtils::Models::Validations
                        .column_required?(model_instance, field_name)
         end
-        @form.label(field_name, label, class: required ? 'required' : 'optional') # rubocop:disable Rails/HelperInstanceVariable
+        @form.label(field_name, label, class: required ? 'required' : 'optional')
       end
     end
   end
