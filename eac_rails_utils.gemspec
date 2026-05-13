@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.7'
 
   s.add_dependency 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
-  s.add_dependency 'eac_ruby_utils', '~> 0.130'
+  s.add_dependency 'eac_ruby_utils', '~> 0.131', '>= 0.131.1'
   s.add_dependency 'railties', '~> 6.1.7', '>= 6.1.7.10'
   s.add_dependency 'virtus', '~> 2.0'
 
@@ -24,5 +24,5 @@ Gem::Specification.new do |s|
   # https://github.com/ncri/nested_form_fields
   s.add_dependency 'nested_form_fields', '~> 0.8', '>= 0.8.4'
 
-  s.add_development_dependency 'eac_rails_gem_support', '~> 0.12'
+  s.add_development_dependency 'eac_rails_gem_support', '~> 0.12', '>= 0.12.2'
 end
