@@ -25,7 +25,7 @@ module EacRailsUtils
         end
 
         # define association like ActiveRecord
-        def has_many(name, scope = nil, **options, &extension) # rubocop:disable Metrics/MethodLength, Naming/PredicatePrefix
+        def has_many(name, scope = nil, **options, &) # rubocop:disable Metrics/MethodLength, Naming/PredicatePrefix
           options.reverse_merge!(active_model: true, target_ids: "#{name.to_s.singularize}_ids")
           if scope.is_a?(Hash)
             options.merge!(scope)
@@ -33,7 +33,7 @@ module EacRailsUtils
           end
 
           reflection = EacRailsUtils::Models::TablelessAssociations::HasManyForActiveModel
-                         .build(self, name, scope, options, &extension)
+                         .build(self, name, scope, options, &)
           ActiveRecord::Reflection.add_reflection self, name, reflection
 
           mixin = generated_association_methods

@@ -2,8 +2,8 @@
 
 module EacRailsUtils
   module DataTableHelper
-    def data_table(dataset, &block)
-      ::EacRailsUtils::DataTableHelper::DataTable.new(self, dataset, &block).output
+    def data_table(dataset, &)
+      ::EacRailsUtils::DataTableHelper::DataTable.new(self, dataset, &).output
     end
   end
 end

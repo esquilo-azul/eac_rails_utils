@@ -12,14 +12,14 @@ module EacRailsUtils
 
         def collection
           extract_association_key(:collection, *(
-              ::Rails.version < '5' ? [:all] : %i[klass all]
-            ))
+            ::Rails.version < '5' ? [:all] : %i[klass all]
+          ))
         end
 
         def foreign_key
           extract_association_key(:foreign_key, (
-              ::Rails.version < '5' ? :association_foreign_key : :join_foreign_key
-            ))
+            ::Rails.version < '5' ? :association_foreign_key : :join_foreign_key
+          ))
         end
 
         def methods

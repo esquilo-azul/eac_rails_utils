@@ -9,7 +9,7 @@ module EacRailsUtils
 
       # @return [Symbol]
       def key
-        path.map(&:to_s).join('_').to_sym
+        path.join('_').to_sym
       end
 
       # @param view [ActionView::Base]
