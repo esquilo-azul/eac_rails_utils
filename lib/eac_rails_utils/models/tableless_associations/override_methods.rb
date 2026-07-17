@@ -42,7 +42,7 @@ module EacRailsUtils
             if type_name.match(/^::/)
               # If the type is prefixed with a scope operator then we assume that
               # the type_name is an absolute reference.
-              ActiveSupport::Dependencies.constantize(type_name)
+              type_name.constantize
             else
               compute_type_from_candidates(type_name)
             end
@@ -59,7 +59,7 @@ module EacRailsUtils
 
           def compute_type_from_candidates(type_name)
             compute_type_candidates(type_name).each do |candidate|
-              constant = ActiveSupport::Dependencies.constantize(candidate)
+              constant = candidate.constantize
               return constant if candidate == constant.to_s
               # We don't want to swallow NoMethodError < NameError errors
             rescue NoMethodError
@@ -91,6 +91,21 @@ module EacRailsUtils
         # dummy
         def new_record?
           false
+        end
+
+        # dummy
+        def strict_loading?
+          false
+        end
+
+        # dummy
+        def strict_loading_n_plus_one_only?
+          false
+        end
+
+        # dummy
+        def strict_loading_mode
+          :all
         end
 
         private

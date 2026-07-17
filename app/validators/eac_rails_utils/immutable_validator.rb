@@ -8,7 +8,7 @@ module EacRailsUtils
       return if record.new_record?
       return unless record.send("#{attribute}_changed?")
 
-      record.errors[attribute] << (options[:message] || DEFAULT_MESSAGE) # rubocop:disable Rails/DeprecatedActiveModelErrorsMethods
+      record.errors.add(attribute, options[:message] || DEFAULT_MESSAGE)
     end
   end
 end
