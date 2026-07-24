@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'rails', '~> 7.0.10'
+gem 'rails', '~> 7.1.6'
 
 local_gemfile = File.join(File.dirname(__FILE__), 'Gemfile.local')
 eval_gemfile local_gemfile if File.exist?(local_gemfile)
