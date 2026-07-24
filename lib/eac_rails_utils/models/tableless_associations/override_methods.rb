@@ -36,6 +36,16 @@ module EacRailsUtils
             []
           end
 
+          # override (used by "ActiveRecord::Reflection#check_validity!")
+          def composite_primary_key?
+            false
+          end
+
+          # override (used by "ActiveRecord::Reflection#active_record_primary_key")
+          def has_query_constraints? # rubocop:disable Naming/PredicatePrefix
+            false
+          end
+
           protected
 
           def compute_type(type_name)
