@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe(Numeric) do # rubocop:disable RSpec/RSpec/SpecFilePathFormat
+RSpec.describe(Numeric) do # rubocop:disable RSpec/SpecFilePathFormat
   let(:instance) { 1234.567 }
 
   describe '#with_precision' do
