@@ -46,6 +46,11 @@ module EacRailsUtils
             false
           end
 
+          # override (used by "ActiveRecord::Reflection#automatic_inverse_of")
+          def automatically_invert_plural_associations # rubocop:disable Naming/PredicateMethod
+            false
+          end
+
           protected
 
           def compute_type(type_name)
