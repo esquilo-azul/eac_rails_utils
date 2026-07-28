@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
   s.add_dependency 'eac_ruby_base1', '~> 0.1', '>= 0.1.1'
-  s.add_dependency 'rails', '~> 7.2.3', '>= 7.2.3.1'
+  s.add_dependency 'rails', '>= 6.1.7.10'
   s.add_dependency 'sprockets-rails', '~> 3.5', '>= 3.5.2'
   s.add_dependency 'virtus', '~> 2.0'
 
