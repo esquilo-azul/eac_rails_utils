@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module EacRailsUtils
-  VERSION = '0.29.4'
+  VERSION = '0.29.5'
 end
