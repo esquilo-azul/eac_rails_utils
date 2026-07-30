@@ -5,7 +5,7 @@ require 'action_view' # Fix "require 'nested_form_fields'"
 require 'active_record'
 require 'nested_form_fields'
 require 'eac_ruby_utils'
-require 'sprockets/railtie'
+require 'sprockets/railtie' unless defined?(Propshaft)
 require 'virtus'
 
 require 'eac_rails_utils/engine_helper'
