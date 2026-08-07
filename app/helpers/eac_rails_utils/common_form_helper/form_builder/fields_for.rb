@@ -4,18 +4,18 @@ module EacRailsUtils
   module CommonFormHelper
     class FormBuilder
       module FieldsFor
-        def fields_for(association, &block)
+        def fields_for(association, &)
           fieldset(association) do
-            nested_fields(association, &block) << add_link(association)
+            nested_fields(association, &) << add_link(association)
           end
         end
 
         private
 
-        def nested_fields(association, &block)
+        def nested_fields(association, &)
           form.nested_fields_for(association) do |nested_form|
             helper.content_tag(:div, class: 'nested_form_row') do
-              helper.capture(FormBuilder.new(nested_form, helper), &block) <<
+              helper.capture(FormBuilder.new(nested_form, helper), &) <<
                 remove_link(nested_form)
             end
           end
