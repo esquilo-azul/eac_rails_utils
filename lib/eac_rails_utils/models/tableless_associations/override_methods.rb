@@ -98,6 +98,20 @@ module EacRailsUtils
           association
         end
 
+        # generated association accessors call this before reading/writing an association
+        # (added by Rails to support the deprecated associations API, since Rails 8.1)
+        if defined?(ActiveRecord::Associations::Deprecation)
+          def deprecated_associations_api_guard(association, method_name)
+            ActiveRecord::Associations::Deprecation.guard(association.reflection) do
+              "the method #{method_name} was invoked"
+            end
+          end
+
+          def report_deprecated_association(reflection, context:)
+            ActiveRecord::Associations::Deprecation.report(reflection, context: context)
+          end
+        end
+
         def read_attribute(name)
           send(name)
         end
