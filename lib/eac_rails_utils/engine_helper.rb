@@ -12,6 +12,7 @@ module EacRailsUtils
     common_concern do
       append_after_initializers
       append_autoload_paths
+      append_mailer_preview_paths
       append_self_migrations
     end
 
@@ -30,6 +31,16 @@ module EacRailsUtils
 
       def append_autoload_paths
         config.autoload_paths += Dir["#{config.root}/lib"]
+      end
+
+      # @return [void]
+      def append_mailer_preview_paths
+        initializer :append_mailer_preview_paths, before: 'action_mailer.set_configs' do |app|
+          %w[spec test].each do |test_dir|
+            path = config.root.join(test_dir, 'mailers', 'previews')
+            (app.config.action_mailer.preview_paths ||= []) << path if path.directory?
+          end
+        end
       end
 
       def append_self_migrations
