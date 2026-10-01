@@ -25,5 +25,5 @@ Gem::Specification.new do |s|
   # https://github.com/ncri/nested_form_fields
   s.add_dependency 'nested_form_fields', '~> 0.8', '>= 0.8.4'
 
-  s.add_development_dependency 'eac_rails_gem_support', '~> 0.15'
+  s.add_development_dependency 'eac_rails_gem_support', '~> 0.15', '>= 0.15.2'
 end
